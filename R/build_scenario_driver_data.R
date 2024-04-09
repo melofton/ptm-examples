@@ -1,11 +1,73 @@
-# Build scenario driver data files
+# Build scenario driver data files 
 # Author: Mary Lofton
-# Date: 08APR24
+# Date: 09APR24
 
 # Purpose: simplify driver data files in existing FCR GLM example for PTM testing
 
 library(tidyverse)
 library(lubridate)
+
+# Get initial conditions for scenarios 1, 3, 5, 7 (CTD profile data from FCR)
+
+inUrl1  <- "https://pasta.lternet.edu/package/data/eml/edi/200/13/27ceda6bc7fdec2e7d79a6e4fe16ffdf" 
+infile1 <- tempfile()
+try(download.file(inUrl1,infile1,method="curl"))
+if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
+
+
+dt1 <-read.csv(infile1,header=F 
+               ,skip=1
+               ,sep=","  
+               , col.names=c(
+                 "Reservoir",     
+                 "Site",     
+                 "DateTime",     
+                 "Depth_m",     
+                 "Temp_C",     
+                 "DO_mgL",     
+                 "DOsat_percent",     
+                 "Cond_uScm",     
+                 "SpCond_uScm",     
+                 "Chla_ugL",     
+                 "Turbidity_NTU",     
+                 "pH",     
+                 "ORP_mV",     
+                 "PAR_umolm2s",     
+                 "DescRate_ms",     
+                 "Flag_DateTime",     
+                 "Flag_Temp_C",     
+                 "Flag_DO_mgL",     
+                 "Flag_DOsat_percent",     
+                 "Flag_Cond_uScm",     
+                 "Flag_SpCond_uScm",     
+                 "Flag_Chla_ugL",     
+                 "Flag_Turbidity_NTU",     
+                 "Flag_pH",     
+                 "Flag_ORP_mV",     
+                 "Flag_PAR_umolm2s",     
+                 "Flag_DescRate_ms"    ), check.names=TRUE)
+
+unlink(infile1)
+init <- dt1 %>%
+  filter(Reservoir == "FCR" & Site == 50 & month(DateTime) %in% c(12,1,2)) %>%
+  mutate(Date = date(DateTime))
+unique(init$Date)
+cast <- init %>%
+  filter(Date == "2018-12-06")
+plot(cast$Temp_C, rev(cast$Depth_m))
+mean(init$Temp_C, na.rm = TRUE)
+median(init$Temp_C, na.rm = TRUE)
+# I think I'll just go with constant wtemp of 5.88 to keep it simple
+
+# Scenario 1: Unstratified, No Wind, No Inflows/Outflows
+met <- read_csv("./FCR/inputs/met.csv") %>%
+  mutate(WindSpeed = 0,
+         Rain = 0,
+         Snow = 0,
+         Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
+  select(-Date)
+write.csv(met, "./1_unstratified/inputs/met.csv", row.names = FALSE)
 
 # Scenario 2: Stratified, No Wind, No Inflows/Outflows
 met <- read_csv("./FCR/inputs/met.csv") %>%
@@ -18,10 +80,31 @@ met <- read_csv("./FCR/inputs/met.csv") %>%
 write.csv(met, "./2_stratified/inputs/met.csv", row.names = FALSE)
 # why am I having to manually edit the datetime in Excel afterwards?
 
-# Scenario 4: Stratified, Wind, No Inflows/Outflows
+# Scenario 3: Unstratified, Wind, No Inflows/Outflows
 met <- read_csv("./FCR/inputs/met.csv") 
 hist(met$WindSpeed)
 # looks like values of 1, 2, 3, 4 m/s would be reasonable
+
+# let's do:
+# 2016-01-07 at 1 m/s
+# 2016-01-14 at 2 m/s
+# 2016-01-21 at 3 m/s
+# 2016-01-28 at 4 m/s
+met <- read_csv("./FCR/inputs/met.csv") %>%
+  mutate(WindSpeed = 0,
+         Rain = 0,
+         Snow = 0,
+         Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
+  mutate(WindSpeed = ifelse(Date == "2016-01-07",1,
+                            ifelse(Date == "2016-01-14",2,
+                                   ifelse(Date == "2016-01-21",3,
+                                          ifelse(Date == "2016-01-28",4,WindSpeed))))) %>%
+  select(-Date)
+plot(met$time, met$WindSpeed)
+write.csv(met, "./3_unstratified_wind/inputs/met.csv", row.names = FALSE)
+
+# Scenario 4: Stratified, Wind, No Inflows/Outflows
 # let's do:
 # 2015-07-14 at 1 m/s
 # 2015-07-22 at 2 m/s
@@ -41,7 +124,7 @@ met <- read_csv("./FCR/inputs/met.csv") %>%
 plot(met$time, met$WindSpeed)
 write.csv(met, "./4_stratified_wind/inputs/met.csv", row.names = FALSE)
 
-# Scenario 6: Stratified, No Wind, One Constant Inflows/Outflow
+# Scenario 5: Unstratified, No Wind, One Constant Inflows/Outflow
 inf <- read_csv("./FCR/inputs/inflow1.csv")
 hist(inf$FLOW)
 mean(inf$FLOW, na.rm = TRUE)
@@ -51,10 +134,10 @@ median(inf$FLOW, na.rm = TRUE)
 inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
   mutate(FLOW = 0.0248,
          Date = date(time)) %>%
-  filter(Date >= "2015-07-08" & Date <= "2015-08-08") %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
   select(-Date)
 plot(inf$time, inf$FLOW)
-write.csv(inf, "./6_stratified_inflow/inputs/inflow1.csv", row.names = FALSE)
+write.csv(inf, "./5_unstratified_inflow/inputs/inflow1.csv", row.names = FALSE)
 
 #check to see how outflow was done
 inf1 <- read_csv("./FCR/inputs/inflow1.csv") %>%
@@ -79,9 +162,57 @@ lines(out$time, out$FLOW, col = "red")
 out <- read_csv("./FCR/inputs/outflow.csv") %>%
   mutate(Date = date(time),
          FLOW = 0.0248) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
+  select(-Date)
+plot(out$time, out$FLOW)
+write.csv(out, "./5_unstratified_inflow/inputs/outflow.csv", row.names = FALSE)
+
+# Scenario 6: Stratified, No Wind, One Constant Inflows/Outflow
+inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
+  mutate(FLOW = 0.0248,
+         Date = date(time)) %>%
+  filter(Date >= "2015-07-08" & Date <= "2015-08-08") %>%
+  select(-Date)
+plot(inf$time, inf$FLOW)
+write.csv(inf, "./6_stratified_inflow/inputs/inflow1.csv", row.names = FALSE)
+
+out <- read_csv("./FCR/inputs/outflow.csv") %>%
+  mutate(Date = date(time),
+         FLOW = 0.0248) %>%
   filter(Date >= "2015-07-08" & Date <= "2015-08-08") %>%
   select(-Date)
 write.csv(out, "./6_stratified_inflow/inputs/outflow.csv", row.names = FALSE)
+
+# Scenario 7: Unstratified, Observed Wind, Observed Weir Inflow/Corresponding Outflow
+met <- read_csv("./FCR/inputs/met.csv") %>%
+  mutate(Rain = 0,
+         Snow = 0,
+         Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
+  select(-Date)
+plot(met$time, met$WindSpeed)
+write.csv(met, "./7_unstratified_observed_wind_inflow/inputs/met.csv", row.names = FALSE)
+
+inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
+  select(-Date)
+plot(inf$time, inf$FLOW)
+write.csv(inf, "./7_unstratified_observed_wind_inflow/inputs/inflow1.csv", row.names = FALSE)
+
+#correct outflow to be -SSS
+inf2 <- read_csv("./FCR/inputs/inflow2.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
+  select(-Date)
+
+out <- read_csv("./FCR/inputs/outflow.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
+  mutate(FLOW = FLOW - inf2$FLOW) %>%
+  select(-Date)
+plot(out$time, out$FLOW)
+write.csv(out, "./7_unstratified_observed_wind_inflow/inputs/outflow.csv", row.names = FALSE)
 
 # Scenario 8: Stratified, Observed Wind, Observed Weir Inflow/Corresponding Outflow
 met <- read_csv("./FCR/inputs/met.csv") %>%
@@ -114,132 +245,4 @@ out <- read_csv("./FCR/inputs/outflow.csv") %>%
 plot(out$time, out$FLOW)
 write.csv(out, "./8_stratified_observed_wind_inflow/inputs/outflow.csv", row.names = FALSE)
 
-# Get initial conditions for scenarios 1, 3, 5, 7
 
-inUrl1  <- "https://pasta.lternet.edu/package/data/eml/edi/200/13/27ceda6bc7fdec2e7d79a6e4fe16ffdf" 
-infile1 <- tempfile()
-try(download.file(inUrl1,infile1,method="curl"))
-if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
-
-                   
- dt1 <-read.csv(infile1,header=F 
-          ,skip=1
-            ,sep=","  
-        , col.names=c(
-                    "Reservoir",     
-                    "Site",     
-                    "DateTime",     
-                    "Depth_m",     
-                    "Temp_C",     
-                    "DO_mgL",     
-                    "DOsat_percent",     
-                    "Cond_uScm",     
-                    "SpCond_uScm",     
-                    "Chla_ugL",     
-                    "Turbidity_NTU",     
-                    "pH",     
-                    "ORP_mV",     
-                    "PAR_umolm2s",     
-                    "DescRate_ms",     
-                    "Flag_DateTime",     
-                    "Flag_Temp_C",     
-                    "Flag_DO_mgL",     
-                    "Flag_DOsat_percent",     
-                    "Flag_Cond_uScm",     
-                    "Flag_SpCond_uScm",     
-                    "Flag_Chla_ugL",     
-                    "Flag_Turbidity_NTU",     
-                    "Flag_pH",     
-                    "Flag_ORP_mV",     
-                    "Flag_PAR_umolm2s",     
-                    "Flag_DescRate_ms"    ), check.names=TRUE)
-               
-unlink(infile1)
-init <- dt1 %>%
-  filter(Reservoir == "FCR" & Site == 50 & month(DateTime) %in% c(12,1,2)) %>%
-  mutate(Date = date(DateTime))
-unique(init$Date)
-cast <- init %>%
-filter(Date == "2018-12-06")
-plot(cast$Temp_C, rev(cast$Depth_m))
-mean(init$Temp_C, na.rm = TRUE)
-median(init$Temp_C, na.rm = TRUE)
-# I think I'll just go with constant wtemp of 5.88 to keep it simple
-
-# Scenario 1: Unstratified, No Wind, No Inflows/Outflows
-met <- read_csv("./FCR/inputs/met.csv") %>%
-    mutate(WindSpeed = 0,
-           Rain = 0,
-           Snow = 0,
-           Date = date(time)) %>%
-    filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
-    select(-Date)
-write.csv(met, "./1_unstratified/inputs/met.csv", row.names = FALSE)
-
-# Scenario 3: Unstratified, Wind, No Inflows/Outflows
-# let's do:
-# 2016-01-07 at 1 m/s
-# 2016-01-14 at 2 m/s
-# 2016-01-21 at 3 m/s
-# 2016-01-28 at 4 m/s
-met <- read_csv("./FCR/inputs/met.csv") %>%
-    mutate(WindSpeed = 0,
-           Rain = 0,
-           Snow = 0,
-           Date = date(time)) %>%
-    filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
-    mutate(WindSpeed = ifelse(Date == "2016-01-07",1,
-                                                   ifelse(Date == "2016-01-14",2,
-                                                                               ifelse(Date == "2016-01-21",3,
-                                                                                                           ifelse(Date == "2016-01-28",4,WindSpeed))))) %>%
-    select(-Date)
-plot(met$time, met$WindSpeed)
-write.csv(met, "./3_unstratified_wind/inputs/met.csv", row.names = FALSE)
-
-# Scenario 5: Unstratified, No Wind, One Constant Inflows/Outflow
-inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
-  mutate(FLOW = 0.0248,
-         Date = date(time)) %>%
-  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
-  select(-Date)
-plot(inf$time, inf$FLOW)
-write.csv(inf, "./5_unstratified_inflow/inputs/inflow1.csv", row.names = FALSE)
-
-out <- read_csv("./FCR/inputs/outflow.csv") %>%
-  mutate(Date = date(time),
-         FLOW = 0.0248) %>%
-  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
-  select(-Date)
-plot(out$time, out$FLOW)
-write.csv(out, "./5_unstratified_inflow/inputs/outflow.csv", row.names = FALSE)
-
-# Scenario 7: Unstratified, Observed Wind, Observed Weir Inflow/Corresponding Outflow
-met <- read_csv("./FCR/inputs/met.csv") %>%
-    mutate(Rain = 0,
-           Snow = 0,
-           Date = date(time)) %>%
-    filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
-    select(-Date)
-plot(met$time, met$WindSpeed)
-write.csv(met, "./7_unstratified_observed_wind_inflow/inputs/met.csv", row.names = FALSE)
-
-inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
-  mutate(Date = date(time)) %>%
-  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
-  select(-Date)
-plot(inf$time, inf$FLOW)
-write.csv(inf, "./7_unstratified_observed_wind_inflow/inputs/inflow1.csv", row.names = FALSE)
-
-#correct outflow to be -SSS
-inf2 <- read_csv("./FCR/inputs/inflow2.csv") %>%
-  mutate(Date = date(time)) %>%
-  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
-  select(-Date)
-
-out <- read_csv("./FCR/inputs/outflow.csv") %>%
-  mutate(Date = date(time)) %>%
-  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
-  mutate(FLOW = FLOW - inf2$FLOW) %>%
-  select(-Date)
-plot(out$time, out$FLOW)
-write.csv(out, "./7_unstratified_observed_wind_inflow/inputs/outflow.csv", row.names = FALSE)
