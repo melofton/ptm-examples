@@ -45,4 +45,5 @@ Run the GLM executable (be sure to check the filepath is correct for your execut
 
 ### Plot output:
 Plots of the initial conditions and driver data for each scenario can be found in the `plots` folder, under the sub-folder for each scenario. An example `IC_driver.png` plot for Scenario 1 is shown below:
-<img src="plots/1_unstratified/IC_drivers.png" align="center" height="600" width="950">
+
+<img src="plots/1_unstratified/IC_drivers.png" align="center" height="500" width="950">
