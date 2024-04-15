@@ -2,13 +2,13 @@
 Simplified model driver data and namelist files to test a General Lake Model particle tracking model, using Falling Creek Reservoir data.
 
 ### Model scenarios (all with AED off):
-1. **1_unstratified**: a one-month run in January 2016, with a homogeneous temperature profile as the initial condition, and no wind or inflows/outflows
-2. **2_stratified**: a one-month run in July-August 2015, with a stratified temperature profile as the initial condition, and no wind or inflows/outflows
-3. **3_unstratified_wind**: a one-month run in January 2016, with a homogeneous temperature profile and artificial wind (six days no wind, then 1 day of wind, where each windy day is of increasing strength); no inflows/outflows
-4. **4_stratified_wind**: a one-month run in July-August 2015, with a stratified temperature profile and artificial wind (six days no wind, then 1 day of wind, where each windy day is of increasing strength); no inflows/outflows
-5. **5_unstratified_inflow**: a one-month run in January 2016, with a homogeneous temperature profile and no wind, and one inflow/outflow of constant flow (cms)
-6. **6_stratified_inflow**: a one-month run in July-August 2015, with a stratified temperature profile and no wind, and one inflow/outflow of constant flow (cms)
-7. **7_unstratified_observed_wind_inflow**: a one-month run in January 2016, with a homogeneous temperature profile and observed wind and inflow data (from the primary inflow only); outflow data are set to match inflow data to maintain the reservoir at full pond
+1. **1_unstratified**: a one-month run in January 2016, with a homogeneous temperature profile as the initial condition, and no wind or inflows/outflows.  Designed to test vertical diffusion.
+2. **2_stratified**: a one-month run in July-August 2015, with a stratified temperature profile as the initial condition, and no wind or inflows/outflows. Designed to test diffusion in a stratified water column.
+3. **3_unstratified_wind**: a one-month run in January 2016, with a homogeneous temperature profile and artificial wind (six days no wind, then 1 day of wind, where each windy day is of increasing strength); no inflows/outflows.  Designed to test the movement of particles through mixing.
+4. **4_stratified_wind**: a one-month run in July-August 2015, with a stratified temperature profile and artificial wind (six days no wind, then 1 day of wind, where each windy day is of increasing strength); no inflows/outflows. Designed to test the movement of particles through mixing.
+5. **5_unstratified_inflow**: a one-month run in January 2016, with a homogeneous temperature profile and no wind, and one inflow/outflow of constant flow (cms). Designed the insertion of particles by an inflow.
+6. **6_stratified_inflow**: a one-month run in July-August 2015, with a stratified temperature profile and no wind, and one inflow/outflow of constant flow (cms). Designed the insertion of particles by an inflow.
+7. **7_unstratified_observed_wind_inflow**: a one-month run in January 2016, with a homogeneous temperature profile and observed wind and inflow data (from the primary inflow only); outflow data are set to match inflow data to maintain the reservoir at full pond. 
 8. **8_stratified_observed_wind_inflow**: a one-month run in July-August 2015, with a stratified temperature profile and observed wind and inflow data (from the primary inflow only); outflow data are set to match inflow data to maintain the reservoir at full pond
 
 ### Steps to run GLM using ptm-examples (right now for Mac OS only):
