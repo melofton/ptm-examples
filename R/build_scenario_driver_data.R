@@ -59,21 +59,56 @@ mean(init$Temp_C, na.rm = TRUE)
 median(init$Temp_C, na.rm = TRUE)
 # I think I'll just go with constant wtemp of 5.88 to keep it simple
 
-# Scenario 1: Unstratified, No Wind, No Inflows/Outflows
+# Scenario 1: Unstratified, No Wind, No Inflows/Outflows, Constant Air Temp + Solar
+
+# what is a reasonable solar radiation value for January?
+met <- read_csv("./FCR/inputs/met.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
+  select(ShortWave, LongWave, RelHum) %>%
+  summarize_all(mean, na.rm = TRUE)
+
+# # A tibble: 1 × 3
+# ShortWave LongWave RelHum
+# <dbl>    <dbl>  <dbl>
+#   1      95.7     256.   63.3
+
 met <- read_csv("./FCR/inputs/met.csv") %>%
   mutate(WindSpeed = 0,
          Rain = 0,
          Snow = 0,
-         Date = date(time)) %>%
+         AirTemp = 5.88,
+         ShortWave = 95.7,
+         LongWave = 256.0,
+         RelHum = 63.3,
+         Date = date(time),
+         ) %>%
   filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
   select(-Date)
 write.csv(met, "./1_unstratified/inputs/met.csv", row.names = FALSE)
 
 # Scenario 2: Stratified, No Wind, No Inflows/Outflows
+
+# what is a reasonable solar radiation value for July?
+met <- read_csv("./FCR/inputs/met.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2015-07-08" & Date <= "2015-08-08") %>%
+  select(ShortWave, LongWave, RelHum) %>%
+  summarize_all(mean, na.rm = TRUE)
+
+# # A tibble: 1 × 3
+# ShortWave LongWave RelHum
+# <dbl>    <dbl>  <dbl>
+#   1      235.     388.   77.0
+
 met <- read_csv("./FCR/inputs/met.csv") %>%
     mutate(WindSpeed = 0,
            Rain = 0,
            Snow = 0,
+           AirTemp = 25.7279,
+           ShortWave = 235.0,
+           LongWave = 388.0,
+           RelHum = 77.0,
            Date = date(time)) %>%
     filter(Date >= "2015-07-08" & Date <= "2015-08-08") %>%
     select(-Date)
@@ -94,6 +129,10 @@ met <- read_csv("./FCR/inputs/met.csv") %>%
   mutate(WindSpeed = 0,
          Rain = 0,
          Snow = 0,
+         AirTemp = 5.88,
+         ShortWave = 95.7,
+         LongWave = 256.0,
+         RelHum = 63.3,
          Date = date(time)) %>%
   filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
   mutate(WindSpeed = ifelse(Date == "2016-01-07",1,
@@ -114,6 +153,10 @@ met <- read_csv("./FCR/inputs/met.csv") %>%
     mutate(WindSpeed = 0,
            Rain = 0,
            Snow = 0,
+           AirTemp = 25.7279,
+           ShortWave = 235.0,
+           LongWave = 388.0,
+           RelHum = 77.0,
            Date = date(time)) %>%
     filter(Date >= "2015-07-08" & Date <= "2015-08-08") %>%
     mutate(WindSpeed = ifelse(Date == "2015-07-14",1,
@@ -124,7 +167,7 @@ met <- read_csv("./FCR/inputs/met.csv") %>%
 plot(met$time, met$WindSpeed)
 write.csv(met, "./4_stratified_wind/inputs/met.csv", row.names = FALSE)
 
-# Scenario 5: Unstratified, No Wind, One Constant Inflows/Outflow
+# Scenario 5: Unstratified, Constant Air Temp + Solar Radiation, No Wind, One Constant Inflows/Outflow
 inf <- read_csv("./FCR/inputs/inflow1.csv")
 hist(inf$FLOW)
 mean(inf$FLOW, na.rm = TRUE)
@@ -133,6 +176,7 @@ median(inf$FLOW, na.rm = TRUE)
 
 inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
   mutate(FLOW = 0.0248,
+         TEMP = 5.88,
          Date = date(time)) %>%
   filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
   select(-Date)
@@ -169,7 +213,14 @@ write.csv(out, "./5_unstratified_inflow/inputs/outflow.csv", row.names = FALSE)
 
 # Scenario 6: Stratified, No Wind, One Constant Inflows/Outflow
 inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
+  filter(month(time) %in% c(7,8))
+hist(inf$TEMP)
+mean(inf$TEMP, na.rm = TRUE)
+# going to use mean value of 20.6136 degrees C; this is cooler than surface temp
+
+inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
   mutate(FLOW = 0.0248,
+         TEMP = 20.6136,
          Date = date(time)) %>%
   filter(Date >= "2015-07-08" & Date <= "2015-08-08") %>%
   select(-Date)
