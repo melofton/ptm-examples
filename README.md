@@ -55,6 +55,12 @@ cd glm-aed/glm-source
 ./build_glm.sh
 ```
 
+If you run into an error and subsequently wish to compile GLM in debug mode, run the following:
+```
+clean_build.sh
+./build_glm.sh --debug
+```
+
 6. Then run GLM. You will need to point to both the folder where you have the .nml and driver files for your example as well as the folder containing the GLM executable you wish to run.
 
 Navigate to directory that houses the model scenario you wish to run (be sure to check the filepath is correct for your directory):

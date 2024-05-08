@@ -137,3 +137,7 @@
    sed_temp_amplitude = 3.140616132, 7.134809304
    sed_temp_peak_doy = 278.4380074, 276.9746504
 /
+
+&particles
+   ptm_sw   = .true.
+/
