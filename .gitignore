@@ -4,4 +4,6 @@
 .Ruserdata
 FCR/
 .DS_Store
-
+**/output.nc
+**/lake.csv
+**/glm_lake_dbg.csv

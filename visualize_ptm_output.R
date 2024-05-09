@@ -17,11 +17,16 @@ names(nc$var)
 
 # Retrieve relevant variables for ptm
 ptm_out <- list()
-ptm_vars <- c("Particle_Height","Particle_Mass","Particle_Diameter",
-              "Particle_Density","Particle_Velocity","Particle_vvel")
+ptm_vars <- c("Particle_Height", "Particle_Mass", "Particle_Diameter",  
+              "Particle_Density", "Particle_Velocity", "Particle_vvel")
 
 for(i in 1:length(ptm_vars)){
   ptm_out[[i]] <- ncdf4::ncvar_get(nc, var = ptm_vars[i])
 }
 
 names(ptm_out) <- ptm_vars
+
+check <- ptm_out[["Particle_Height"]]
+
+temp <- ncdf4::ncvar_get(nc, var = "temp")
+

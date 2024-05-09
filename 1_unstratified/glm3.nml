@@ -45,7 +45,7 @@
 &time
    timefmt = 2
    start = '2016-01-01 12:00:00'
-   stop = '2016-01-31 12:00:00'
+   stop = '2016-01-02 12:00:00'
    dt = 3600
    num_days = 1
    timezone = -5
@@ -53,7 +53,7 @@
 &output
    out_dir = 'output'
    out_fn = 'output'
-   nsave = 24
+   nsave = 1
    csv_lake_fname = "lake"
 /
 &init_profiles
