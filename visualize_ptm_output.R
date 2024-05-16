@@ -26,7 +26,6 @@ for(i in 1:length(ptm_vars)){
 
 names(ptm_out) <- ptm_vars
 
-check <- ptm_out[["Particle_Height"]]
+check <- ptm_out[["Particle_Height"]][c(1:10),]
 
-temp <- ncdf4::ncvar_get(nc, var = "temp")
 
