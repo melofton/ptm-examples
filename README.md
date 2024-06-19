@@ -51,7 +51,7 @@ brew install LIBRARY_NAME
 
 5. Compile GLM. To do this you will need to navigate to the glm-source folder and build GLM:
 ```
-cd glm-aed/glm-source
+cd glm-aed-ptm/glm-source
 ./build_glm.sh
 ```
 
@@ -69,7 +69,7 @@ cd ptm-examples/1_unstratified
 ```
 Run the GLM executable (be sure to check the filepath is correct for your executable):
 ```
-/Users/YOUR_NAME/glm-aed/glm-source/GLM/glm
+/Users/YOUR_NAME/glm-aed-ptm/glm-source/GLM/glm
 ```
 
 7. If you edit the source code or download a new version of GLM, you need will to re-compile the model (Step 5) again before running it (Step 6)
