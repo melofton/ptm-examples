@@ -45,7 +45,7 @@
 &time
    timefmt = 2
    start = '2016-01-01 12:00:00'
-   stop = '2016-01-02 12:00:00'
+   stop = '2016-01-31 12:00:00'
    dt = 3600
    num_days = 1
    timezone = -5
@@ -133,8 +133,8 @@
    zone_heights = 5, 9.5       !0.5
    sed_heat_Ksoil = 1.2, 1.2! 1.8, 1.8 default is 1.2
    sed_temp_depth = 0.5, 0.5! 0.2, 0.2 default is 0.5
-   sed_temp_mean = 11.39072901, 14.85279613
-   sed_temp_amplitude = 3.140616132, 7.134809304
+   sed_temp_mean = 5.88, 5.88
+   sed_temp_amplitude = 0, 0
    sed_temp_peak_doy = 278.4380074, 276.9746504
 /
 
