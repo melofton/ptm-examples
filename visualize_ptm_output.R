@@ -12,7 +12,7 @@ library(cowplot)
 library(glmtools)
 
 # Set current nc file
-current_scenario_folder = "./2_stratified"
+current_scenario_folder = "./1_unstratified"
 nc_file <- file.path(paste0(current_scenario_folder, "/output/output.nc"))
 
 # Get list of output vars
@@ -36,19 +36,19 @@ names(ptm_out) <- ptm_vars
 heights <- data.frame(t(ptm_out[["particle_height"]]))
 hist(ptm_out[["particle_height"]])
 
-start <- as.POSIXct("2015-07-08 12:00:00")
+start <- as.POSIXct("2016-01-01 12:00:00")
 interval <- 60
 
 end <- start + as.difftime(30, units="days")
 
-times <- data.frame(seq(from=start, by=interval*60, to=end)[1:744])
+times <- data.frame(seq(from=start, by=interval*60, to=end)[1:720])
 
 heights2 <- bind_cols(times, heights)
 colnames(heights2)[1] <- "datetime"
 heights3 <- heights2 %>%
   pivot_longer(cols = X1:X10, names_to = "particle_id", values_to = "height_m")
 
-lakeNum <- read_csv("./2_stratified/output/lake.csv") %>%
+lakeNum <- read_csv("./1_unstratified/output/lake.csv") %>%
   select(time, LakeNumber) %>%
   mutate(time = as.POSIXct(time))
 

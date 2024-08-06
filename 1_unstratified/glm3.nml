@@ -140,4 +140,6 @@
 
 &particles
    ptm_sw   = .true.
+   settling_velocity = -0.01
+
 /
