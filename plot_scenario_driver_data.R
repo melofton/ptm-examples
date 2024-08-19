@@ -22,9 +22,9 @@ init_strat <- tibble(depth = the_depths_strat,
                        wtemp = the_temps_strat)
 
 # Declare scenario names
-scenarios <- c("1_unstratified","2_stratified","3_unstratified_wind","4_stratified_wind",
-               "5_unstratified_inflow","6_unstratified_outflow","7_stratified_inflow",
-               "8_stratified_outflow","9_unstratified_observed_wind_inflow",
+scenarios <- c("01_unstratified","02_stratified","03_unstratified_wind","04_stratified_wind",
+               "05_unstratified_inflow","06_unstratified_outflow","07_stratified_inflow",
+               "08_stratified_outflow","09_unstratified_observed_wind_inflow",
                "10_stratified_observed_wind_inflow")
 
 
