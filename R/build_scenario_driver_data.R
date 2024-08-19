@@ -167,21 +167,22 @@ met <- read_csv("./FCR/inputs/met.csv") %>%
 plot(met$time, met$WindSpeed)
 write.csv(met, "./4_stratified_wind/inputs/met.csv", row.names = FALSE)
 
-# Scenario 5: Unstratified, Constant Air Temp + Solar Radiation, No Wind, One Constant Inflows/Outflow
+# Scenario 5: Lake half full, Unstratified, Constant Air Temp + Solar Radiation, No Wind, One Constant Inflows/Outflow, Inflow 5x Outflow
 inf <- read_csv("./FCR/inputs/inflow1.csv")
 hist(inf$FLOW)
 mean(inf$FLOW, na.rm = TRUE)
 median(inf$FLOW, na.rm = TRUE)
-# going to use median value of 0.0248 cms
+# going to use median value of 0.0248 cms * 5 to fill up lake fast and temp of 4
+# so inflow stays sunk
 
 inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
-  mutate(FLOW = 0.0248,
-         TEMP = 5.88,
+  mutate(FLOW = 0.124,
+         TEMP = 4,
          Date = date(time)) %>%
   filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
   select(-Date)
 plot(inf$time, inf$FLOW)
-write.csv(inf, "./5_unstratified_inflow/inputs/inflow1.csv", row.names = FALSE)
+write.csv(inf, "./5_unstratified_inflow_test/inputs/inflow1.csv", row.names = FALSE)
 
 #check to see how outflow was done
 inf1 <- read_csv("./FCR/inputs/inflow1.csv") %>%
@@ -211,28 +212,76 @@ out <- read_csv("./FCR/inputs/outflow.csv") %>%
 plot(out$time, out$FLOW)
 write.csv(out, "./5_unstratified_inflow/inputs/outflow.csv", row.names = FALSE)
 
-# Scenario 6: Stratified, No Wind, One Constant Inflows/Outflow
+# Scenario 6: Lake half full, Unstratified, Constant Air Temp + Solar Radiation, No Wind, One Constant Inflows/Outflow, Outflow 5x Inflow
+inf <- read_csv("./FCR/inputs/inflow1.csv")
+hist(inf$FLOW)
+mean(inf$FLOW, na.rm = TRUE)
+median(inf$FLOW, na.rm = TRUE)
+# going to use median value of 0.0248 cms and temp of 4
+# so inflow stays sunk
+
+inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
+  mutate(FLOW = 0.0248,
+         TEMP = 4,
+         Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
+  select(-Date)
+plot(inf$time, inf$FLOW)
+write.csv(inf, "./6_unstratified_outflow/inputs/inflow1.csv", row.names = FALSE)
+
+out <- read_csv("./FCR/inputs/outflow.csv") %>%
+  mutate(Date = date(time),
+         FLOW = 0.0248*5) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-01-31") %>%
+  select(-Date)
+plot(out$time, out$FLOW)
+write.csv(out, "./6_unstratified_outflow/inputs/outflow.csv", row.names = FALSE)
+
+# Scenario 7: Lake half full, Stratified, No Wind, One Constant Inflows/Outflow, Inflow 5x Outflow
 inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
   filter(month(time) %in% c(7,8))
 hist(inf$TEMP)
 mean(inf$TEMP, na.rm = TRUE)
-# going to use mean value of 20.6136 degrees C; this is cooler than surface temp
+# going to use value of 10.6136 degrees C; this will sink to bottom
 
 inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
-  mutate(FLOW = 0.0248,
-         TEMP = 20.6136,
+  mutate(FLOW = 0.0248*5,
+         TEMP = 10.6136,
          Date = date(time)) %>%
   filter(Date >= "2015-07-08" & Date <= "2015-08-08") %>%
   select(-Date)
 plot(inf$time, inf$FLOW)
-write.csv(inf, "./6_stratified_inflow/inputs/inflow1.csv", row.names = FALSE)
+write.csv(inf, "./7_stratified_inflow/inputs/inflow1.csv", row.names = FALSE)
 
 out <- read_csv("./FCR/inputs/outflow.csv") %>%
   mutate(Date = date(time),
          FLOW = 0.0248) %>%
   filter(Date >= "2015-07-08" & Date <= "2015-08-08") %>%
   select(-Date)
-write.csv(out, "./6_stratified_inflow/inputs/outflow.csv", row.names = FALSE)
+write.csv(out, "./7_stratified_inflow/inputs/outflow.csv", row.names = FALSE)
+
+# Scenario 8: Stratified, No Wind, One Constant Inflows/Outflow, Outflow 5x Inflow
+inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
+  filter(month(time) %in% c(7,8))
+hist(inf$TEMP)
+mean(inf$TEMP, na.rm = TRUE)
+# going to use value of 10.6136 degrees C; this will sink to bottom
+
+inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
+  mutate(FLOW = 0.0248,
+         TEMP = 10.6136,
+         Date = date(time)) %>%
+  filter(Date >= "2015-07-08" & Date <= "2015-08-08") %>%
+  select(-Date)
+plot(inf$time, inf$FLOW)
+write.csv(inf, "./8_stratified_outflow/inputs/inflow1.csv", row.names = FALSE)
+
+out <- read_csv("./FCR/inputs/outflow.csv") %>%
+  mutate(Date = date(time),
+         FLOW = 0.0248*5) %>%
+  filter(Date >= "2015-07-08" & Date <= "2015-08-08") %>%
+  select(-Date)
+write.csv(out, "./8_stratified_outflow/inputs/outflow.csv", row.names = FALSE)
 
 # Scenario 7: Unstratified, Observed Wind, Observed Weir Inflow/Corresponding Outflow
 met <- read_csv("./FCR/inputs/met.csv") %>%

@@ -44,8 +44,8 @@
 /
 &time
    timefmt = 2
-   start = '2016-01-01 12:00:00'
-   stop = '2016-01-31 12:00:00'
+   start = '2015-07-08 12:00:00'
+   stop = '2015-08-08 12:00:00'
    dt = 3600
    num_days = 1
    timezone = -5
@@ -60,7 +60,7 @@
    num_depths = 16
    lake_depth = 5
    the_depths = 0.1, 0.33, 0.66, 1, 1.33, 1.66, 2, 2.33, 2.66, 3, 3.33, 3.66, 4, 4.33, 4.66, 5
-   the_temps = 5.88,5.88,5.88,5.88,5.88,5.88,5.88,5.88,5.88,5.88,5.88,5.88,5.88,5.88,5.88,5.88
+   the_temps = 25.7279,25.2848,24.8368,24.4897,24.0165,23.4701,23.2128,22.9678,22.7348,22.2422,21.6762,20.9439,19.9116,18.6905,17.9063,16.8599
    the_sals = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
    num_wq_vars = 5
    wq_names = 'OXY_oxy','NIT_amm','NIT_nit','PHS_frp','OGM_doc'
@@ -99,11 +99,11 @@
    num_inflows = 1
    names_of_strms = 'SSS'!,'weir'
    subm_flag = .true.!,.false.
-   strm_hf_angle = -15 !,55
-   strmbd_slope = 15 !,0.05
+   strm_hf_angle = -15!,55
+   strmbd_slope = 15,!0.05
    inflow_factor = 1!, 0.3
    strmbd_drag = 0.03!, 0.03
-   subm_elev = 1.022787437!, 7.166530546 
+   subm_elev = 1.022787437!,7.166530546
    inflow_fl = 'inputs/inflow1.csv'!,'inputs/inflow2.csv'
    inflow_varnum = 37
    inflow_vars = 'FLOW','TEMP','SALT','TRC_tr1','TRC_age','NCS_ss1','NCS_ss2','OXY_oxy','CAR_dic','CAR_pH','CAR_ch4','CAR_ch4_bub','SIL_rsi','NIT_amm','NIT_nit','PHS_frp','PHS_frp_ads','OGM_doc','OGM_poc','OGM_don','OGM_pon','OGM_dop','OGM_pop','OGM_docr','OGM_donr','OGM_dopr','OGM_cpom','PHY_cyano','PHY_cyano_IN','PHY_cyano_IP','PHY_green','PHY_green_IN','PHY_green_IP','PHY_diatom','PHY_diatom_IN','PHY_diatom_IP','BIV_filtfrac'

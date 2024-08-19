@@ -23,13 +23,23 @@ init_strat <- tibble(depth = the_depths_strat,
 
 # Declare scenario names
 scenarios <- c("1_unstratified","2_stratified","3_unstratified_wind","4_stratified_wind",
-               "5_unstratified_inflow","6_stratified_inflow","7_unstratified_observed_wind_inflow",
-               "8_stratified_observed_wind_inflow")
+               "5_unstratified_inflow","6_unstratified_outflow","7_stratified_inflow",
+               "8_stratified_outflow","9_unstratified_observed_wind_inflow",
+               "10_stratified_observed_wind_inflow")
 
 
 for(i in 1:length(scenarios)){
   
-  if(i %in% c(1,3,5,7)){
+  if(i %in% c(1,3,5,6,9)){
+    if(i == 5){
+      plot_temp <- ggplot(data = init_unstrat[c(1:16),], aes(x = wtemp, y = depth))+
+        scale_y_reverse()+
+        geom_point()+
+        ggtitle(paste0("Scenario ",i))+
+        ylab("Depth (m)")+
+        xlab("Water Temperature (ºC)")+
+        theme_bw(base_size = 16)
+    } else {
     plot_temp <- ggplot(data = init_unstrat, aes(x = wtemp, y = depth))+
       scale_y_reverse()+
       geom_point()+
@@ -37,14 +47,25 @@ for(i in 1:length(scenarios)){
       ylab("Depth (m)")+
       xlab("Water Temperature (ºC)")+
       theme_bw(base_size = 16)
+    }
   } else {
-    plot_temp <- ggplot(data = init_strat, aes(x = wtemp, y = depth))+
+    if(i == 7){
+    plot_temp <- ggplot(data = init_strat[c(1:16),], aes(x = wtemp, y = depth))+
       scale_y_reverse()+
       geom_point()+
       ggtitle(paste0("Scenario ",i))+
       ylab("Depth (m)")+
       xlab("Water Temperature (ºC)")+
       theme_bw(base_size = 16)
+    } else {
+      plot_temp <- ggplot(data = init_strat, aes(x = wtemp, y = depth))+
+        scale_y_reverse()+
+        geom_point()+
+        ggtitle(paste0("Scenario ",i))+
+        ylab("Depth (m)")+
+        xlab("Water Temperature (ºC)")+
+        theme_bw(base_size = 16)
+    }
   }
   
 scen_met <- read_csv(paste0("./",scenarios[i],"/inputs/met.csv"))

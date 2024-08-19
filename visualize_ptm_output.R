@@ -12,7 +12,7 @@ library(cowplot)
 library(glmtools)
 
 # Set current nc file
-current_scenario_folder = "./4_stratified_wind"
+current_scenario_folder = "./8_stratified_outflow"
 nc_file <- file.path(paste0(current_scenario_folder, "/output/output.nc"))
 
 # Get list of output vars
@@ -48,7 +48,7 @@ colnames(heights2)[1] <- "datetime"
 heights3 <- heights2 %>%
   pivot_longer(cols = X1:X10, names_to = "particle_id", values_to = "height_m")
 
-lakeNum <- read_csv("./4_stratified_wind/output/lake.csv") %>%
+lakeNum <- read_csv("./7_stratified_inflow/output/lake.csv") %>%
   select(time, LakeNumber) %>%
   mutate(time = as.POSIXct(time))
 min(lakeNum$LakeNumber, na.rm = TRUE)
