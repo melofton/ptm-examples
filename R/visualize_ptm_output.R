@@ -12,7 +12,7 @@ library(cowplot)
 library(glmtools)
 
 # Set current nc file
-current_scenario_folder = "./01_unstratified"
+current_scenario_folder = "./04_stratified_wind"
 nc_file <- file.path(paste0(current_scenario_folder, "/output/output.nc"))
 
 # Get list of output vars
@@ -66,28 +66,45 @@ ggplot(data = flag_height, aes(x = particle_flag, y = particle_height, group = p
   geom_hline(yintercept = 0.02)+
   theme_classic()
 
-start <- as.POSIXct("2016-01-01 12:00:00")
+start <- as.POSIXct("2015-07-08 12:00:00")
 interval <- 60
 
-end <- start + as.difftime(30, units="days")
+end <- start + as.difftime(31, units="days")
 
-times <- data.frame(seq(from=start, by=interval*60, to=end)[1:720])
+times <- data.frame(seq(from=start, by=interval*60, to=end)[1:744])
 
 heights2 <- bind_cols(times, heights)
 colnames(heights2)[1] <- "datetime"
 heights3 <- heights2 %>%
-  pivot_longer(cols = X1:X100, names_to = "particle_id", values_to = "height_m")
+  pivot_longer(cols = X1:X10, names_to = "particle_id", values_to = "height_m")
 
-lakeNum <- read_csv("./01_unstratified/output/lake.csv") %>%
+status2 <- bind_cols(times, status)
+colnames(status2)[1] <- "datetime"
+status3 <- status2 %>%
+  pivot_longer(cols = X1:X20, names_to = "particle_id", values_to = "particle_status")
+
+plotdata <- left_join(heights3, status3, by = c("datetime","particle_id")) %>%
+  mutate(particle_status = factor(particle_status, levels = c("0","1")))
+
+lakeNum <- read_csv("./04_stratified_wind/output/lake.csv") %>%
   select(time, LakeNumber) %>%
   mutate(time = as.POSIXct(time))
 min(lakeNum$LakeNumber, na.rm = TRUE)
 
+gg_color_hue <- function(n) {
+  hues = seq(15, 375, length = n + 1)
+  hcl(h = hues, l = 65, c = 100)[1:n]
+}
+n = 2
+cols = gg_color_hue(n)
+
 p1 <- ggplot()+
   geom_line(data = heights3, aes(x = datetime, y = height_m, group = particle_id, color = particle_id))+
+  #scale_color_manual(values = c("1" = cols[2]), name = "particle_status")+
   theme_classic()+
-  ylim(c(0,9.3))+
-  theme(legend.position = "none")
+  theme(legend.position = "bottom")+
+  ylim(c(0,9.3))
+p1
 p2 <- ggplot()+
   geom_line(data = lakeNum, aes(x = time, y = LakeNumber), color = "black")+
   theme_classic()

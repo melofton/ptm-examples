@@ -140,6 +140,7 @@
 &particles
    ptm_sw = .true.
    settling_velocity = -0.0000694
-   init_particle_num = 100
-   sed_deactivation = .false.
+   init_particle_num = 20
+   sed_deactivation = .true.
+   settling_efficiency = 0.01
 /
