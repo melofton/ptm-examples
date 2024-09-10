@@ -283,7 +283,7 @@ out <- read_csv("./FCR/inputs/outflow.csv") %>%
   select(-Date)
 write.csv(out, "./8_stratified_outflow/inputs/outflow.csv", row.names = FALSE)
 
-# Scenario 7: Unstratified, Observed Wind, Observed Weir Inflow/Corresponding Outflow
+# Scenario 9: Unstratified, Observed Wind, Observed Weir Inflow/Corresponding Outflow
 met <- read_csv("./FCR/inputs/met.csv") %>%
   mutate(Rain = 0,
          Snow = 0,
@@ -314,7 +314,7 @@ out <- read_csv("./FCR/inputs/outflow.csv") %>%
 plot(out$time, out$FLOW)
 write.csv(out, "./7_unstratified_observed_wind_inflow/inputs/outflow.csv", row.names = FALSE)
 
-# Scenario 8: Stratified, Observed Wind, Observed Weir Inflow/Corresponding Outflow
+# Scenario 10: Stratified, Observed Wind, Observed Weir Inflow/Corresponding Outflow
 met <- read_csv("./FCR/inputs/met.csv") %>%
     mutate(Rain = 0,
            Snow = 0,
@@ -344,5 +344,68 @@ out <- read_csv("./FCR/inputs/outflow.csv") %>%
   select(-Date)
 plot(out$time, out$FLOW)
 write.csv(out, "./8_stratified_observed_wind_inflow/inputs/outflow.csv", row.names = FALSE)
+
+# Scenario 11: Unstratified, Observed Wind, Observed Weir Inflow/Corresponding Outflow (4 months)
+met <- read_csv("./FCR/inputs/met.csv") %>%
+  mutate(Rain = 0,
+         Snow = 0,
+         Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-04-30") %>%
+  select(-Date)
+plot(met$time, met$WindSpeed)
+write.csv(met, "./11_Jan_April_observed/inputs/met.csv", row.names = FALSE)
+
+inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-04-30") %>%
+  select(-Date)
+plot(inf$time, inf$FLOW)
+write.csv(inf, "./11_Jan_April_observed/inputs/inflow1.csv", row.names = FALSE)
+
+#correct outflow to be -SSS
+inf2 <- read_csv("./FCR/inputs/inflow2.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-04-30") %>%
+  select(-Date)
+
+out <- read_csv("./FCR/inputs/outflow.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2016-01-01" & Date <= "2016-04-30") %>%
+  mutate(FLOW = FLOW - inf2$FLOW) %>%
+  select(-Date)
+plot(out$time, out$FLOW)
+write.csv(out, "./11_Jan_April_observed/inputs/outflow.csv", row.names = FALSE)
+
+# Scenario 12: Stratified, Observed Wind, Observed Weir Inflow/Corresponding Outflow (4 months)
+met <- read_csv("./FCR/inputs/met.csv") %>%
+  mutate(Rain = 0,
+         Snow = 0,
+         Date = date(time)) %>%
+  filter(Date >= "2015-07-08" & Date <= "2015-11-08") %>%
+  select(-Date)
+plot(met$time, met$WindSpeed)
+write.csv(met, "./12_July_Nov_observed/inputs/met.csv", row.names = FALSE)
+
+inf <- read_csv("./FCR/inputs/inflow1.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2015-07-08" & Date <= "2015-11-08") %>%
+  select(-Date)
+plot(inf$time, inf$FLOW)
+write.csv(inf, "./12_July_Nov_observed/inputs/inflow1.csv", row.names = FALSE)
+
+#correct outflow to be -SSS
+inf2 <- read_csv("./FCR/inputs/inflow2.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2015-07-08" & Date <= "2015-11-08") %>%
+  select(-Date)
+
+out <- read_csv("./FCR/inputs/outflow.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2015-07-08" & Date <= "2015-11-08") %>%
+  mutate(FLOW = FLOW - inf2$FLOW) %>%
+  select(-Date)
+plot(out$time, out$FLOW)
+write.csv(out, "./12_July_Nov_observed/inputs/outflow.csv", row.names = FALSE)
+
 
 
