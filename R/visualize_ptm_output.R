@@ -76,7 +76,7 @@ times <- data.frame(seq(from=start, by=interval*60, to=end)[1:2952])
 heights2 <- bind_cols(times, heights)
 colnames(heights2)[1] <- "datetime"
 heights3 <- heights2 %>%
-  pivot_longer(cols = X1:X10, names_to = "particle_id", values_to = "height_m")
+  pivot_longer(cols = X1:X20, names_to = "particle_id", values_to = "height_m")
 
 status2 <- bind_cols(times, status)
 colnames(status2)[1] <- "datetime"
