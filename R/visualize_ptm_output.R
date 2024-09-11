@@ -12,7 +12,7 @@ library(cowplot)
 library(glmtools)
 
 # Set current nc file
-current_scenario_folder = "./11_Jan_April_observed"
+current_scenario_folder = "./12_July_Nov_observed"
 nc_file <- file.path(paste0(current_scenario_folder, "/output/output.nc"))
 
 # Get list of output vars
@@ -66,17 +66,17 @@ ggplot(data = flag_height, aes(x = particle_flag, y = particle_height, group = p
   geom_hline(yintercept = 0.02)+
   theme_classic()
 
-start <- as.POSIXct("2016-01-01 12:00:00")
+start <- as.POSIXct("2015-07-08 12:00:00")
 interval <- 60
 
-end <- as.POSIXct("2016-04-30 12:00:00")
+end <- as.POSIXct("2015-11-08 12:00:00")
 
-times <- data.frame(seq(from=start, by=interval*60, to=end))
+times <- data.frame(seq(from=start, by=interval*60, to=end)[1:2952])
 
 heights2 <- bind_cols(times, heights)
 colnames(heights2)[1] <- "datetime"
 heights3 <- heights2 %>%
-  pivot_longer(cols = X1:X20, names_to = "particle_id", values_to = "height_m")
+  pivot_longer(cols = X1:X10, names_to = "particle_id", values_to = "height_m")
 
 status2 <- bind_cols(times, status)
 colnames(status2)[1] <- "datetime"
@@ -86,7 +86,7 @@ status3 <- status2 %>%
 plotdata <- left_join(heights3, status3, by = c("datetime","particle_id")) %>%
   mutate(particle_status = factor(particle_status, levels = c("0","1")))
 
-lakeNum <- read_csv("./11_Jan_April_observed/output/lake.csv") %>%
+lakeNum <- read_csv("./12_July_Nov_observed/output/lake.csv") %>%
   select(time, LakeNumber) %>%
   mutate(time = as.POSIXct(time))
 min(lakeNum$LakeNumber, na.rm = TRUE)
