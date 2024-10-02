@@ -48,7 +48,7 @@ Simplified model driver data and namelist files to test a General Lake Model par
 
 1. Download VSCode [here](https://code.visualstudio.com/). 
 
-2. Clone latest version of GLM-AED; see instructions [here](https://github.com/AquaticEcoDynamics/GLM?tab=readme-ov-file). 
+2. Clone latest version of GLM-AED; see instructions [here](https://github.com/AquaticEcoDynamics/glm-aed). 
 
 3. Install homebrew if you haven't; see instructions [here](https://brew.sh/). 
 
