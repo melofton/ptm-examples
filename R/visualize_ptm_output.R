@@ -12,7 +12,7 @@ library(cowplot)
 library(glmtools)
 
 # Set current nc file
-current_scenario_folder = "./06_unstratified_outflow"
+current_scenario_folder = "./11_Jan_April_observed"
 nc_file <- file.path(paste0(current_scenario_folder, "/output/output.nc"))
 
 # Get list of output vars
@@ -32,7 +32,7 @@ for(i in 1:length(ptm_vars)){
 names(ptm_out) <- ptm_vars
 
 # Get particle status
-status <- data.frame(t(ptm_out[["particle_status"]]))
+status <- data.frame(t(ptm_out[["particle_status"]]))[c(1:2880),]
 hist(ptm_out[["particle_status"]])
 hist(unname(unlist(status[720,])))
 
@@ -69,7 +69,7 @@ ggplot(data = flag_height, aes(x = particle_flag, y = particle_height, group = p
 start <- as.POSIXct("2016-01-01 12:00:00")
 interval <- 60
 
-end <- as.POSIXct("2016-01-31 12:00:00")
+end <- as.POSIXct("2016-04-30 12:00:00")
 
 times <- data.frame(seq(from=start, by=interval*60, to=end))
 

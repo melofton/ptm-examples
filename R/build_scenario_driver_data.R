@@ -407,5 +407,14 @@ out <- read_csv("./FCR/inputs/outflow.csv") %>%
 plot(out$time, out$FLOW)
 write.csv(out, "./12_July_Nov_observed/inputs/outflow.csv", row.names = FALSE)
 
+# altering longer scenarios to test inflow/outflow
+out <- read_csv("./FCR/inputs/outflow.csv") %>%
+  mutate(Date = date(time)) %>%
+  filter(Date >= "2015-07-08" & Date <= "2015-11-08") %>%
+  mutate(FLOW = 0) %>%
+  select(-Date)
+plot(out$time, out$FLOW)
+write.csv(out, "./12_July_Nov_observed/inputs/outflow_off.csv", row.names = FALSE)
+
 
 

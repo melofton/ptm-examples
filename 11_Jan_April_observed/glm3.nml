@@ -98,7 +98,7 @@
 &inflow
    num_inflows = 1
    names_of_strms = 'weir'!,'SSS'
-   subm_flag = .false.!, .true.
+   subm_flag = .true.!, .true.
    strm_hf_angle = 55!, -15
    strmbd_slope = 0.05!, 15
    inflow_factor = 1!, 0.3
@@ -139,9 +139,10 @@
 /
 
 &particles
-   ptm_sw   = .true.
-   settling_velocity = 0
-   init_particle_num = 20
+   ptm_sw = .true.
+   settling_velocity = -0.0000694
+   init_particle_num =  5000
    sed_deactivation = .true.
    settling_efficiency = 0.01
+   inflow_conc = 0.01
 /

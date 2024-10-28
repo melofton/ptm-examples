@@ -106,4 +106,19 @@ ggsave(plot_scen, filename = paste0("./plots/",scenarios[i],"/IC_drivers.png"),
        device = "png", height = 6, width = 9.5, units = "in")
 
 }
-  
+
+# custom plots looking at inflow and outflow
+
+out <- read_csv("./12_July_Nov_observed/inputs/outflow.csv") 
+plot(out$time, out$FLOW)
+
+inf <- read_csv("./12_July_Nov_observed/inputs/inflow1.csv") 
+plot(inf$time, inf$FLOW)
+mean(inf$FLOW)
+
+out <- read_csv("./11_Jan_April_observed/inputs/outflow.csv") 
+plot(out$time, out$FLOW)
+
+inf <- read_csv("./11_Jan_April_observed/inputs/inflow1.csv") 
+plot(inf$time, inf$FLOW)
+mean(inf$FLOW)
