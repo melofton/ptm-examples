@@ -32,7 +32,7 @@ for(i in 1:length(ptm_vars)){
 names(ptm_out) <- ptm_vars
 
 # Get particle status
-status <- data.frame(t(ptm_out[["particle_status"]]))[c(1:2880),]
+status <- data.frame(t(ptm_out[["particle_status"]]))
 hist(ptm_out[["particle_status"]])
 hist(unname(unlist(status[720,])))
 
@@ -66,12 +66,12 @@ ggplot(data = flag_height, aes(x = particle_flag, y = particle_height, group = p
   geom_hline(yintercept = 0.02)+
   theme_classic()
 
-start <- as.POSIXct("2016-01-01 12:00:00")
+start <- as.POSIXct("2015-07-08 12:00:00")
 interval <- 60
 
-end <- as.POSIXct("2016-04-30 12:00:00")
+end <- as.POSIXct("2015-11-08 12:00:00")
 
-times <- data.frame(seq(from=start, by=interval*60, to=end))
+times <- data.frame(seq(from=start, by=interval*60, to=end)[1:2953])
 
 heights2 <- bind_cols(times, heights)
 colnames(heights2)[1] <- "datetime"
