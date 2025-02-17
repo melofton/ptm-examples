@@ -66,19 +66,30 @@ ggplot(data = flag_height, aes(x = particle_flag, y = particle_height, group = p
   geom_hline(yintercept = 0.02)+
   theme_classic()
 
-start <- as.POSIXct("2015-07-08 12:00:00")
+start <- as.POSIXct("2016-01-01 12:00:00")
 interval <- 60
 
-end <- as.POSIXct("2015-11-08 12:00:00")
+end <- as.POSIXct("2016-04-30 12:00:00")
 
-times <- data.frame(seq(from=start, by=interval*60, to=end)[1:2953])
+times <- data.frame(seq(from=start, by=interval*60, to=end))
 
-heights2 <- bind_cols(times, heights)
+heights2 <- bind_cols(times, heights[1:2880,])
 colnames(heights2)[1] <- "datetime"
+status_for_heights <- status2 %>%
+  pivot_longer(cols = X1:X10000, names_to = "particle_id", values_to = "particle_status") 
 heights3 <- heights2 %>%
-  pivot_longer(cols = X1:X10000, names_to = "particle_id", values_to = "height_m")
+  pivot_longer(cols = X1:X10000, names_to = "particle_id", values_to = "height_m") %>%
+  mutate(height_m = ifelse(height_m == -9999, NA, height_m)) %>%
+  left_join(.,status_for_heights, by = c("datetime","particle_id")) %>%
+  filter(particle_status == 1) 
 
-status2 <- bind_cols(times, status)
+heights_plot <- ggplot(data = heights3, aes(x = datetime, y = height_m, group = particle_id, color = particle_id))+
+  geom_line()+
+  theme_bw()+
+  theme(legend.position = "none")
+heights_plot
+
+status2 <- bind_cols(times, status[1:2880,])
 colnames(status2)[1] <- "datetime"
 status3 <- status2 %>%
   pivot_longer(cols = X1:X10000, names_to = "particle_id", values_to = "particle_status") %>%

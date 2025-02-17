@@ -77,7 +77,7 @@ cd RProjects/ptm-examples/1_unstratified
 ```
 Run the GLM executable (be sure to check the filepath is correct for your executable):
 ```
-/Users/MaryLofton/glm-aed-ptm/glm-source/GLM/glm
+/Users/MaryLofton/AED_Tools_Private/GLM/glm
 ```
 
 7. If you edit the source code or download a new version of GLM, you need will to re-compile the model (Step 5) again before running it (Step 6)
