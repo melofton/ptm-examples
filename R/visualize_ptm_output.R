@@ -12,7 +12,7 @@ library(cowplot)
 library(glmtools)
 
 # Set current nc file
-current_scenario_folder = "./11_Jan_April_observed"
+current_scenario_folder = "./01_unstratified"
 nc_file <- file.path(paste0(current_scenario_folder, "/output/output.nc"))
 
 # Get list of output vars
