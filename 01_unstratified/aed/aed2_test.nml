@@ -1,0 +1,26 @@
+&aed_models
+   models = 
+   'aed_oxygen',
+   'aed_bio_particles'
+/
+&aed_oxygen
+   oxy_initial = 225
+   Fsed_oxy = -10
+   Ksed_oxy = 25
+   theta_sed_oxy = 1.08
+   Fsed_oxy_variable = 'SDF_Fsed_oxy'
+   oxy_min = 0
+   oxy_max = 500
+/
+&aed_bio_particles
+   vvel_new = 0 
+   vvel_old = 0
+   decay_rate_new = 0
+   decay_rate_old = 0
+   mass_limit = 0
+   diag_level = 0
+   X_dwww = 0
+   X_cdw = 0
+   X_nc = 0
+   X_pc = 0
+/
