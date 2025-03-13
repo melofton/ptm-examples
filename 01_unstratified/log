@@ -4,246 +4,13 @@
     -------------------------------------------------------
      
      glm built using gcc version 4.2.1
-     build date 20250305-0121UTC
+     build date 20250313-1958UTC
 
      nDays= 1; timestep= 3600.000000 (s)
      Maximum lake depth is 9.300000
      Depth where flow will occur over the crest is 9.300000
        *sed_temp_mean[0] =    5.88000
-     WQ plugin active: included Num_WQ_Vars = 24
-     aed_api built using gfortran version           13 .           2 .           0
-     libaed enabled.... aed_configure_models processing: aed/aed2_4zones_CCC.nml
-      ---------- AED API config : start ----------
-     libaed-water version 2.1.5
-     libaed built using gfortran version           13 .           2 .           0
-     libaed-ben version 2.1.5
-     libaed built using gfortran version           13 .           2 .           0
-     libaed-demo version 2.1.5
-     libaed built using gfortran version           13 .           2 .           0
-     libaed-riparian not included 
-     libaed-lighting not included
-     libaed-dev not included
-      Processing aed_models config from aed/aed2_4zones_CCC.nml
-         aed_sedflux configuration
-           ******************************* 
-           module aed_sedflux : configured for zone_averaging 
-           ******************************* 
-         aed_tracer configuration
-           ******************************* 
-           module aed_tracer : configured for zone_averaging 
-           ******************************* 
-         aed_noncohesive configuration
-           ******************************* 
-           module aed_noncohesive : configured for zone_averaging 
-           ******************************* 
-         aed_oxygen configuration
-           ******************************* 
-           module aed_oxygen : configured for zone_averaging 
-           ******************************* 
-         aed_carbon configuration
-           ******************************* 
-           module aed_carbon : configured for zone_averaging 
-           ******************************* 
-         aed_silica configuration
-           ******************************* 
-           module aed_silica : configured for zone_averaging 
-           ******************************* 
-         aed_nitrogen configuration
-           ******************************* 
-           module aed_nitrogen : configured for zone_averaging 
-           ******************************* 
-         aed_phosphorus configuration
-           ******************************* 
-           module aed_phosphorus : configured for zone_averaging 
-           ******************************* 
-         aed_organic_matter configuration
-           ******************************* 
-           module aed_organic_matter : configured for zone_averaging 
-           ******************************* 
-         aed_phytoplankton configuration
- nml format parameter file is deprecated. Please update to CSV format
-           Solving temperature functions for phytoplankton - 
-            using the form : f(T) = v^(T-20)-v^(k(T-a))+b
-           ******************************* 
-           module aed_phytoplankton : configured for zone_averaging 
-           ******************************* 
-         aed_totals configuration
-           ******************************* 
-           module aed_totals : configured for zone_averaging 
-           ******************************* 
-         aed_bio_particles initialization
-           ******************************* 
-           module aed_bio_particles : configured for zone_averaging 
-           ******************************* 
-       ... nml file parsing completed.
-
-     AED : n_aed_vars  = 220 ; MaxLayers         =  500
-     AED : n_vars      =  24 ; n_vars_ben        =   1
-     AED : n_vars_diag = 132 ; n_vars_diag_sheet =  33
-
-      ----------  AED API config : end  ----------
-     Configured AED variables to simulate:
-       S(   1) water column variable     : TRC_tr1
-       S(   2) water column variable     : TRC_age
-       S(   3) water column variable     : NCS_ss1
-       S(   4) water column variable     : OXY_oxy
-       S(   5) water column variable     : CAR_dic
-       S(   6) water column variable     : CAR_pH
-       S(   7) water column variable     : CAR_ch4
-       S(   8) water column variable     : SIL_rsi
-       S(   9) water column variable     : NIT_amm
-       S(  10) water column variable     : NIT_nit
-       S(  11) water column variable     : PHS_frp
-       S(  12) water column variable     : OGM_doc
-       S(  13) water column variable     : OGM_poc
-       S(  14) water column variable     : OGM_don
-       S(  15) water column variable     : OGM_pon
-       S(  16) water column variable     : OGM_dop
-       S(  17) water column variable     : OGM_pop
-       S(  18) water column variable     : OGM_docr
-       S(  19) water column variable     : OGM_donr
-       S(  20) water column variable     : OGM_dopr
-       S(  21) water column variable     : OGM_cpom
-       S(  22) water column variable     : PHY_hot
-       S(  23) water column variable     : PHY_cold
-       S(  24) water column variable     : PHY_Nfixer
-       B(   1) bottom variable           + NCS_ss1_sed
-       D(   1) water column diagnostic   > TRC_tr1_vvel
-       D(   2) water column diagnostic   > NCS_ss1_vvel
-       D(   3) water column diagnostic   > NCS_ss1_set
-       D(   4) water column diagnostic   > NCS_set
-       D(   5) water column diagnostic   > OXY_sat
-       D(   6) water column diagnostic   > OXY_oxy_dsfv
-       D(   7) water column diagnostic   > OXY_oxy_atmv
-       D(   8) water column diagnostic   > CAR_pCO2
-       D(   9) water column diagnostic   > CAR_ch4ox
-       D(  10) water column diagnostic   > NIT_nitrif
-       D(  11) water column diagnostic   > NIT_denit
-       D(  12) water column diagnostic   > NIT_anammox
-       D(  13) water column diagnostic   > NIT_dnra
-       D(  14) water column diagnostic   > OGM_poc_set
-       D(  15) water column diagnostic   > OGM_cpom_set
-       D(  16) water column diagnostic   > OGM_pon_set
-       D(  17) water column diagnostic   > OGM_pop_set
-       D(  18) water column diagnostic   > OGM_cdom
-       D(  19) water column diagnostic   > OGM_poc_hyd
-       D(  20) water column diagnostic   > OGM_pon_hyd
-       D(  21) water column diagnostic   > OGM_pop_hyd
-       D(  22) water column diagnostic   > OGM_doc_min
-       D(  23) water column diagnostic   > OGM_don_min
-       D(  24) water column diagnostic   > OGM_dop_min
-       D(  25) water column diagnostic   > OGM_doc_anaerobic
-       D(  26) water column diagnostic   > OGM_doc_denit
-       D(  27) water column diagnostic   > OGM_docr_min
-       D(  28) water column diagnostic   > OGM_donr_min
-       D(  29) water column diagnostic   > OGM_dopr_min
-       D(  30) water column diagnostic   > OGM_cpom_bdown
-       D(  31) water column diagnostic   > OGM_bod5
-       D(  32) water column diagnostic   > OGM_pom_vvel
-       D(  33) water column diagnostic   > OGM_cpom_vvel
-       D(  34) water column diagnostic   > PHY_hot_NtoP
-       D(  35) water column diagnostic   > PHY_hot_fI
-       D(  36) water column diagnostic   > PHY_hot_fNit
-       D(  37) water column diagnostic   > PHY_hot_fPho
-       D(  38) water column diagnostic   > PHY_hot_fSil
-       D(  39) water column diagnostic   > PHY_hot_fT
-       D(  40) water column diagnostic   > PHY_hot_fSal
-       D(  41) water column diagnostic   > PHY_hot_gpp_c
-       D(  42) water column diagnostic   > PHY_hot_rsp_c
-       D(  43) water column diagnostic   > PHY_hot_exc_c
-       D(  44) water column diagnostic   > PHY_hot_mor_c
-       D(  45) water column diagnostic   > PHY_hot_set_c
-       D(  46) water column diagnostic   > PHY_hot_gpp_n
-       D(  47) water column diagnostic   > PHY_hot_rsp_n
-       D(  48) water column diagnostic   > PHY_hot_exc_n
-       D(  49) water column diagnostic   > PHY_hot_mor_n
-       D(  50) water column diagnostic   > PHY_hot_set_n
-       D(  51) water column diagnostic   > PHY_hot_gpp_p
-       D(  52) water column diagnostic   > PHY_hot_rsp_p
-       D(  53) water column diagnostic   > PHY_hot_exc_p
-       D(  54) water column diagnostic   > PHY_hot_mor_p
-       D(  55) water column diagnostic   > PHY_hot_set_p
-       D(  56) water column diagnostic   > PHY_cold_NtoP
-       D(  57) water column diagnostic   > PHY_cold_fI
-       D(  58) water column diagnostic   > PHY_cold_fNit
-       D(  59) water column diagnostic   > PHY_cold_fPho
-       D(  60) water column diagnostic   > PHY_cold_fSil
-       D(  61) water column diagnostic   > PHY_cold_fT
-       D(  62) water column diagnostic   > PHY_cold_fSal
-       D(  63) water column diagnostic   > PHY_cold_gpp_c
-       D(  64) water column diagnostic   > PHY_cold_rsp_c
-       D(  65) water column diagnostic   > PHY_cold_exc_c
-       D(  66) water column diagnostic   > PHY_cold_mor_c
-       D(  67) water column diagnostic   > PHY_cold_set_c
-       D(  68) water column diagnostic   > PHY_cold_gpp_n
-       D(  69) water column diagnostic   > PHY_cold_rsp_n
-       D(  70) water column diagnostic   > PHY_cold_exc_n
-       D(  71) water column diagnostic   > PHY_cold_mor_n
-       D(  72) water column diagnostic   > PHY_cold_set_n
-       D(  73) water column diagnostic   > PHY_cold_gpp_p
-       D(  74) water column diagnostic   > PHY_cold_rsp_p
-       D(  75) water column diagnostic   > PHY_cold_exc_p
-       D(  76) water column diagnostic   > PHY_cold_mor_p
-       D(  77) water column diagnostic   > PHY_cold_set_p
-       D(  78) water column diagnostic   > PHY_Nfixer_NtoP
-       D(  79) water column diagnostic   > PHY_Nfixer_fI
-       D(  80) water column diagnostic   > PHY_Nfixer_fNit
-       D(  81) water column diagnostic   > PHY_Nfixer_fPho
-       D(  82) water column diagnostic   > PHY_Nfixer_fSil
-       D(  83) water column diagnostic   > PHY_Nfixer_fT
-       D(  84) water column diagnostic   > PHY_Nfixer_fSal
-       D(  85) water column diagnostic   > PHY_Nfixer_gpp_c
-       D(  86) water column diagnostic   > PHY_Nfixer_rsp_c
-       D(  87) water column diagnostic   > PHY_Nfixer_exc_c
-       D(  88) water column diagnostic   > PHY_Nfixer_mor_c
-       D(  89) water column diagnostic   > PHY_Nfixer_set_c
-       D(  90) water column diagnostic   > PHY_Nfixer_gpp_n
-       D(  91) water column diagnostic   > PHY_Nfixer_rsp_n
-       D(  92) water column diagnostic   > PHY_Nfixer_exc_n
-       D(  93) water column diagnostic   > PHY_Nfixer_mor_n
-       D(  94) water column diagnostic   > PHY_Nfixer_set_n
-       D(  95) water column diagnostic   > PHY_Nfixer_gpp_p
-       D(  96) water column diagnostic   > PHY_Nfixer_rsp_p
-       D(  97) water column diagnostic   > PHY_Nfixer_exc_p
-       D(  98) water column diagnostic   > PHY_Nfixer_mor_p
-       D(  99) water column diagnostic   > PHY_Nfixer_set_p
-       D( 100) water column diagnostic   > PHY_tphy
-       D( 101) water column diagnostic   > PHY_tchla
-       D( 102) water column diagnostic   > PHY_in
-       D( 103) water column diagnostic   > PHY_ip
-       D( 104) water column diagnostic   > PHY_gpp
-       D( 105) water column diagnostic   > PHY_ncp
-       D( 106) water column diagnostic   > PHY_upt_no3
-       D( 107) water column diagnostic   > PHY_upt_nh4
-       D( 108) water column diagnostic   > PHY_upt_n2
-       D( 109) water column diagnostic   > PHY_upt_po4
-       D( 110) water column diagnostic   > PHY_upt_dic
-       D( 111) water column diagnostic   > PHY_set
-       D( 112) water column diagnostic   > PHY_par
-       D( 113) water column diagnostic   > TOT_tn
-       D( 114) water column diagnostic   > TOT_tp
-       D( 115) water column diagnostic   > TOT_toc
-       D( 116) water column diagnostic   > TOT_light
-       D( 117) water column diagnostic   > TOT_par
-       D( 118) water column diagnostic   > TOT_uv
-       D( 119) water column diagnostic   > TOT_extc
-       D( 120) water column diagnostic   > PTM_total_count
-       D( 121) water column diagnostic   > PTM_total_vvel
-       D( 122) water column diagnostic   > PTM_total_mass
-       D( 123) water column diagnostic   > PTM_total_birth
-       D( 124) water column diagnostic   > PTM_total_age
-       D( 125) water column diagnostic   > PTM_vvel
-       D( 126) water column diagnostic   > PTM_mass
-       D( 127) water column diagnostic   > PTM_birth
-       D( 128) water column diagnostic   > PTM_age
-       D( 129) water column diagnostic   > PTM_oxy_flux
-       D( 130) water column diagnostic   > PTM_dc_flux
-       D( 131) water column diagnostic   > PTM_dn_flux
-       D( 132) water column diagnostic   > PTM_dp_flux
-       D(   1) bottom/surface diagnostic ~ SDF_Fsed_oxy
-       D(   2) bottom/surface diagnostic ~ SDF_Fsed_ch4
-       D(   3) bottom/surface diagnostic ~ SDF_Fsed_amm
-       D(   4) bottom/surface diagnostic ~ SDF_Fsed_nit
+     WQ plugin active: included Num_WQ_Vars = 8
 ptm_init_glm: num_particle_groups  1 
 _PTM_Stat(0,5000-1,0)  42 
 _PTM_Stat(0,5000-1,1)  -9999 
@@ -283,1222 +50,1092 @@ ptm_addparticles() 17 17
 ptm_addparticles() 18 18 
 ptm_addparticles() 19 19 
 
-     Wall clock start time :  Tue Mar  4 20:48:13 2025
+     Wall clock start time :  Thu Mar 13 15:58:50 2025
 
      Simulation begins...
-void do_ptm_update() 1 8.835000 
-void do_ptm_update() 1 0.186000 
-void do_ptm_update() 1 1.023000 
-void do_ptm_update() 1 9.114000 
-void do_ptm_update() 1 3.534000 
-void do_ptm_update() 1 7.347000 
-void do_ptm_update() 1 0.186000 
-void do_ptm_update() 1 4.836000 
-void do_ptm_update() 1 5.859000 
-void do_ptm_update() 1 2.790000 
-void do_ptm_update() 1 1.395000 
-void do_ptm_update() 1 6.324000 
-void do_ptm_update() 1 1.302000 
-void do_ptm_update() 1 0.186000 
-void do_ptm_update() 1 1.860000 
-void do_ptm_update() 1 1.674000 
-void do_ptm_update() 1 4.836000 
-void do_ptm_update() 1 7.068000 
-void do_ptm_update() 1 1.023000 
+void do_ptm_update() 1 4.464000 
+void do_ptm_update() 1 8.649000 
+void do_ptm_update() 1 1.953000 
 void do_ptm_update() 1 6.231000 
-void do_ptm_update() 1 8.857025 
-void do_ptm_update() 1 0.190063 
-void do_ptm_update() 1 1.005351 
-void do_ptm_update() 1 9.099753 
-void do_ptm_update() 1 3.560734 
-void do_ptm_update() 1 7.331776 
-void do_ptm_update() 1 0.187583 
-void do_ptm_update() 1 4.837878 
-void do_ptm_update() 1 5.871222 
-void do_ptm_update() 1 2.794982 
-void do_ptm_update() 1 1.415100 
-void do_ptm_update() 1 6.371286 
-void do_ptm_update() 1 1.316124 
-void do_ptm_update() 1 0.187468 
-void do_ptm_update() 1 1.882824 
-void do_ptm_update() 1 1.664556 
-void do_ptm_update() 1 4.800071 
-void do_ptm_update() 1 7.033705 
-void do_ptm_update() 1 1.013955 
-void do_ptm_update() 1 6.240190 
-void do_ptm_update() 1 8.843660 
-void do_ptm_update() 1 0.197801 
-void do_ptm_update() 1 1.006562 
-void do_ptm_update() 1 9.056237 
-void do_ptm_update() 1 3.562382 
-void do_ptm_update() 1 7.339477 
-void do_ptm_update() 1 0.189406 
-void do_ptm_update() 1 4.802988 
-void do_ptm_update() 1 5.891326 
-void do_ptm_update() 1 2.817976 
-void do_ptm_update() 1 1.419949 
-void do_ptm_update() 1 6.390734 
-void do_ptm_update() 1 1.301128 
-void do_ptm_update() 1 0.180204 
-void do_ptm_update() 1 1.878188 
-void do_ptm_update() 1 1.640996 
-void do_ptm_update() 1 4.775199 
-void do_ptm_update() 1 7.072966 
-void do_ptm_update() 1 1.020024 
-void do_ptm_update() 1 6.262564 
-void do_ptm_update() 1 8.873897 
-void do_ptm_update() 1 0.190965 
-void do_ptm_update() 1 0.993540 
-void do_ptm_update() 1 9.038010 
-void do_ptm_update() 1 3.532544 
-void do_ptm_update() 1 7.385387 
-void do_ptm_update() 1 0.187198 
-void do_ptm_update() 1 4.825775 
-void do_ptm_update() 1 5.901243 
-void do_ptm_update() 1 2.839363 
-void do_ptm_update() 1 1.419849 
-void do_ptm_update() 1 6.360412 
-void do_ptm_update() 1 1.282422 
-void do_ptm_update() 1 0.179928 
-void do_ptm_update() 1 1.869921 
-void do_ptm_update() 1 1.639767 
-void do_ptm_update() 1 4.735503 
-void do_ptm_update() 1 7.078661 
-void do_ptm_update() 1 1.021223 
-void do_ptm_update() 1 6.257350 
-void do_ptm_update() 1 8.925839 
-void do_ptm_update() 1 0.191656 
-void do_ptm_update() 1 0.979570 
-void do_ptm_update() 1 9.027387 
-void do_ptm_update() 1 3.509445 
-void do_ptm_update() 1 7.389717 
-void do_ptm_update() 1 0.186365 
-void do_ptm_update() 1 4.823300 
-void do_ptm_update() 1 5.880958 
-void do_ptm_update() 1 2.861401 
-void do_ptm_update() 1 1.407256 
-void do_ptm_update() 1 6.387850 
-void do_ptm_update() 1 1.274112 
-void do_ptm_update() 1 0.175357 
-void do_ptm_update() 1 1.889322 
-void do_ptm_update() 1 1.653808 
-void do_ptm_update() 1 4.694407 
-void do_ptm_update() 1 7.126867 
-void do_ptm_update() 1 1.033648 
-void do_ptm_update() 1 6.293355 
-void do_ptm_update() 1 8.957013 
-void do_ptm_update() 1 0.188412 
-void do_ptm_update() 1 0.977985 
-void do_ptm_update() 1 9.054103 
-void do_ptm_update() 1 3.476987 
-void do_ptm_update() 1 7.413740 
-void do_ptm_update() 1 0.191013 
-void do_ptm_update() 1 4.848345 
-void do_ptm_update() 1 5.855782 
-void do_ptm_update() 1 2.845379 
-void do_ptm_update() 1 1.409334 
-void do_ptm_update() 1 6.382443 
-void do_ptm_update() 1 1.252771 
-void do_ptm_update() 1 0.171577 
-void do_ptm_update() 1 1.876462 
-void do_ptm_update() 1 1.658537 
-void do_ptm_update() 1 4.732178 
-void do_ptm_update() 1 7.144763 
-void do_ptm_update() 1 1.016391 
-void do_ptm_update() 1 6.283287 
-void do_ptm_update() 1 8.906362 
-void do_ptm_update() 1 0.185241 
-void do_ptm_update() 1 0.978408 
-void do_ptm_update() 1 9.009667 
-void do_ptm_update() 1 3.455678 
-void do_ptm_update() 1 7.461370 
-void do_ptm_update() 1 0.190638 
-void do_ptm_update() 1 4.837025 
-void do_ptm_update() 1 5.879096 
-void do_ptm_update() 1 2.830779 
-void do_ptm_update() 1 1.427148 
-void do_ptm_update() 1 6.370717 
-void do_ptm_update() 1 1.271293 
-void do_ptm_update() 1 0.168997 
-void do_ptm_update() 1 1.853359 
-void do_ptm_update() 1 1.656324 
-void do_ptm_update() 1 4.752344 
-void do_ptm_update() 1 7.131096 
-void do_ptm_update() 1 1.022105 
-void do_ptm_update() 1 6.273214 
-void do_ptm_update() 1 8.945564 
-void do_ptm_update() 1 0.188312 
-void do_ptm_update() 1 0.979336 
-void do_ptm_update() 1 9.031686 
-void do_ptm_update() 1 3.465742 
-void do_ptm_update() 1 7.494544 
-void do_ptm_update() 1 0.193501 
-void do_ptm_update() 1 4.814130 
-void do_ptm_update() 1 5.863913 
-void do_ptm_update() 1 2.837324 
-void do_ptm_update() 1 1.441608 
-void do_ptm_update() 1 6.329251 
-void do_ptm_update() 1 1.277708 
-void do_ptm_update() 1 0.172040 
-void do_ptm_update() 1 1.848839 
-void do_ptm_update() 1 1.669554 
-void do_ptm_update() 1 4.751764 
-void do_ptm_update() 1 7.142210 
-void do_ptm_update() 1 1.013020 
-void do_ptm_update() 1 6.268977 
-void do_ptm_update() 1 8.909138 
-void do_ptm_update() 1 0.180529 
-void do_ptm_update() 1 0.971794 
-void do_ptm_update() 1 8.988042 
-void do_ptm_update() 1 3.490351 
-void do_ptm_update() 1 7.532711 
-void do_ptm_update() 1 0.196772 
-void do_ptm_update() 1 4.801812 
-void do_ptm_update() 1 5.864136 
-void do_ptm_update() 1 2.863782 
-void do_ptm_update() 1 1.441356 
-void do_ptm_update() 1 6.301906 
-void do_ptm_update() 1 1.274722 
-void do_ptm_update() 1 0.175867 
-void do_ptm_update() 1 1.850145 
-void do_ptm_update() 1 1.680317 
-void do_ptm_update() 1 4.743805 
-void do_ptm_update() 1 7.114410 
-void do_ptm_update() 1 1.009122 
-void do_ptm_update() 1 6.227719 
-void do_ptm_update() 1 8.913800 
-void do_ptm_update() 1 0.181618 
-void do_ptm_update() 1 0.958795 
-void do_ptm_update() 1 9.015037 
-void do_ptm_update() 1 3.508961 
-void do_ptm_update() 1 7.567581 
-void do_ptm_update() 1 0.201385 
-void do_ptm_update() 1 4.784552 
-void do_ptm_update() 1 5.862459 
-void do_ptm_update() 1 2.848592 
-void do_ptm_update() 1 1.457815 
-void do_ptm_update() 1 6.256078 
-void do_ptm_update() 1 1.277669 
-void do_ptm_update() 1 0.176955 
-void do_ptm_update() 1 1.848552 
-void do_ptm_update() 1 1.683775 
-void do_ptm_update() 1 4.702898 
-void do_ptm_update() 1 7.163659 
-void do_ptm_update() 1 1.026735 
-void do_ptm_update() 1 6.247018 
-void do_ptm_update() 1 8.967910 
-void do_ptm_update() 1 0.186293 
-void do_ptm_update() 1 0.963694 
-void do_ptm_update() 1 9.043493 
-void do_ptm_update() 1 3.495203 
-void do_ptm_update() 1 7.614065 
-void do_ptm_update() 1 0.202676 
-void do_ptm_update() 1 4.778021 
-void do_ptm_update() 1 5.852477 
-void do_ptm_update() 1 2.829000 
-void do_ptm_update() 1 1.448951 
-void do_ptm_update() 1 6.211112 
-void do_ptm_update() 1 1.267265 
-void do_ptm_update() 1 0.178448 
-void do_ptm_update() 1 1.872187 
-void do_ptm_update() 1 1.679563 
-void do_ptm_update() 1 4.683917 
-void do_ptm_update() 1 7.152305 
-void do_ptm_update() 1 1.032576 
-void do_ptm_update() 1 6.279749 
-void do_ptm_update() 1 9.007080 
-void do_ptm_update() 1 0.193091 
-void do_ptm_update() 1 0.960429 
-void do_ptm_update() 1 9.100199 
-void do_ptm_update() 1 3.480903 
-void do_ptm_update() 1 7.627879 
-void do_ptm_update() 1 0.194554 
-void do_ptm_update() 1 4.749754 
-void do_ptm_update() 1 5.820621 
-void do_ptm_update() 1 2.819788 
-void do_ptm_update() 1 1.443203 
-void do_ptm_update() 1 6.194732 
-void do_ptm_update() 1 1.286619 
-void do_ptm_update() 1 0.172181 
-void do_ptm_update() 1 1.877050 
-void do_ptm_update() 1 1.660834 
-void do_ptm_update() 1 4.695809 
-void do_ptm_update() 1 7.124622 
-void do_ptm_update() 1 1.014589 
-void do_ptm_update() 1 6.250926 
-void do_ptm_update() 1 9.015078 
-void do_ptm_update() 1 0.185612 
-void do_ptm_update() 1 0.949567 
-void do_ptm_update() 1 9.136604 
-void do_ptm_update() 1 3.496780 
-void do_ptm_update() 1 7.590561 
-void do_ptm_update() 1 0.195258 
-void do_ptm_update() 1 4.770013 
-void do_ptm_update() 1 5.834213 
-void do_ptm_update() 1 2.816986 
-void do_ptm_update() 1 1.433561 
-void do_ptm_update() 1 6.176311 
-void do_ptm_update() 1 1.298983 
-void do_ptm_update() 1 0.169312 
-void do_ptm_update() 1 1.890801 
-void do_ptm_update() 1 1.649057 
-void do_ptm_update() 1 4.692292 
-void do_ptm_update() 1 7.133569 
-void do_ptm_update() 1 1.021041 
-void do_ptm_update() 1 6.231460 
-void do_ptm_update() 1 9.054373 
-void do_ptm_update() 1 0.180326 
-void do_ptm_update() 1 0.932482 
-void do_ptm_update() 1 9.145524 
-void do_ptm_update() 1 3.511788 
-void do_ptm_update() 1 7.592943 
-void do_ptm_update() 1 0.196502 
-void do_ptm_update() 1 4.773074 
-void do_ptm_update() 1 5.821232 
-void do_ptm_update() 1 2.813492 
-void do_ptm_update() 1 1.425241 
-void do_ptm_update() 1 6.172560 
-void do_ptm_update() 1 1.301263 
-void do_ptm_update() 1 0.172625 
-void do_ptm_update() 1 1.891984 
-void do_ptm_update() 1 1.664128 
-void do_ptm_update() 1 4.701734 
-void do_ptm_update() 1 7.103082 
-void do_ptm_update() 1 1.019013 
-void do_ptm_update() 1 6.249208 
-void do_ptm_update() 1 9.084364 
-void do_ptm_update() 1 0.175153 
-void do_ptm_update() 1 0.925599 
-void do_ptm_update() 1 9.101663 
-void do_ptm_update() 1 3.536418 
-void do_ptm_update() 1 7.556459 
-void do_ptm_update() 1 0.198872 
-void do_ptm_update() 1 4.776876 
-void do_ptm_update() 1 5.812094 
-void do_ptm_update() 1 2.804544 
-void do_ptm_update() 1 1.422762 
-void do_ptm_update() 1 6.196871 
-void do_ptm_update() 1 1.309437 
-void do_ptm_update() 1 0.179917 
-void do_ptm_update() 1 1.889673 
-void do_ptm_update() 1 1.652018 
-void do_ptm_update() 1 4.670787 
-void do_ptm_update() 1 7.082785 
-void do_ptm_update() 1 1.002240 
-void do_ptm_update() 1 6.294159 
-void do_ptm_update() 1 9.131726 
-void do_ptm_update() 1 0.173122 
-void do_ptm_update() 1 0.908649 
-void do_ptm_update() 1 9.045015 
-void do_ptm_update() 1 3.564050 
-void do_ptm_update() 1 7.567139 
-void do_ptm_update() 1 0.197304 
-void do_ptm_update() 1 4.798434 
-void do_ptm_update() 1 5.781112 
-void do_ptm_update() 1 2.793686 
-void do_ptm_update() 1 1.441822 
-void do_ptm_update() 1 6.211456 
-void do_ptm_update() 1 1.323908 
-void do_ptm_update() 1 0.176487 
-void do_ptm_update() 1 1.876147 
-void do_ptm_update() 1 1.647285 
-void do_ptm_update() 1 4.668759 
-void do_ptm_update() 1 7.109252 
-void do_ptm_update() 1 1.006907 
-void do_ptm_update() 1 6.323713 
-void do_ptm_update() 1 9.079676 
-void do_ptm_update() 1 0.166938 
-void do_ptm_update() 1 0.913743 
-void do_ptm_update() 1 9.044289 
-void do_ptm_update() 1 3.529048 
-void do_ptm_update() 1 7.556033 
-void do_ptm_update() 1 0.199159 
-void do_ptm_update() 1 4.804844 
-void do_ptm_update() 1 5.775932 
-void do_ptm_update() 1 2.781863 
-void do_ptm_update() 1 1.457060 
-void do_ptm_update() 1 6.226505 
-void do_ptm_update() 1 1.313549 
-void do_ptm_update() 1 0.176720 
-void do_ptm_update() 1 1.858801 
-void do_ptm_update() 1 1.671086 
-void do_ptm_update() 1 4.634254 
-void do_ptm_update() 1 7.133589 
-void do_ptm_update() 1 1.014703 
-void do_ptm_update() 1 6.285666 
-void do_ptm_update() 1 9.073187 
-void do_ptm_update() 1 0.159138 
-void do_ptm_update() 1 0.915613 
-void do_ptm_update() 1 8.994323 
-void do_ptm_update() 1 3.498582 
-void do_ptm_update() 1 7.588047 
-void do_ptm_update() 1 0.204991 
-void do_ptm_update() 1 4.806508 
-void do_ptm_update() 1 5.804199 
-void do_ptm_update() 1 2.780318 
-void do_ptm_update() 1 1.452339 
-void do_ptm_update() 1 6.248116 
-void do_ptm_update() 1 1.315003 
-void do_ptm_update() 1 0.171176 
-void do_ptm_update() 1 1.878136 
-void do_ptm_update() 1 1.661149 
-void do_ptm_update() 1 4.613337 
-void do_ptm_update() 1 7.161646 
-void do_ptm_update() 1 1.017164 
-void do_ptm_update() 1 6.331347 
-void do_ptm_update() 1 9.094801 
-void do_ptm_update() 1 0.163784 
-void do_ptm_update() 1 0.903640 
-void do_ptm_update() 1 9.048270 
-void do_ptm_update() 1 3.515090 
-void do_ptm_update() 1 7.540277 
-void do_ptm_update() 1 0.198776 
-void do_ptm_update() 1 4.805315 
-void do_ptm_update() 1 5.833808 
-void do_ptm_update() 1 2.793327 
-void do_ptm_update() 1 1.447441 
-void do_ptm_update() 1 6.274260 
-void do_ptm_update() 1 1.303415 
-void do_ptm_update() 1 0.178448 
-void do_ptm_update() 1 1.862664 
-void do_ptm_update() 1 1.641940 
-void do_ptm_update() 1 4.648128 
-void do_ptm_update() 1 7.210265 
-void do_ptm_update() 1 1.020315 
-void do_ptm_update() 1 6.369419 
-void do_ptm_update() 1 9.042590 
-void do_ptm_update() 1 0.163825 
-void do_ptm_update() 1 0.894314 
-void do_ptm_update() 1 9.016397 
-void do_ptm_update() 1 3.479795 
-void do_ptm_update() 1 7.520096 
-void do_ptm_update() 1 0.192857 
-void do_ptm_update() 1 4.773659 
-void do_ptm_update() 1 5.833597 
-void do_ptm_update() 1 2.765905 
-void do_ptm_update() 1 1.461662 
-void do_ptm_update() 1 6.256286 
-void do_ptm_update() 1 1.297537 
-void do_ptm_update() 1 0.184119 
-void do_ptm_update() 1 1.838304 
-void do_ptm_update() 1 1.635093 
-void do_ptm_update() 1 4.629147 
-void do_ptm_update() 1 7.212809 
-void do_ptm_update() 1 1.022618 
-void do_ptm_update() 1 6.398326 
-void do_ptm_update() 1 9.056309 
-void do_ptm_update() 1 0.159778 
-void do_ptm_update() 1 0.901571 
-void do_ptm_update() 1 8.978703 
-void do_ptm_update() 1 3.451340 
-void do_ptm_update() 1 7.555412 
-void do_ptm_update() 1 0.192728 
-void do_ptm_update() 1 4.790113 
-void do_ptm_update() 1 5.802382 
-void do_ptm_update() 1 2.750518 
-void do_ptm_update() 1 1.466908 
-void do_ptm_update() 1 6.248315 
-void do_ptm_update() 1 1.284070 
-void do_ptm_update() 1 0.179242 
-void do_ptm_update() 1 1.856402 
-void do_ptm_update() 1 1.612804 
-void do_ptm_update() 1 4.644471 
-void do_ptm_update() 1 7.200802 
-void do_ptm_update() 1 1.032811 
-void do_ptm_update() 1 6.437562 
-void do_ptm_update() 1 9.095593 
-void do_ptm_update() 1 0.158237 
-void do_ptm_update() 1 0.918018 
-void do_ptm_update() 1 8.983927 
-void do_ptm_update() 1 3.474207 
-void do_ptm_update() 1 7.565530 
-void do_ptm_update() 1 0.199959 
-void do_ptm_update() 1 4.801889 
-void do_ptm_update() 1 5.800334 
-void do_ptm_update() 1 2.763332 
-void do_ptm_update() 1 1.446807 
-void do_ptm_update() 1 6.254682 
-void do_ptm_update() 1 1.303610 
-void do_ptm_update() 1 0.186593 
-void do_ptm_update() 1 1.863279 
-void do_ptm_update() 1 1.621658 
-void do_ptm_update() 1 4.653935 
-void do_ptm_update() 1 7.218478 
-void do_ptm_update() 1 1.030582 
-void do_ptm_update() 1 6.458993 
-void do_ptm_update() 1 9.114077 
-void do_ptm_update() 1 0.153683 
-void do_ptm_update() 1 0.926750 
-void do_ptm_update() 1 9.029385 
-void do_ptm_update() 1 3.500852 
-void do_ptm_update() 1 7.558528 
-void do_ptm_update() 1 0.203879 
-void do_ptm_update() 1 4.770778 
-void do_ptm_update() 1 5.783011 
-void do_ptm_update() 1 2.777081 
-void do_ptm_update() 1 1.434746 
-void do_ptm_update() 1 6.265632 
-void do_ptm_update() 1 1.325135 
-void do_ptm_update() 1 0.182574 
-void do_ptm_update() 1 1.883518 
-void do_ptm_update() 1 1.600879 
-void do_ptm_update() 1 4.644289 
-void do_ptm_update() 1 7.171878 
-void do_ptm_update() 1 1.029918 
-void do_ptm_update() 1 6.476628 
-void do_ptm_update() 1 9.156674 
-void do_ptm_update() 1 0.160766 
-void do_ptm_update() 1 0.936994 
-void do_ptm_update() 1 8.996363 
-void do_ptm_update() 1 3.469038 
-void do_ptm_update() 1 7.539099 
-void do_ptm_update() 1 0.199115 
-void do_ptm_update() 1 4.782067 
-void do_ptm_update() 1 5.797651 
-void do_ptm_update() 1 2.777439 
-void do_ptm_update() 1 1.454506 
-void do_ptm_update() 1 6.312995 
-void do_ptm_update() 1 1.305212 
-void do_ptm_update() 1 0.178863 
-void do_ptm_update() 1 1.907402 
-void do_ptm_update() 1 1.604582 
-void do_ptm_update() 1 4.605541 
-void do_ptm_update() 1 7.146923 
-void do_ptm_update() 1 1.018686 
-void do_ptm_update() 1 6.471998 
-void do_ptm_update() 1 9.119529 
-void do_ptm_update() 1 0.161858 
-void do_ptm_update() 1 0.951997 
-void do_ptm_update() 1 8.959981 
-void do_ptm_update() 1 3.449280 
-void do_ptm_update() 1 7.497853 
-void do_ptm_update() 1 0.207050 
-void do_ptm_update() 1 4.740957 
-void do_ptm_update() 1 5.830459 
-void do_ptm_update() 1 2.747532 
-void do_ptm_update() 1 1.441446 
-void do_ptm_update() 1 6.326692 
-void do_ptm_update() 1 1.296466 
-void do_ptm_update() 1 0.173651 
-void do_ptm_update() 1 1.896542 
-void do_ptm_update() 1 1.598999 
-void do_ptm_update() 1 4.583059 
-void do_ptm_update() 1 7.183844 
-void do_ptm_update() 1 1.024862 
-void do_ptm_update() 1 6.438248 
-void do_ptm_update() 1 9.120581 
-void do_ptm_update() 1 0.154784 
-void do_ptm_update() 1 0.947905 
-void do_ptm_update() 1 8.906227 
-void do_ptm_update() 1 3.462079 
-void do_ptm_update() 1 7.466989 
-void do_ptm_update() 1 0.210036 
-void do_ptm_update() 1 4.756900 
-void do_ptm_update() 1 5.839117 
-void do_ptm_update() 1 2.735127 
-void do_ptm_update() 1 1.430844 
-void do_ptm_update() 1 6.367565 
-void do_ptm_update() 1 1.308747 
-void do_ptm_update() 1 0.176149 
-void do_ptm_update() 1 1.917005 
-void do_ptm_update() 1 1.621072 
-void do_ptm_update() 1 4.543136 
-void do_ptm_update() 1 7.164302 
-void do_ptm_update() 1 1.007006 
-void do_ptm_update() 1 6.476153 
-void do_ptm_update() 1 9.164802 
-void do_ptm_update() 1 0.159920 
-void do_ptm_update() 1 0.950767 
-void do_ptm_update() 1 8.946649 
-void do_ptm_update() 1 3.479476 
-void do_ptm_update() 1 7.424062 
-void do_ptm_update() 1 0.212098 
-void do_ptm_update() 1 4.751506 
-void do_ptm_update() 1 5.833281 
-void do_ptm_update() 1 2.754038 
-void do_ptm_update() 1 1.434457 
-void do_ptm_update() 1 6.414820 
-void do_ptm_update() 1 1.320989 
-void do_ptm_update() 1 0.180307 
-void do_ptm_update() 1 1.938223 
-void do_ptm_update() 1 1.599137 
-void do_ptm_update() 1 4.570737 
-void do_ptm_update() 1 7.142907 
-void do_ptm_update() 1 1.006165 
-void do_ptm_update() 1 6.505310 
-void do_ptm_update() 1 9.123527 
-void do_ptm_update() 1 0.157997 
-void do_ptm_update() 1 0.936754 
-void do_ptm_update() 1 8.984370 
-void do_ptm_update() 1 3.469866 
-void do_ptm_update() 1 7.451171 
-void do_ptm_update() 1 0.210706 
-void do_ptm_update() 1 4.746945 
-void do_ptm_update() 1 5.849418 
-void do_ptm_update() 1 2.748092 
-void do_ptm_update() 1 1.411889 
-void do_ptm_update() 1 6.382675 
-void do_ptm_update() 1 1.300583 
-void do_ptm_update() 1 0.175314 
-void do_ptm_update() 1 1.952198 
-void do_ptm_update() 1 1.596361 
-void do_ptm_update() 1 4.551694 
-void do_ptm_update() 1 7.114420 
-void do_ptm_update() 1 0.996417 
-void do_ptm_update() 1 6.502797 
-void do_ptm_update() 1 9.132747 
-void do_ptm_update() 1 0.158139 
-void do_ptm_update() 1 0.944008 
-void do_ptm_update() 1 9.030809 
-void do_ptm_update() 1 3.483860 
-void do_ptm_update() 1 7.445267 
-void do_ptm_update() 1 0.211143 
-void do_ptm_update() 1 4.705575 
-void do_ptm_update() 1 5.866400 
-void do_ptm_update() 1 2.722447 
-void do_ptm_update() 1 1.426259 
-void do_ptm_update() 1 6.400728 
-void do_ptm_update() 1 1.298181 
-void do_ptm_update() 1 0.183124 
-void do_ptm_update() 1 1.925881 
-void do_ptm_update() 1 1.611972 
-void do_ptm_update() 1 4.523471 
-void do_ptm_update() 1 7.085676 
-void do_ptm_update() 1 0.982428 
-void do_ptm_update() 1 6.533390 
-void do_ptm_update() 1 9.188060 
-void do_ptm_update() 1 0.155014 
-void do_ptm_update() 1 0.930173 
-void do_ptm_update() 1 8.980577 
-void do_ptm_update() 1 3.518097 
-void do_ptm_update() 1 7.486243 
-void do_ptm_update() 1 0.217770 
-void do_ptm_update() 1 4.716428 
-void do_ptm_update() 1 5.866152 
-void do_ptm_update() 1 2.693380 
-void do_ptm_update() 1 1.406771 
-void do_ptm_update() 1 6.429007 
-void do_ptm_update() 1 1.286430 
-void do_ptm_update() 1 0.191171 
-void do_ptm_update() 1 1.915731 
-void do_ptm_update() 1 1.605858 
-void do_ptm_update() 1 4.532214 
-void do_ptm_update() 1 7.104546 
-void do_ptm_update() 1 0.991117 
-void do_ptm_update() 1 6.567733 
-void do_ptm_update() 1 9.176535 
-void do_ptm_update() 1 0.157986 
-void do_ptm_update() 1 0.943462 
-void do_ptm_update() 1 8.999293 
-void do_ptm_update() 1 3.548474 
-void do_ptm_update() 1 7.535118 
-void do_ptm_update() 1 0.214887 
-void do_ptm_update() 1 4.729161 
-void do_ptm_update() 1 5.859192 
-void do_ptm_update() 1 2.719048 
-void do_ptm_update() 1 1.400328 
-void do_ptm_update() 1 6.412865 
-void do_ptm_update() 1 1.282436 
-void do_ptm_update() 1 0.191106 
-void do_ptm_update() 1 1.898019 
-void do_ptm_update() 1 1.590965 
-void do_ptm_update() 1 4.518690 
-void do_ptm_update() 1 7.142458 
-void do_ptm_update() 1 0.997002 
-void do_ptm_update() 1 6.566221 
-void do_ptm_update() 1 9.228637 
-void do_ptm_update() 1 0.154954 
-void do_ptm_update() 1 0.957010 
-void do_ptm_update() 1 9.051042 
-void do_ptm_update() 1 3.582308 
-void do_ptm_update() 1 7.577375 
-void do_ptm_update() 1 0.221388 
-void do_ptm_update() 1 4.712268 
-void do_ptm_update() 1 5.869124 
-void do_ptm_update() 1 2.723850 
-void do_ptm_update() 1 1.416778 
-void do_ptm_update() 1 6.391121 
-void do_ptm_update() 1 1.288715 
-void do_ptm_update() 1 0.191133 
-void do_ptm_update() 1 1.901302 
-void do_ptm_update() 1 1.575785 
-void do_ptm_update() 1 4.511544 
-void do_ptm_update() 1 7.153816 
-void do_ptm_update() 1 0.990265 
-void do_ptm_update() 1 6.582762 
-void do_ptm_update() 1 9.213563 
-void do_ptm_update() 1 0.157623 
-void do_ptm_update() 1 0.955328 
-void do_ptm_update() 1 9.089304 
-void do_ptm_update() 1 3.588591 
-void do_ptm_update() 1 7.607132 
-void do_ptm_update() 1 0.221180 
-void do_ptm_update() 1 4.736612 
-void do_ptm_update() 1 5.871051 
-void do_ptm_update() 1 2.724950 
-void do_ptm_update() 1 1.409362 
-void do_ptm_update() 1 6.367354 
-void do_ptm_update() 1 1.276777 
-void do_ptm_update() 1 0.195333 
-void do_ptm_update() 1 1.877944 
-void do_ptm_update() 1 1.581291 
-void do_ptm_update() 1 4.505919 
-void do_ptm_update() 1 7.117905 
-void do_ptm_update() 1 0.996401 
-void do_ptm_update() 1 6.561272 
-void do_ptm_update() 1 9.237606 
-void do_ptm_update() 1 0.160862 
-void do_ptm_update() 1 0.944991 
-void do_ptm_update() 1 9.045173 
-void do_ptm_update() 1 3.621611 
-void do_ptm_update() 1 7.655537 
-void do_ptm_update() 1 0.221633 
-void do_ptm_update() 1 4.772026 
-void do_ptm_update() 1 5.869492 
-void do_ptm_update() 1 2.698465 
-void do_ptm_update() 1 1.417172 
-void do_ptm_update() 1 6.326832 
-void do_ptm_update() 1 1.257466 
-void do_ptm_update() 1 0.192371 
-void do_ptm_update() 1 1.863685 
-void do_ptm_update() 1 1.603161 
-void do_ptm_update() 1 4.474278 
-void do_ptm_update() 1 7.100896 
-void do_ptm_update() 1 1.010009 
-void do_ptm_update() 1 6.557178 
-void do_ptm_update() 1 9.251598 
-void do_ptm_update() 1 0.162216 
-void do_ptm_update() 1 0.939171 
-void do_ptm_update() 1 8.988863 
-void do_ptm_update() 1 3.655894 
-void do_ptm_update() 1 7.654192 
-void do_ptm_update() 1 0.219033 
-void do_ptm_update() 1 4.778623 
-void do_ptm_update() 1 5.843477 
-void do_ptm_update() 1 2.690284 
-void do_ptm_update() 1 1.430298 
-void do_ptm_update() 1 6.361410 
-void do_ptm_update() 1 1.246484 
-void do_ptm_update() 1 0.189225 
-void do_ptm_update() 1 1.876350 
-void do_ptm_update() 1 1.615325 
-void do_ptm_update() 1 4.483314 
-void do_ptm_update() 1 7.057330 
-void do_ptm_update() 1 0.994578 
-void do_ptm_update() 1 6.544599 
-void do_ptm_update() 1 9.199394 
-void do_ptm_update() 1 0.164001 
-void do_ptm_update() 1 0.928145 
-void do_ptm_update() 1 9.042442 
-void do_ptm_update() 1 3.680197 
-void do_ptm_update() 1 7.601853 
-void do_ptm_update() 1 0.226985 
-void do_ptm_update() 1 4.745640 
-void do_ptm_update() 1 5.855294 
-void do_ptm_update() 1 2.678609 
-void do_ptm_update() 1 1.417796 
-void do_ptm_update() 1 6.390863 
-void do_ptm_update() 1 1.260425 
-void do_ptm_update() 1 0.190759 
-void do_ptm_update() 1 1.900665 
-void do_ptm_update() 1 1.634089 
-void do_ptm_update() 1 4.480630 
-void do_ptm_update() 1 7.066354 
-void do_ptm_update() 1 0.991787 
-void do_ptm_update() 1 6.509077 
-void do_ptm_update() 1 9.213312 
-void do_ptm_update() 1 0.156786 
-void do_ptm_update() 1 0.916717 
-void do_ptm_update() 1 9.079137 
-void do_ptm_update() 1 3.672594 
-void do_ptm_update() 1 7.597184 
-void do_ptm_update() 1 0.224108 
-void do_ptm_update() 1 4.771810 
-void do_ptm_update() 1 5.824577 
-void do_ptm_update() 1 2.694137 
-void do_ptm_update() 1 1.420428 
-void do_ptm_update() 1 6.376431 
-void do_ptm_update() 1 1.259175 
-void do_ptm_update() 1 0.182963 
-void do_ptm_update() 1 1.922404 
-void do_ptm_update() 1 1.646694 
-void do_ptm_update() 1 4.445360 
-void do_ptm_update() 1 7.077452 
-void do_ptm_update() 1 0.978667 
-void do_ptm_update() 1 6.526949 
-void do_ptm_update() 1 9.167479 
-void do_ptm_update() 1 0.153337 
-void do_ptm_update() 1 0.899614 
-void do_ptm_update() 1 9.061762 
-void do_ptm_update() 1 3.662274 
-void do_ptm_update() 1 7.624741 
-void do_ptm_update() 1 0.227972 
-void do_ptm_update() 1 4.807914 
-void do_ptm_update() 1 5.859050 
-void do_ptm_update() 1 2.706290 
-void do_ptm_update() 1 1.421662 
-void do_ptm_update() 1 6.419810 
-void do_ptm_update() 1 1.242900 
-void do_ptm_update() 1 0.179251 
-void do_ptm_update() 1 1.903875 
-void do_ptm_update() 1 1.660530 
-void do_ptm_update() 1 4.477038 
-void do_ptm_update() 1 7.083503 
-void do_ptm_update() 1 0.980350 
-void do_ptm_update() 1 6.484643 
-void do_ptm_update() 1 9.199076 
-void do_ptm_update() 1 0.155471 
-void do_ptm_update() 1 0.886153 
-void do_ptm_update() 1 9.046803 
-void do_ptm_update() 1 3.657010 
-void do_ptm_update() 1 7.612188 
-void do_ptm_update() 1 0.231408 
-void do_ptm_update() 1 4.781074 
-void do_ptm_update() 1 5.895234 
-void do_ptm_update() 1 2.729523 
-void do_ptm_update() 1 1.442631 
-void do_ptm_update() 1 6.412330 
-void do_ptm_update() 1 1.257339 
-void do_ptm_update() 1 0.175680 
-void do_ptm_update() 1 1.928100 
-void do_ptm_update() 1 1.677098 
-void do_ptm_update() 1 4.500981 
-void do_ptm_update() 1 7.124575 
-void do_ptm_update() 1 0.992815 
-void do_ptm_update() 1 6.481744 
-void do_ptm_update() 1 9.213436 
-void do_ptm_update() 1 0.157244 
-void do_ptm_update() 1 0.870325 
-void do_ptm_update() 1 9.040841 
-void do_ptm_update() 1 3.630658 
-void do_ptm_update() 1 7.592948 
-void do_ptm_update() 1 0.234934 
-void do_ptm_update() 1 4.802099 
-void do_ptm_update() 1 5.871066 
-void do_ptm_update() 1 2.725192 
-void do_ptm_update() 1 1.439809 
-void do_ptm_update() 1 6.399672 
-void do_ptm_update() 1 1.240518 
-void do_ptm_update() 1 0.174566 
-void do_ptm_update() 1 1.936250 
-void do_ptm_update() 1 1.653418 
-void do_ptm_update() 1 4.526312 
-void do_ptm_update() 1 7.094867 
-void do_ptm_update() 1 0.993035 
-void do_ptm_update() 1 6.441530 
-void do_ptm_update() 1 9.252204 
-void do_ptm_update() 1 0.157696 
-void do_ptm_update() 1 0.865917 
-void do_ptm_update() 1 9.030974 
-void do_ptm_update() 1 3.617329 
-void do_ptm_update() 1 7.599693 
-void do_ptm_update() 1 0.241843 
-void do_ptm_update() 1 4.834492 
-void do_ptm_update() 1 5.876028 
-void do_ptm_update() 1 2.710407 
-void do_ptm_update() 1 1.445617 
-void do_ptm_update() 1 6.445503 
-void do_ptm_update() 1 1.244864 
-void do_ptm_update() 1 0.171860 
-void do_ptm_update() 1 1.930368 
-void do_ptm_update() 1 1.638665 
-void do_ptm_update() 1 4.489624 
-void do_ptm_update() 1 7.083701 
-void do_ptm_update() 1 0.977682 
-void do_ptm_update() 1 6.427498 
-void do_ptm_update() 1 9.273086 
-void do_ptm_update() 1 0.152485 
-void do_ptm_update() 1 0.867001 
-void do_ptm_update() 1 9.018711 
-void do_ptm_update() 1 3.632618 
-void do_ptm_update() 1 7.553822 
-void do_ptm_update() 1 0.240360 
-void do_ptm_update() 1 4.823691 
-void do_ptm_update() 1 5.842433 
-void do_ptm_update() 1 2.701027 
-void do_ptm_update() 1 1.456708 
-void do_ptm_update() 1 6.447442 
-void do_ptm_update() 1 1.261395 
-void do_ptm_update() 1 0.167176 
-void do_ptm_update() 1 1.927269 
-void do_ptm_update() 1 1.636972 
-void do_ptm_update() 1 4.529123 
-void do_ptm_update() 1 7.084865 
-void do_ptm_update() 1 0.989312 
-void do_ptm_update() 1 6.471052 
-void do_ptm_update() 1 9.266678 
-void do_ptm_update() 1 0.157061 
-void do_ptm_update() 1 0.872994 
-void do_ptm_update() 1 9.005970 
-void do_ptm_update() 1 3.649577 
-void do_ptm_update() 1 7.560788 
-void do_ptm_update() 1 0.234668 
-void do_ptm_update() 1 4.785059 
-void do_ptm_update() 1 5.862758 
-void do_ptm_update() 1 2.701268 
-void do_ptm_update() 1 1.440504 
-void do_ptm_update() 1 6.489371 
-void do_ptm_update() 1 1.244694 
-void do_ptm_update() 1 0.162804 
-void do_ptm_update() 1 1.950873 
-void do_ptm_update() 1 1.627793 
-void do_ptm_update() 1 4.545312 
-void do_ptm_update() 1 7.048784 
-void do_ptm_update() 1 0.986158 
-void do_ptm_update() 1 6.513583 
-void do_ptm_update() 1 9.264944 
-void do_ptm_update() 1 0.164182 
-void do_ptm_update() 1 0.869010 
-void do_ptm_update() 1 9.014934 
-void do_ptm_update() 1 3.663420 
-void do_ptm_update() 1 7.600538 
-void do_ptm_update() 1 0.233783 
-void do_ptm_update() 1 4.754836 
-void do_ptm_update() 1 5.859203 
-void do_ptm_update() 1 2.732379 
-void do_ptm_update() 1 1.461476 
-void do_ptm_update() 1 6.454806 
-void do_ptm_update() 1 1.233321 
-void do_ptm_update() 1 0.161863 
-void do_ptm_update() 1 1.933451 
-void do_ptm_update() 1 1.636497 
-void do_ptm_update() 1 4.514456 
-void do_ptm_update() 1 7.005005 
-void do_ptm_update() 1 0.981693 
-void do_ptm_update() 1 6.509367 
-void do_ptm_update() 1 9.274373 
-void do_ptm_update() 1 0.167404 
-void do_ptm_update() 1 0.880799 
-void do_ptm_update() 1 8.996083 
-void do_ptm_update() 1 3.642121 
-void do_ptm_update() 1 7.593797 
-void do_ptm_update() 1 0.237898 
-void do_ptm_update() 1 4.713832 
-void do_ptm_update() 1 5.826824 
-void do_ptm_update() 1 2.754857 
-void do_ptm_update() 1 1.474322 
-void do_ptm_update() 1 6.450846 
-void do_ptm_update() 1 1.218364 
-void do_ptm_update() 1 0.165024 
-void do_ptm_update() 1 1.913969 
-void do_ptm_update() 1 1.629415 
-void do_ptm_update() 1 4.507583 
-void do_ptm_update() 1 7.022144 
-void do_ptm_update() 1 0.973628 
-void do_ptm_update() 1 6.507081 
-void do_ptm_update() 1 9.300000 
-void do_ptm_update() 1 0.166341 
-void do_ptm_update() 1 0.866689 
-void do_ptm_update() 1 8.956178 
-void do_ptm_update() 1 3.667161 
-void do_ptm_update() 1 7.617725 
-void do_ptm_update() 1 0.235112 
-void do_ptm_update() 1 4.683153 
-void do_ptm_update() 1 5.841503 
-void do_ptm_update() 1 2.764656 
-void do_ptm_update() 1 1.491406 
-void do_ptm_update() 1 6.427068 
-void do_ptm_update() 1 1.198505 
-void do_ptm_update() 1 0.160607 
-void do_ptm_update() 1 1.921293 
-void do_ptm_update() 1 1.624147 
-void do_ptm_update() 1 4.511561 
-void do_ptm_update() 1 7.055131 
-void do_ptm_update() 1 0.968362 
-void do_ptm_update() 1 6.533241 
-void do_ptm_update() 1 9.300000 
-void do_ptm_update() 1 0.170763 
-void do_ptm_update() 1 0.865446 
-void do_ptm_update() 1 8.942812 
-void do_ptm_update() 1 3.670192 
-void do_ptm_update() 1 7.628825 
-void do_ptm_update() 1 0.242430 
-void do_ptm_update() 1 4.696823 
-void do_ptm_update() 1 5.828894 
-void do_ptm_update() 1 2.786522 
-void do_ptm_update() 1 1.491747 
-void do_ptm_update() 1 6.437153 
-void do_ptm_update() 1 1.197010 
-void do_ptm_update() 1 0.159685 
-void do_ptm_update() 1 1.906083 
-void do_ptm_update() 1 1.605672 
-void do_ptm_update() 1 4.503159 
-void do_ptm_update() 1 7.047244 
-void do_ptm_update() 1 0.952630 
-void do_ptm_update() 1 6.541107 
-void do_ptm_update() 1 9.300000 
-void do_ptm_update() 1 0.177683 
-void do_ptm_update() 1 0.866938 
-void do_ptm_update() 1 8.941364 
-void do_ptm_update() 1 3.654579 
-void do_ptm_update() 1 7.656697 
-void do_ptm_update() 1 0.233336 
-void do_ptm_update() 1 4.733897 
-void do_ptm_update() 1 5.817277 
-void do_ptm_update() 1 2.772801 
-void do_ptm_update() 1 1.497583 
-void do_ptm_update() 1 6.454527 
-void do_ptm_update() 1 1.202336 
-void do_ptm_update() 1 0.163795 
-void do_ptm_update() 1 1.918129 
-void do_ptm_update() 1 1.602163 
-void do_ptm_update() 1 4.467742 
-void do_ptm_update() 1 7.036682 
-void do_ptm_update() 1 0.946889 
-void do_ptm_update() 1 6.535037 
-void do_ptm_update() 1 9.300000 
-void do_ptm_update() 1 0.171653 
-void do_ptm_update() 1 0.872462 
-void do_ptm_update() 1 8.912356 
-void do_ptm_update() 1 3.650426 
-void do_ptm_update() 1 7.653971 
-void do_ptm_update() 1 0.235668 
-void do_ptm_update() 1 4.771104 
-void do_ptm_update() 1 5.820337 
-void do_ptm_update() 1 2.753942 
-void do_ptm_update() 1 1.475770 
-void do_ptm_update() 1 6.427103 
-void do_ptm_update() 1 1.199294 
-void do_ptm_update() 1 0.169100 
-void do_ptm_update() 1 1.905534 
-void do_ptm_update() 1 1.606883 
-void do_ptm_update() 1 4.431084 
-void do_ptm_update() 1 7.061830 
-void do_ptm_update() 1 0.958944 
-void do_ptm_update() 1 6.504128 
-void do_ptm_update() 1 9.294901 
-void do_ptm_update() 1 0.173251 
-void do_ptm_update() 1 0.884421 
-void do_ptm_update() 1 8.865229 
-void do_ptm_update() 1 3.646332 
-void do_ptm_update() 1 7.663865 
-void do_ptm_update() 1 0.237674 
-void do_ptm_update() 1 4.765112 
-void do_ptm_update() 1 5.776717 
-void do_ptm_update() 1 2.760599 
-void do_ptm_update() 1 1.483274 
-void do_ptm_update() 1 6.445346 
-void do_ptm_update() 1 1.213456 
-void do_ptm_update() 1 0.163724 
-void do_ptm_update() 1 1.883060 
-void do_ptm_update() 1 1.622231 
-void do_ptm_update() 1 4.428804 
-void do_ptm_update() 1 7.024959 
-void do_ptm_update() 1 0.963319 
-void do_ptm_update() 1 6.492986 
-void do_ptm_update() 1 9.275416 
-void do_ptm_update() 1 0.180312 
-void do_ptm_update() 1 0.870215 
-void do_ptm_update() 1 8.833967 
-void do_ptm_update() 1 3.650474 
-void do_ptm_update() 1 7.653530 
-void do_ptm_update() 1 0.229996 
-void do_ptm_update() 1 4.770440 
-void do_ptm_update() 1 5.781248 
-void do_ptm_update() 1 2.751523 
-void do_ptm_update() 1 1.469342 
-void do_ptm_update() 1 6.471720 
-void do_ptm_update() 1 1.221451 
-void do_ptm_update() 1 0.170110 
-void do_ptm_update() 1 1.883290 
-void do_ptm_update() 1 1.614266 
-void do_ptm_update() 1 4.426241 
-void do_ptm_update() 1 7.057603 
-void do_ptm_update() 1 0.946634 
-void do_ptm_update() 1 6.539485 
-void do_ptm_update() 1 9.300000 
-void do_ptm_update() 1 0.174378 
-void do_ptm_update() 1 0.867297 
-void do_ptm_update() 1 8.889525 
-void do_ptm_update() 1 3.680342 
-void do_ptm_update() 1 7.644024 
-void do_ptm_update() 1 0.222805 
-void do_ptm_update() 1 4.750465 
-void do_ptm_update() 1 5.743448 
-void do_ptm_update() 1 2.729937 
-void do_ptm_update() 1 1.461949 
-void do_ptm_update() 1 6.431059 
-void do_ptm_update() 1 1.213920 
-void do_ptm_update() 1 0.169673 
-void do_ptm_update() 1 1.898322 
-void do_ptm_update() 1 1.593180 
-void do_ptm_update() 1 4.436657 
-void do_ptm_update() 1 7.093762 
-void do_ptm_update() 1 0.945248 
-void do_ptm_update() 1 6.504562 
-void do_ptm_update() 1 9.300000 
-void do_ptm_update() 1 0.178836 
-void do_ptm_update() 1 0.859734 
-void do_ptm_update() 1 8.875195 
-void do_ptm_update() 1 3.651041 
-void do_ptm_update() 1 7.596613 
-void do_ptm_update() 1 0.221537 
-void do_ptm_update() 1 4.788291 
-void do_ptm_update() 1 5.711947 
-void do_ptm_update() 1 2.704416 
-void do_ptm_update() 1 1.457495 
-void do_ptm_update() 1 6.391077 
-void do_ptm_update() 1 1.233985 
-void do_ptm_update() 1 0.164950 
-void do_ptm_update() 1 1.890761 
-void do_ptm_update() 1 1.574604 
-void do_ptm_update() 1 4.454266 
-void do_ptm_update() 1 7.117851 
-void do_ptm_update() 1 0.957522 
-void do_ptm_update() 1 6.510890 
-void do_ptm_update() 1 9.291365 
-void do_ptm_update() 1 0.181651 
-void do_ptm_update() 1 0.853186 
-void do_ptm_update() 1 8.872554 
-void do_ptm_update() 1 3.634651 
-void do_ptm_update() 1 7.645270 
-void do_ptm_update() 1 0.221284 
-void do_ptm_update() 1 4.774876 
-void do_ptm_update() 1 5.691001 
-void do_ptm_update() 1 2.675043 
-void do_ptm_update() 1 1.458081 
-void do_ptm_update() 1 6.430066 
-void do_ptm_update() 1 1.227979 
-void do_ptm_update() 1 0.161274 
-void do_ptm_update() 1 1.910006 
-void do_ptm_update() 1 1.592618 
-void do_ptm_update() 1 4.489976 
-void do_ptm_update() 1 7.157087 
-void do_ptm_update() 1 0.962771 
-void do_ptm_update() 1 6.530594 
-void do_ptm_update() 1 9.300000 
-void do_ptm_update() 1 0.182776 
-void do_ptm_update() 1 0.858631 
-void do_ptm_update() 1 8.893403 
-void do_ptm_update() 1 3.662727 
-void do_ptm_update() 1 7.600630 
-void do_ptm_update() 1 0.228067 
-void do_ptm_update() 1 4.811744 
-void do_ptm_update() 1 5.678529 
-void do_ptm_update() 1 2.651236 
-void do_ptm_update() 1 1.447379 
-void do_ptm_update() 1 6.441442 
-void do_ptm_update() 1 1.235173 
-void do_ptm_update() 1 0.162180 
-void do_ptm_update() 1 1.906427 
-void do_ptm_update() 1 1.576524 
-void do_ptm_update() 1 4.499204 
-void do_ptm_update() 1 7.107934 
-void do_ptm_update() 1 0.977661 
-void do_ptm_update() 1 6.482627 
-void do_ptm_update() 1 9.271978 
-void do_ptm_update() 1 0.182336 
-void do_ptm_update() 1 0.841436 
-void do_ptm_update() 1 8.848753 
-void do_ptm_update() 1 3.677934 
-void do_ptm_update() 1 7.642685 
-void do_ptm_update() 1 0.234467 
-void do_ptm_update() 1 4.776317 
-void do_ptm_update() 1 5.704044 
-void do_ptm_update() 1 2.654060 
-void do_ptm_update() 1 1.453756 
-void do_ptm_update() 1 6.457322 
-void do_ptm_update() 1 1.249879 
-void do_ptm_update() 1 0.155064 
-void do_ptm_update() 1 1.892106 
-void do_ptm_update() 1 1.583241 
-void do_ptm_update() 1 4.498111 
-void do_ptm_update() 1 7.155807 
-void do_ptm_update() 1 0.961609 
-void do_ptm_update() 1 6.452021 
-void do_ptm_update() 1 9.300000 
-void do_ptm_update() 1 0.182147 
-void do_ptm_update() 1 0.843441 
-void do_ptm_update() 1 8.810759 
-void do_ptm_update() 1 3.710229 
-void do_ptm_update() 1 7.680650 
-void do_ptm_update() 1 0.241778 
-void do_ptm_update() 1 4.790645 
-void do_ptm_update() 1 5.677402 
-void do_ptm_update() 1 2.639625 
-void do_ptm_update() 1 1.431355 
-void do_ptm_update() 1 6.445338 
-void do_ptm_update() 1 1.267151 
-void do_ptm_update() 1 0.152801 
-void do_ptm_update() 1 1.913796 
-void do_ptm_update() 1 1.588819 
-void do_ptm_update() 1 4.485183 
-void do_ptm_update() 1 7.129162 
-void do_ptm_update() 1 0.945391 
-void do_ptm_update() 1 6.454732 
-void do_ptm_update() 1 9.285349 
-void do_ptm_update() 1 0.188071 
-void do_ptm_update() 1 0.833488 
-void do_ptm_update() 1 8.819464 
-void do_ptm_update() 1 3.733067 
-void do_ptm_update() 1 7.692960 
-void do_ptm_update() 1 0.249677 
-void do_ptm_update() 1 4.756312 
-void do_ptm_update() 1 5.673837 
-void do_ptm_update() 1 2.646441 
-void do_ptm_update() 1 1.434448 
-void do_ptm_update() 1 6.412216 
-void do_ptm_update() 1 1.248063 
-void do_ptm_update() 1 0.151198 
-void do_ptm_update() 1 1.896554 
-void do_ptm_update() 1 1.588263 
-void do_ptm_update() 1 4.459410 
-void do_ptm_update() 1 7.095704 
-void do_ptm_update() 1 0.926988 
-void do_ptm_update() 1 6.487558 
-void do_ptm_update() 1 9.300000 
-void do_ptm_update() 1 0.189565 
-void do_ptm_update() 1 0.834538 
-void do_ptm_update() 1 8.818389 
-void do_ptm_update() 1 3.761888 
-void do_ptm_update() 1 7.661382 
-void do_ptm_update() 1 0.251116 
-void do_ptm_update() 1 4.790393 
-void do_ptm_update() 1 5.714234 
-void do_ptm_update() 1 2.670738 
-void do_ptm_update() 1 1.426785 
-void do_ptm_update() 1 6.425091 
-void do_ptm_update() 1 1.249245 
-void do_ptm_update() 1 0.148595 
-void do_ptm_update() 1 1.921119 
-void do_ptm_update() 1 1.566508 
-void do_ptm_update() 1 4.433876 
-void do_ptm_update() 1 7.064902 
-void do_ptm_update() 1 0.933975 
-void do_ptm_update() 1 6.490786 
-       D(   5) bottom/surface diagnostic ~ SDF_Fsed_frp
-       D(   6) bottom/surface diagnostic ~ NCS_ss_sed
-       D(   7) bottom/surface diagnostic ~ NCS_swi
-       D(   8) bottom/surface diagnostic ~ NCS_swi_dz
-       D(   9) bottom/surface diagnostic ~ OXY_oxy_dsf
-       D(  10) bottom/surface diagnostic ~ OXY_oxy_atm
-       D(  11) bottom/surface diagnostic ~ CAR_sed_dic
-       D(  12) bottom/surface diagnostic ~ CAR_atm_co2_flux
-       D(  13) bottom/surface diagnostic ~ CAR_ch4_dsf
-       D(  14) bottom/surface diagnostic ~ CAR_ch4_atm
-       D(  15) bottom/surface diagnostic ~ SIL_dsf_rsi
-       D(  16) bottom/surface diagnostic ~ NIT_amm_dsf
-       D(  17) bottom/surface diagnostic ~ NIT_nit_dsf
-       D(  18) bottom/surface diagnostic ~ PHS_frp_dsf
-       D(  19) bottom/surface diagnostic ~ OGM_toc_sed
-       D(  20) bottom/surface diagnostic ~ OGM_ton_sed
-       D(  21) bottom/surface diagnostic ~ OGM_top_sed
-       D(  22) bottom/surface diagnostic ~ OGM_poc_swi
-       D(  23) bottom/surface diagnostic ~ OGM_doc_swi
-       D(  24) bottom/surface diagnostic ~ OGM_pon_swi
-       D(  25) bottom/surface diagnostic ~ OGM_don_swi
-       D(  26) bottom/surface diagnostic ~ OGM_pop_swi
-       D(  27) bottom/surface diagnostic ~ OGM_dop_swi
-       D(  28) bottom/surface diagnostic ~ OGM_poc_res
-       D(  29) bottom/surface diagnostic ~ OGM_pon_res
-       D(  30) bottom/surface diagnostic ~ OGM_pop_res
-       D(  31) bottom/surface diagnostic ~ PHY_phy_swi_c
-       D(  32) bottom/surface diagnostic ~ PHY_phy_swi_n
-       D(  33) bottom/surface diagnostic ~ PHY_phy_swi_p
- HI0           1
- HI
- sss           1       10000
- BYE       10000
- PTM :           42
- PTM :   -9999.0000000000000     
- ERROR: external variable temp not found.
+void do_ptm_update() 1 5.580000 
+void do_ptm_update() 1 2.790000 
+void do_ptm_update() 1 6.789000 
+void do_ptm_update() 1 6.417000 
+void do_ptm_update() 1 1.302000 
+void do_ptm_update() 1 1.302000 
+void do_ptm_update() 1 7.440000 
+void do_ptm_update() 1 8.556000 
+void do_ptm_update() 1 8.835000 
+void do_ptm_update() 1 3.627000 
+void do_ptm_update() 1 0.558000 
+void do_ptm_update() 1 3.999000 
+void do_ptm_update() 1 1.674000 
+void do_ptm_update() 1 7.161000 
+void do_ptm_update() 1 2.232000 
+void do_ptm_update() 1 0.558000 
+void do_ptm_update() 1 4.472138 
+void do_ptm_update() 1 8.698762 
+void do_ptm_update() 1 1.934940 
+void do_ptm_update() 1 6.211095 
+void do_ptm_update() 1 5.617882 
+void do_ptm_update() 1 2.777810 
+void do_ptm_update() 1 6.833794 
+void do_ptm_update() 1 6.420595 
+void do_ptm_update() 1 1.288093 
+void do_ptm_update() 1 1.321489 
+void do_ptm_update() 1 7.388665 
+void do_ptm_update() 1 8.587479 
+void do_ptm_update() 1 8.822256 
+void do_ptm_update() 1 3.609505 
+void do_ptm_update() 1 0.558490 
+void do_ptm_update() 1 3.981212 
+void do_ptm_update() 1 1.651317 
+void do_ptm_update() 1 7.114402 
+void do_ptm_update() 1 2.238852 
+void do_ptm_update() 1 0.557209 
+void do_ptm_update() 1 4.500805 
+void do_ptm_update() 1 8.745456 
+void do_ptm_update() 1 1.956592 
+void do_ptm_update() 1 6.218070 
+void do_ptm_update() 1 5.609794 
+void do_ptm_update() 1 2.803886 
+void do_ptm_update() 1 6.823966 
+void do_ptm_update() 1 6.393066 
+void do_ptm_update() 1 1.307468 
+void do_ptm_update() 1 1.329470 
+void do_ptm_update() 1 7.382218 
+void do_ptm_update() 1 8.540345 
+void do_ptm_update() 1 8.774747 
+void do_ptm_update() 1 3.606290 
+void do_ptm_update() 1 0.547207 
+void do_ptm_update() 1 3.977725 
+void do_ptm_update() 1 1.640412 
+void do_ptm_update() 1 7.152828 
+void do_ptm_update() 1 2.245680 
+void do_ptm_update() 1 0.545451 
+void do_ptm_update() 1 4.516550 
+void do_ptm_update() 1 8.708296 
+void do_ptm_update() 1 1.974973 
+void do_ptm_update() 1 6.223771 
+void do_ptm_update() 1 5.601306 
+void do_ptm_update() 1 2.792168 
+void do_ptm_update() 1 6.794984 
+void do_ptm_update() 1 6.409647 
+void do_ptm_update() 1 1.291571 
+void do_ptm_update() 1 1.331261 
+void do_ptm_update() 1 7.331168 
+void do_ptm_update() 1 8.565478 
+void do_ptm_update() 1 8.726862 
+void do_ptm_update() 1 3.593549 
+void do_ptm_update() 1 0.548798 
+void do_ptm_update() 1 4.011456 
+void do_ptm_update() 1 1.648802 
+void do_ptm_update() 1 7.179291 
+void do_ptm_update() 1 2.238792 
+void do_ptm_update() 1 0.538757 
+void do_ptm_update() 1 4.484586 
+void do_ptm_update() 1 8.720753 
+void do_ptm_update() 1 1.972988 
+void do_ptm_update() 1 6.250396 
+void do_ptm_update() 1 5.613188 
+void do_ptm_update() 1 2.761447 
+void do_ptm_update() 1 6.813444 
+void do_ptm_update() 1 6.429860 
+void do_ptm_update() 1 1.303252 
+void do_ptm_update() 1 1.351487 
+void do_ptm_update() 1 7.286706 
+void do_ptm_update() 1 8.600718 
+void do_ptm_update() 1 8.779940 
+void do_ptm_update() 1 3.604623 
+void do_ptm_update() 1 0.535392 
+void do_ptm_update() 1 4.038855 
+void do_ptm_update() 1 1.653175 
+void do_ptm_update() 1 7.215797 
+void do_ptm_update() 1 2.231355 
+void do_ptm_update() 1 0.545992 
+void do_ptm_update() 1 4.462248 
+void do_ptm_update() 1 8.676981 
+void do_ptm_update() 1 1.986909 
+void do_ptm_update() 1 6.296798 
+void do_ptm_update() 1 5.587248 
+void do_ptm_update() 1 2.738888 
+void do_ptm_update() 1 6.796595 
+void do_ptm_update() 1 6.387151 
+void do_ptm_update() 1 1.296102 
+void do_ptm_update() 1 1.346248 
+void do_ptm_update() 1 7.314122 
+void do_ptm_update() 1 8.569870 
+void do_ptm_update() 1 8.796582 
+void do_ptm_update() 1 3.596983 
+void do_ptm_update() 1 0.532407 
+void do_ptm_update() 1 4.050734 
+void do_ptm_update() 1 1.662267 
+void do_ptm_update() 1 7.217127 
+void do_ptm_update() 1 2.214954 
+void do_ptm_update() 1 0.552598 
+void do_ptm_update() 1 4.477659 
+void do_ptm_update() 1 8.648314 
+void do_ptm_update() 1 1.978201 
+void do_ptm_update() 1 6.273472 
+void do_ptm_update() 1 5.543688 
+void do_ptm_update() 1 2.740065 
+void do_ptm_update() 1 6.842905 
+void do_ptm_update() 1 6.414491 
+void do_ptm_update() 1 1.317523 
+void do_ptm_update() 1 1.364507 
+void do_ptm_update() 1 7.335692 
+void do_ptm_update() 1 8.543096 
+void do_ptm_update() 1 8.814547 
+void do_ptm_update() 1 3.612892 
+void do_ptm_update() 1 0.545495 
+void do_ptm_update() 1 4.017915 
+void do_ptm_update() 1 1.638516 
+void do_ptm_update() 1 7.210907 
+void do_ptm_update() 1 2.211102 
+void do_ptm_update() 1 0.554481 
+void do_ptm_update() 1 4.481916 
+void do_ptm_update() 1 8.693810 
+void do_ptm_update() 1 2.001106 
+void do_ptm_update() 1 6.240971 
+void do_ptm_update() 1 5.587484 
+void do_ptm_update() 1 2.769819 
+void do_ptm_update() 1 6.820057 
+void do_ptm_update() 1 6.372179 
+void do_ptm_update() 1 1.299076 
+void do_ptm_update() 1 1.357481 
+void do_ptm_update() 1 7.357455 
+void do_ptm_update() 1 8.565741 
+void do_ptm_update() 1 8.810263 
+void do_ptm_update() 1 3.622779 
+void do_ptm_update() 1 0.544835 
+void do_ptm_update() 1 4.033035 
+void do_ptm_update() 1 1.648709 
+void do_ptm_update() 1 7.213070 
+void do_ptm_update() 1 2.223145 
+void do_ptm_update() 1 0.547066 
+void do_ptm_update() 1 4.448065 
+void do_ptm_update() 1 8.706805 
+void do_ptm_update() 1 2.023372 
+void do_ptm_update() 1 6.253417 
+void do_ptm_update() 1 5.561807 
+void do_ptm_update() 1 2.795574 
+void do_ptm_update() 1 6.851719 
+void do_ptm_update() 1 6.416557 
+void do_ptm_update() 1 1.279479 
+void do_ptm_update() 1 1.360284 
+void do_ptm_update() 1 7.358788 
+void do_ptm_update() 1 8.555332 
+void do_ptm_update() 1 8.808235 
+void do_ptm_update() 1 3.596434 
+void do_ptm_update() 1 0.543047 
+void do_ptm_update() 1 4.004440 
+void do_ptm_update() 1 1.669641 
+void do_ptm_update() 1 7.202519 
+void do_ptm_update() 1 2.228901 
+void do_ptm_update() 1 0.559035 
+void do_ptm_update() 1 4.427335 
+void do_ptm_update() 1 8.681896 
+void do_ptm_update() 1 2.019215 
+void do_ptm_update() 1 6.237345 
+void do_ptm_update() 1 5.561954 
+void do_ptm_update() 1 2.775024 
+void do_ptm_update() 1 6.831116 
+void do_ptm_update() 1 6.420436 
+void do_ptm_update() 1 1.294270 
+void do_ptm_update() 1 1.353414 
+void do_ptm_update() 1 7.309301 
+void do_ptm_update() 1 8.540324 
+void do_ptm_update() 1 8.778819 
+void do_ptm_update() 1 3.562006 
+void do_ptm_update() 1 0.535392 
+void do_ptm_update() 1 3.979024 
+void do_ptm_update() 1 1.678966 
+void do_ptm_update() 1 7.232786 
+void do_ptm_update() 1 2.256068 
+void do_ptm_update() 1 0.564849 
+void do_ptm_update() 1 4.435662 
+void do_ptm_update() 1 8.726563 
+void do_ptm_update() 1 1.993222 
+void do_ptm_update() 1 6.243081 
+void do_ptm_update() 1 5.527236 
+void do_ptm_update() 1 2.753187 
+void do_ptm_update() 1 6.805784 
+void do_ptm_update() 1 6.431147 
+void do_ptm_update() 1 1.313059 
+void do_ptm_update() 1 1.335548 
+void do_ptm_update() 1 7.293726 
+void do_ptm_update() 1 8.526022 
+void do_ptm_update() 1 8.742922 
+void do_ptm_update() 1 3.541510 
+void do_ptm_update() 1 0.530214 
+void do_ptm_update() 1 4.001434 
+void do_ptm_update() 1 1.691951 
+void do_ptm_update() 1 7.239583 
+void do_ptm_update() 1 2.243223 
+void do_ptm_update() 1 0.553427 
+void do_ptm_update() 1 4.470334 
+void do_ptm_update() 1 8.726641 
+void do_ptm_update() 1 1.996246 
+void do_ptm_update() 1 6.286426 
+void do_ptm_update() 1 5.491035 
+void do_ptm_update() 1 2.754524 
+void do_ptm_update() 1 6.838755 
+void do_ptm_update() 1 6.475180 
+void do_ptm_update() 1 1.327435 
+void do_ptm_update() 1 1.357362 
+void do_ptm_update() 1 7.270522 
+void do_ptm_update() 1 8.482776 
+void do_ptm_update() 1 8.754540 
+void do_ptm_update() 1 3.513157 
+void do_ptm_update() 1 0.531104 
+void do_ptm_update() 1 4.037178 
+void do_ptm_update() 1 1.710510 
+void do_ptm_update() 1 7.221819 
+void do_ptm_update() 1 2.222003 
+void do_ptm_update() 1 0.541678 
+void do_ptm_update() 1 4.508788 
+void do_ptm_update() 1 8.692779 
+void do_ptm_update() 1 1.990137 
+void do_ptm_update() 1 6.272051 
+void do_ptm_update() 1 5.467551 
+void do_ptm_update() 1 2.784842 
+void do_ptm_update() 1 6.862502 
+void do_ptm_update() 1 6.439552 
+void do_ptm_update() 1 1.343954 
+void do_ptm_update() 1 1.354765 
+void do_ptm_update() 1 7.264803 
+void do_ptm_update() 1 8.501315 
+void do_ptm_update() 1 8.732812 
+void do_ptm_update() 1 3.505553 
+void do_ptm_update() 1 0.527203 
+void do_ptm_update() 1 4.060042 
+void do_ptm_update() 1 1.722096 
+void do_ptm_update() 1 7.220903 
+void do_ptm_update() 1 2.246080 
+void do_ptm_update() 1 0.550331 
+void do_ptm_update() 1 4.509590 
+void do_ptm_update() 1 8.665558 
+void do_ptm_update() 1 1.976348 
+void do_ptm_update() 1 6.226366 
+void do_ptm_update() 1 5.463352 
+void do_ptm_update() 1 2.766677 
+void do_ptm_update() 1 6.858135 
+void do_ptm_update() 1 6.484907 
+void do_ptm_update() 1 1.349037 
+void do_ptm_update() 1 1.373609 
+void do_ptm_update() 1 7.252706 
+void do_ptm_update() 1 8.549104 
+void do_ptm_update() 1 8.711153 
+void do_ptm_update() 1 3.475191 
+void do_ptm_update() 1 0.523469 
+void do_ptm_update() 1 4.037609 
+void do_ptm_update() 1 1.712823 
+void do_ptm_update() 1 7.251394 
+void do_ptm_update() 1 2.244209 
+void do_ptm_update() 1 0.538802 
+void do_ptm_update() 1 4.511973 
+void do_ptm_update() 1 8.623011 
+void do_ptm_update() 1 1.959553 
+void do_ptm_update() 1 6.259839 
+void do_ptm_update() 1 5.444897 
+void do_ptm_update() 1 2.762418 
+void do_ptm_update() 1 6.839030 
+void do_ptm_update() 1 6.461419 
+void do_ptm_update() 1 1.369326 
+void do_ptm_update() 1 1.385689 
+void do_ptm_update() 1 7.280323 
+void do_ptm_update() 1 8.581008 
+void do_ptm_update() 1 8.739269 
+void do_ptm_update() 1 3.449408 
+void do_ptm_update() 1 0.513891 
+void do_ptm_update() 1 4.066763 
+void do_ptm_update() 1 1.734214 
+void do_ptm_update() 1 7.294081 
+void do_ptm_update() 1 2.260538 
+void do_ptm_update() 1 0.544583 
+void do_ptm_update() 1 4.523117 
+void do_ptm_update() 1 8.630132 
+void do_ptm_update() 1 1.934381 
+void do_ptm_update() 1 6.215891 
+void do_ptm_update() 1 5.427300 
+void do_ptm_update() 1 2.763918 
+void do_ptm_update() 1 6.850204 
+void do_ptm_update() 1 6.487222 
+void do_ptm_update() 1 1.367505 
+void do_ptm_update() 1 1.387844 
+void do_ptm_update() 1 7.275412 
+void do_ptm_update() 1 8.618541 
+void do_ptm_update() 1 8.766525 
+void do_ptm_update() 1 3.440825 
+void do_ptm_update() 1 0.525762 
+void do_ptm_update() 1 4.056664 
+void do_ptm_update() 1 1.748829 
+void do_ptm_update() 1 7.276099 
+void do_ptm_update() 1 2.277260 
+void do_ptm_update() 1 0.556828 
+void do_ptm_update() 1 4.488433 
+void do_ptm_update() 1 8.620318 
+void do_ptm_update() 1 1.952340 
+void do_ptm_update() 1 6.218758 
+void do_ptm_update() 1 5.396145 
+void do_ptm_update() 1 2.750618 
+void do_ptm_update() 1 6.846618 
+void do_ptm_update() 1 6.445411 
+void do_ptm_update() 1 1.372476 
+void do_ptm_update() 1 1.385020 
+void do_ptm_update() 1 7.244909 
+void do_ptm_update() 1 8.598264 
+void do_ptm_update() 1 8.744170 
+void do_ptm_update() 1 3.414745 
+void do_ptm_update() 1 0.520151 
+void do_ptm_update() 1 4.046773 
+void do_ptm_update() 1 1.771446 
+void do_ptm_update() 1 7.297550 
+void do_ptm_update() 1 2.251695 
+void do_ptm_update() 1 0.566902 
+void do_ptm_update() 1 4.526986 
+void do_ptm_update() 1 8.636210 
+void do_ptm_update() 1 1.942319 
+void do_ptm_update() 1 6.227789 
+void do_ptm_update() 1 5.427393 
+void do_ptm_update() 1 2.758974 
+void do_ptm_update() 1 6.854482 
+void do_ptm_update() 1 6.430679 
+void do_ptm_update() 1 1.388233 
+void do_ptm_update() 1 1.394512 
+void do_ptm_update() 1 7.266025 
+void do_ptm_update() 1 8.605312 
+void do_ptm_update() 1 8.739948 
+void do_ptm_update() 1 3.388737 
+void do_ptm_update() 1 0.522375 
+void do_ptm_update() 1 4.070093 
+void do_ptm_update() 1 1.755884 
+void do_ptm_update() 1 7.301302 
+void do_ptm_update() 1 2.224953 
+void do_ptm_update() 1 0.571701 
+void do_ptm_update() 1 4.526235 
+void do_ptm_update() 1 8.623857 
+void do_ptm_update() 1 1.940597 
+void do_ptm_update() 1 6.271000 
+void do_ptm_update() 1 5.448582 
+void do_ptm_update() 1 2.730731 
+void do_ptm_update() 1 6.820687 
+void do_ptm_update() 1 6.412768 
+void do_ptm_update() 1 1.389300 
+void do_ptm_update() 1 1.414207 
+void do_ptm_update() 1 7.266218 
+void do_ptm_update() 1 8.615989 
+void do_ptm_update() 1 8.689478 
+void do_ptm_update() 1 3.376891 
+void do_ptm_update() 1 0.525176 
+void do_ptm_update() 1 4.032765 
+void do_ptm_update() 1 1.756891 
+void do_ptm_update() 1 7.261137 
+void do_ptm_update() 1 2.201406 
+void do_ptm_update() 1 0.561425 
+void do_ptm_update() 1 4.549188 
+void do_ptm_update() 1 8.599505 
+void do_ptm_update() 1 1.942074 
+void do_ptm_update() 1 6.245134 
+void do_ptm_update() 1 5.440770 
+void do_ptm_update() 1 2.755041 
+void do_ptm_update() 1 6.864738 
+void do_ptm_update() 1 6.437536 
+void do_ptm_update() 1 1.396660 
+void do_ptm_update() 1 1.394295 
+void do_ptm_update() 1 7.282039 
+void do_ptm_update() 1 8.598570 
+void do_ptm_update() 1 8.722915 
+void do_ptm_update() 1 3.391681 
+void do_ptm_update() 1 0.535781 
+void do_ptm_update() 1 3.995910 
+void do_ptm_update() 1 1.756235 
+void do_ptm_update() 1 7.277986 
+void do_ptm_update() 1 2.187667 
+void do_ptm_update() 1 0.572549 
+void do_ptm_update() 1 4.533242 
+void do_ptm_update() 1 8.570320 
+void do_ptm_update() 1 1.937094 
+void do_ptm_update() 1 6.242480 
+void do_ptm_update() 1 5.431773 
+void do_ptm_update() 1 2.781492 
+void do_ptm_update() 1 6.903310 
+void do_ptm_update() 1 6.434523 
+void do_ptm_update() 1 1.396631 
+void do_ptm_update() 1 1.412401 
+void do_ptm_update() 1 7.331345 
+void do_ptm_update() 1 8.591660 
+void do_ptm_update() 1 8.766745 
+void do_ptm_update() 1 3.405670 
+void do_ptm_update() 1 0.532238 
+void do_ptm_update() 1 3.964011 
+void do_ptm_update() 1 1.770911 
+void do_ptm_update() 1 7.270248 
+void do_ptm_update() 1 2.160402 
+void do_ptm_update() 1 0.578159 
+void do_ptm_update() 1 4.556395 
+void do_ptm_update() 1 8.548656 
+void do_ptm_update() 1 1.955411 
+void do_ptm_update() 1 6.252686 
+void do_ptm_update() 1 5.469818 
+void do_ptm_update() 1 2.791423 
+void do_ptm_update() 1 6.882331 
+void do_ptm_update() 1 6.395291 
+void do_ptm_update() 1 1.409582 
+void do_ptm_update() 1 1.402885 
+void do_ptm_update() 1 7.312074 
+void do_ptm_update() 1 8.605846 
+void do_ptm_update() 1 8.774657 
+void do_ptm_update() 1 3.403724 
+void do_ptm_update() 1 0.529629 
+void do_ptm_update() 1 3.957841 
+void do_ptm_update() 1 1.761011 
+void do_ptm_update() 1 7.282959 
+void do_ptm_update() 1 2.178819 
+void do_ptm_update() 1 0.564684 
+void do_ptm_update() 1 4.581091 
+void do_ptm_update() 1 8.496641 
+void do_ptm_update() 1 1.961068 
+void do_ptm_update() 1 6.243284 
+void do_ptm_update() 1 5.511292 
+void do_ptm_update() 1 2.801431 
+void do_ptm_update() 1 6.836093 
+void do_ptm_update() 1 6.419457 
+void do_ptm_update() 1 1.426812 
+void do_ptm_update() 1 1.382847 
+void do_ptm_update() 1 7.296340 
+void do_ptm_update() 1 8.607407 
+void do_ptm_update() 1 8.779886 
+void do_ptm_update() 1 3.412004 
+void do_ptm_update() 1 0.542974 
+void do_ptm_update() 1 3.953122 
+void do_ptm_update() 1 1.755867 
+void do_ptm_update() 1 7.266243 
+void do_ptm_update() 1 2.195389 
+void do_ptm_update() 1 0.557709 
+void do_ptm_update() 1 4.589948 
+void do_ptm_update() 1 8.515208 
+void do_ptm_update() 1 1.946347 
+void do_ptm_update() 1 6.242855 
+void do_ptm_update() 1 5.480488 
+void do_ptm_update() 1 2.772028 
+void do_ptm_update() 1 6.851547 
+void do_ptm_update() 1 6.382173 
+void do_ptm_update() 1 1.409721 
+void do_ptm_update() 1 1.368489 
+void do_ptm_update() 1 7.319012 
+void do_ptm_update() 1 8.596760 
+void do_ptm_update() 1 8.762742 
+void do_ptm_update() 1 3.400000 
+void do_ptm_update() 1 0.554836 
+void do_ptm_update() 1 3.983403 
+void do_ptm_update() 1 1.747813 
+void do_ptm_update() 1 7.287104 
+void do_ptm_update() 1 2.197169 
+void do_ptm_update() 1 0.550523 
+void do_ptm_update() 1 4.611380 
+void do_ptm_update() 1 8.502744 
+void do_ptm_update() 1 1.928849 
+void do_ptm_update() 1 6.284123 
+void do_ptm_update() 1 5.445369 
+void do_ptm_update() 1 2.760146 
+void do_ptm_update() 1 6.900806 
+void do_ptm_update() 1 6.357946 
+void do_ptm_update() 1 1.394672 
+void do_ptm_update() 1 1.357075 
+void do_ptm_update() 1 7.320666 
+void do_ptm_update() 1 8.609115 
+void do_ptm_update() 1 8.736842 
+void do_ptm_update() 1 3.430601 
+void do_ptm_update() 1 0.553892 
+void do_ptm_update() 1 3.977276 
+void do_ptm_update() 1 1.750385 
+void do_ptm_update() 1 7.280580 
+void do_ptm_update() 1 2.205627 
+void do_ptm_update() 1 0.547695 
+void do_ptm_update() 1 4.628871 
+void do_ptm_update() 1 8.488684 
+void do_ptm_update() 1 1.936219 
+void do_ptm_update() 1 6.250467 
+void do_ptm_update() 1 5.472514 
+void do_ptm_update() 1 2.775946 
+void do_ptm_update() 1 6.865336 
+void do_ptm_update() 1 6.391805 
+void do_ptm_update() 1 1.376045 
+void do_ptm_update() 1 1.338067 
+void do_ptm_update() 1 7.277095 
+void do_ptm_update() 1 8.591366 
+void do_ptm_update() 1 8.756027 
+void do_ptm_update() 1 3.433375 
+void do_ptm_update() 1 0.550369 
+void do_ptm_update() 1 4.010079 
+void do_ptm_update() 1 1.770234 
+void do_ptm_update() 1 7.267669 
+void do_ptm_update() 1 2.225608 
+void do_ptm_update() 1 0.538877 
+void do_ptm_update() 1 4.627039 
+void do_ptm_update() 1 8.487128 
+void do_ptm_update() 1 1.945868 
+void do_ptm_update() 1 6.260467 
+void do_ptm_update() 1 5.460150 
+void do_ptm_update() 1 2.802771 
+void do_ptm_update() 1 6.900066 
+void do_ptm_update() 1 6.416916 
+void do_ptm_update() 1 1.387019 
+void do_ptm_update() 1 1.328036 
+void do_ptm_update() 1 7.262500 
+void do_ptm_update() 1 8.548948 
+void do_ptm_update() 1 8.731646 
+void do_ptm_update() 1 3.436286 
+void do_ptm_update() 1 0.536811 
+void do_ptm_update() 1 3.993658 
+void do_ptm_update() 1 1.790383 
+void do_ptm_update() 1 7.308726 
+void do_ptm_update() 1 2.207788 
+void do_ptm_update() 1 0.539633 
+void do_ptm_update() 1 4.649169 
+void do_ptm_update() 1 8.457940 
+void do_ptm_update() 1 1.939300 
+void do_ptm_update() 1 6.289734 
+void do_ptm_update() 1 5.459361 
+void do_ptm_update() 1 2.799157 
+void do_ptm_update() 1 6.888810 
+void do_ptm_update() 1 6.399014 
+void do_ptm_update() 1 1.388858 
+void do_ptm_update() 1 1.346241 
+void do_ptm_update() 1 7.302954 
+void do_ptm_update() 1 8.557727 
+void do_ptm_update() 1 8.783350 
+void do_ptm_update() 1 3.444872 
+void do_ptm_update() 1 0.534422 
+void do_ptm_update() 1 4.008574 
+void do_ptm_update() 1 1.801745 
+void do_ptm_update() 1 7.318350 
+void do_ptm_update() 1 2.210792 
+void do_ptm_update() 1 0.542364 
+void do_ptm_update() 1 4.611627 
+void do_ptm_update() 1 8.422745 
+void do_ptm_update() 1 1.947967 
+void do_ptm_update() 1 6.266911 
+void do_ptm_update() 1 5.424759 
+void do_ptm_update() 1 2.798757 
+void do_ptm_update() 1 6.848994 
+void do_ptm_update() 1 6.393937 
+void do_ptm_update() 1 1.379298 
+void do_ptm_update() 1 1.367352 
+void do_ptm_update() 1 7.293181 
+void do_ptm_update() 1 8.575742 
+void do_ptm_update() 1 8.785578 
+void do_ptm_update() 1 3.471450 
+void do_ptm_update() 1 0.531069 
+void do_ptm_update() 1 3.995570 
+void do_ptm_update() 1 1.800119 
+void do_ptm_update() 1 7.352712 
+void do_ptm_update() 1 2.210163 
+void do_ptm_update() 1 0.529640 
+void do_ptm_update() 1 4.644246 
+void do_ptm_update() 1 8.414849 
+void do_ptm_update() 1 1.950845 
+void do_ptm_update() 1 6.282240 
+void do_ptm_update() 1 5.457833 
+void do_ptm_update() 1 2.774181 
+void do_ptm_update() 1 6.836713 
+void do_ptm_update() 1 6.392102 
+void do_ptm_update() 1 1.386413 
+void do_ptm_update() 1 1.387955 
+void do_ptm_update() 1 7.316903 
+void do_ptm_update() 1 8.558024 
+void do_ptm_update() 1 8.834210 
+void do_ptm_update() 1 3.487995 
+void do_ptm_update() 1 0.544799 
+void do_ptm_update() 1 3.975583 
+void do_ptm_update() 1 1.811275 
+void do_ptm_update() 1 7.303210 
+void do_ptm_update() 1 2.195657 
+void do_ptm_update() 1 0.527903 
+void do_ptm_update() 1 4.631357 
+void do_ptm_update() 1 8.397118 
+void do_ptm_update() 1 1.931828 
+void do_ptm_update() 1 6.268723 
+void do_ptm_update() 1 5.498144 
+void do_ptm_update() 1 2.799929 
+void do_ptm_update() 1 6.855903 
+void do_ptm_update() 1 6.419139 
+void do_ptm_update() 1 1.365062 
+void do_ptm_update() 1 1.398690 
+void do_ptm_update() 1 7.279717 
+void do_ptm_update() 1 8.587849 
+void do_ptm_update() 1 8.832029 
+void do_ptm_update() 1 3.500265 
+void do_ptm_update() 1 0.548997 
+void do_ptm_update() 1 3.966345 
+void do_ptm_update() 1 1.789621 
+void do_ptm_update() 1 7.352402 
+void do_ptm_update() 1 2.168685 
+void do_ptm_update() 1 0.519792 
+void do_ptm_update() 1 4.663257 
+void do_ptm_update() 1 8.446976 
+void do_ptm_update() 1 1.929105 
+void do_ptm_update() 1 6.283183 
+void do_ptm_update() 1 5.517804 
+void do_ptm_update() 1 2.772940 
+void do_ptm_update() 1 6.839816 
+void do_ptm_update() 1 6.427366 
+void do_ptm_update() 1 1.378565 
+void do_ptm_update() 1 1.402120 
+void do_ptm_update() 1 7.234115 
+void do_ptm_update() 1 8.574389 
+void do_ptm_update() 1 8.852998 
+void do_ptm_update() 1 3.528950 
+void do_ptm_update() 1 0.556750 
+void do_ptm_update() 1 3.993857 
+void do_ptm_update() 1 1.780583 
+void do_ptm_update() 1 7.339504 
+void do_ptm_update() 1 2.156897 
+void do_ptm_update() 1 0.518878 
+void do_ptm_update() 1 4.668675 
+void do_ptm_update() 1 8.395954 
+void do_ptm_update() 1 1.939914 
+void do_ptm_update() 1 6.290572 
+void do_ptm_update() 1 5.496739 
+void do_ptm_update() 1 2.783365 
+void do_ptm_update() 1 6.856909 
+void do_ptm_update() 1 6.465742 
+void do_ptm_update() 1 1.399433 
+void do_ptm_update() 1 1.400072 
+void do_ptm_update() 1 7.225329 
+void do_ptm_update() 1 8.571984 
+void do_ptm_update() 1 8.876553 
+void do_ptm_update() 1 3.497018 
+void do_ptm_update() 1 0.543532 
+void do_ptm_update() 1 3.966885 
+void do_ptm_update() 1 1.793936 
+void do_ptm_update() 1 7.350632 
+void do_ptm_update() 1 2.133461 
+void do_ptm_update() 1 0.530804 
+void do_ptm_update() 1 4.696685 
+void do_ptm_update() 1 8.349023 
+void do_ptm_update() 1 1.932915 
+void do_ptm_update() 1 6.254218 
+void do_ptm_update() 1 5.503899 
+void do_ptm_update() 1 2.763812 
+void do_ptm_update() 1 6.858846 
+void do_ptm_update() 1 6.494110 
+void do_ptm_update() 1 1.409512 
+void do_ptm_update() 1 1.380499 
+void do_ptm_update() 1 7.219729 
+void do_ptm_update() 1 8.625195 
+void do_ptm_update() 1 8.874482 
+void do_ptm_update() 1 3.515311 
+void do_ptm_update() 1 0.549524 
+void do_ptm_update() 1 3.934924 
+void do_ptm_update() 1 1.790191 
+void do_ptm_update() 1 7.311309 
+void do_ptm_update() 1 2.112501 
+void do_ptm_update() 1 0.531133 
+void do_ptm_update() 1 4.734674 
+void do_ptm_update() 1 8.339842 
+void do_ptm_update() 1 1.907332 
+void do_ptm_update() 1 6.263188 
+void do_ptm_update() 1 5.493451 
+void do_ptm_update() 1 2.762842 
+void do_ptm_update() 1 6.853050 
+void do_ptm_update() 1 6.520811 
+void do_ptm_update() 1 1.395703 
+void do_ptm_update() 1 1.371215 
+void do_ptm_update() 1 7.182661 
+void do_ptm_update() 1 8.613240 
+void do_ptm_update() 1 8.844732 
+void do_ptm_update() 1 3.485739 
+void do_ptm_update() 1 0.540318 
+void do_ptm_update() 1 3.954258 
+void do_ptm_update() 1 1.809166 
+void do_ptm_update() 1 7.326493 
+void do_ptm_update() 1 2.086496 
+void do_ptm_update() 1 0.519346 
+void do_ptm_update() 1 4.743184 
+void do_ptm_update() 1 8.370581 
+void do_ptm_update() 1 1.911707 
+void do_ptm_update() 1 6.215850 
+void do_ptm_update() 1 5.474438 
+void do_ptm_update() 1 2.745275 
+void do_ptm_update() 1 6.871836 
+void do_ptm_update() 1 6.538332 
+void do_ptm_update() 1 1.391897 
+void do_ptm_update() 1 1.369422 
+void do_ptm_update() 1 7.182061 
+void do_ptm_update() 1 8.562068 
+void do_ptm_update() 1 8.811141 
+void do_ptm_update() 1 3.493770 
+void do_ptm_update() 1 0.528355 
+void do_ptm_update() 1 3.986323 
+void do_ptm_update() 1 1.821931 
+void do_ptm_update() 1 7.342415 
+void do_ptm_update() 1 2.064685 
+void do_ptm_update() 1 0.513467 
+void do_ptm_update() 1 4.744786 
+void do_ptm_update() 1 8.375242 
+void do_ptm_update() 1 1.918587 
+void do_ptm_update() 1 6.221246 
+void do_ptm_update() 1 5.462426 
+void do_ptm_update() 1 2.743915 
+void do_ptm_update() 1 6.909990 
+void do_ptm_update() 1 6.545216 
+void do_ptm_update() 1 1.412550 
+void do_ptm_update() 1 1.389439 
+void do_ptm_update() 1 7.203386 
+void do_ptm_update() 1 8.528924 
+void do_ptm_update() 1 8.762466 
+void do_ptm_update() 1 3.504626 
+void do_ptm_update() 1 0.521088 
+void do_ptm_update() 1 3.956165 
+void do_ptm_update() 1 1.847329 
+void do_ptm_update() 1 7.389893 
+void do_ptm_update() 1 2.049070 
+void do_ptm_update() 1 0.515540 
+void do_ptm_update() 1 4.724069 
+void do_ptm_update() 1 8.339615 
+void do_ptm_update() 1 1.899639 
+void do_ptm_update() 1 6.179246 
+void do_ptm_update() 1 5.442205 
+void do_ptm_update() 1 2.774133 
+void do_ptm_update() 1 6.921954 
+void do_ptm_update() 1 6.583833 
+void do_ptm_update() 1 1.426359 
+void do_ptm_update() 1 1.389098 
+void do_ptm_update() 1 7.153462 
+void do_ptm_update() 1 8.555646 
+void do_ptm_update() 1 8.767418 
+void do_ptm_update() 1 3.528166 
+void do_ptm_update() 1 0.513426 
+void do_ptm_update() 1 3.931950 
+void do_ptm_update() 1 1.870898 
+void do_ptm_update() 1 7.394280 
+void do_ptm_update() 1 2.051682 
+void do_ptm_update() 1 0.508380 
+void do_ptm_update() 1 4.711629 
+void do_ptm_update() 1 8.325554 
+void do_ptm_update() 1 1.904049 
+void do_ptm_update() 1 6.199065 
+void do_ptm_update() 1 5.417173 
+void do_ptm_update() 1 2.766072 
+void do_ptm_update() 1 6.956837 
+void do_ptm_update() 1 6.585914 
+void do_ptm_update() 1 1.433182 
+void do_ptm_update() 1 1.390319 
+void do_ptm_update() 1 7.140699 
+void do_ptm_update() 1 8.560317 
+void do_ptm_update() 1 8.739754 
+void do_ptm_update() 1 3.553258 
+void do_ptm_update() 1 0.512235 
+void do_ptm_update() 1 3.927563 
+void do_ptm_update() 1 1.855339 
+void do_ptm_update() 1 7.389497 
+void do_ptm_update() 1 2.077978 
+void do_ptm_update() 1 0.514289 
+void do_ptm_update() 1 4.736566 
+void do_ptm_update() 1 8.377884 
+void do_ptm_update() 1 1.915450 
+void do_ptm_update() 1 6.191220 
+void do_ptm_update() 1 5.424664 
+void do_ptm_update() 1 2.750850 
+void do_ptm_update() 1 6.910191 
+void do_ptm_update() 1 6.628671 
+void do_ptm_update() 1 1.439506 
+void do_ptm_update() 1 1.406283 
+void do_ptm_update() 1 7.104729 
+void do_ptm_update() 1 8.538593 
+void do_ptm_update() 1 8.716212 
+void do_ptm_update() 1 3.580312 
+void do_ptm_update() 1 0.510727 
+void do_ptm_update() 1 3.899301 
+void do_ptm_update() 1 1.841016 
+void do_ptm_update() 1 7.406648 
+void do_ptm_update() 1 2.066826 
+void do_ptm_update() 1 0.505093 
+void do_ptm_update() 1 4.752548 
+void do_ptm_update() 1 8.328775 
+void do_ptm_update() 1 1.939054 
+void do_ptm_update() 1 6.179287 
+void do_ptm_update() 1 5.395521 
+void do_ptm_update() 1 2.730441 
+void do_ptm_update() 1 6.901333 
+void do_ptm_update() 1 6.603449 
+void do_ptm_update() 1 1.448560 
+void do_ptm_update() 1 1.391427 
+void do_ptm_update() 1 7.086567 
+void do_ptm_update() 1 8.486455 
+void do_ptm_update() 1 8.716420 
+void do_ptm_update() 1 3.557631 
+void do_ptm_update() 1 0.514332 
+void do_ptm_update() 1 3.873461 
+void do_ptm_update() 1 1.865265 
+void do_ptm_update() 1 7.422888 
+void do_ptm_update() 1 2.076348 
+void do_ptm_update() 1 0.503743 
+void do_ptm_update() 1 4.793507 
+void do_ptm_update() 1 8.372596 
+void do_ptm_update() 1 1.928140 
+void do_ptm_update() 1 6.198556 
+void do_ptm_update() 1 5.434623 
+void do_ptm_update() 1 2.730630 
+void do_ptm_update() 1 6.935655 
+void do_ptm_update() 1 6.619653 
+void do_ptm_update() 1 1.445363 
+void do_ptm_update() 1 1.369614 
+void do_ptm_update() 1 7.082283 
+void do_ptm_update() 1 8.512278 
+void do_ptm_update() 1 8.668618 
+void do_ptm_update() 1 3.530824 
+void do_ptm_update() 1 0.520070 
+void do_ptm_update() 1 3.873003 
+void do_ptm_update() 1 1.871956 
+void do_ptm_update() 1 7.446443 
+void do_ptm_update() 1 2.101393 
+void do_ptm_update() 1 0.513539 
+void do_ptm_update() 1 4.762401 
+void do_ptm_update() 1 8.419983 
+void do_ptm_update() 1 1.929932 
+void do_ptm_update() 1 6.173206 
+void do_ptm_update() 1 5.464549 
+void do_ptm_update() 1 2.712391 
+void do_ptm_update() 1 6.948272 
+void do_ptm_update() 1 6.583520 
+void do_ptm_update() 1 1.467419 
+void do_ptm_update() 1 1.366436 
+void do_ptm_update() 1 7.071295 
+void do_ptm_update() 1 8.515244 
+void do_ptm_update() 1 8.656856 
+void do_ptm_update() 1 3.558034 
+void do_ptm_update() 1 0.521606 
+void do_ptm_update() 1 3.858808 
+void do_ptm_update() 1 1.858804 
+void do_ptm_update() 1 7.421299 
+void do_ptm_update() 1 2.082717 
+void do_ptm_update() 1 0.518229 
+void do_ptm_update() 1 4.774423 
+void do_ptm_update() 1 8.405460 
+void do_ptm_update() 1 1.938387 
+void do_ptm_update() 1 6.139573 
+void do_ptm_update() 1 5.450693 
+void do_ptm_update() 1 2.705690 
+void do_ptm_update() 1 6.901739 
+void do_ptm_update() 1 6.589712 
+void do_ptm_update() 1 1.462230 
+void do_ptm_update() 1 1.383086 
+void do_ptm_update() 1 7.053837 
+void do_ptm_update() 1 8.560339 
+void do_ptm_update() 1 8.647055 
+void do_ptm_update() 1 3.592330 
+void do_ptm_update() 1 0.524462 
+void do_ptm_update() 1 3.851649 
+void do_ptm_update() 1 1.838082 
+void do_ptm_update() 1 7.387304 
+void do_ptm_update() 1 2.082646 
+void do_ptm_update() 1 0.508123 
+void do_ptm_update() 1 4.743778 
+void do_ptm_update() 1 8.368974 
+void do_ptm_update() 1 1.942310 
+void do_ptm_update() 1 6.145725 
+void do_ptm_update() 1 5.454781 
+void do_ptm_update() 1 2.685798 
+void do_ptm_update() 1 6.945499 
+void do_ptm_update() 1 6.602635 
+void do_ptm_update() 1 1.444983 
+void do_ptm_update() 1 1.376449 
+void do_ptm_update() 1 7.032662 
+void do_ptm_update() 1 8.603292 
+void do_ptm_update() 1 8.611494 
+void do_ptm_update() 1 3.582620 
+void do_ptm_update() 1 0.512633 
+void do_ptm_update() 1 3.859348 
+void do_ptm_update() 1 1.835618 
+void do_ptm_update() 1 7.338807 
+void do_ptm_update() 1 2.069756 
+void do_ptm_update() 1 0.515650 
+void do_ptm_update() 1 4.761080 
+void do_ptm_update() 1 8.323405 
+void do_ptm_update() 1 1.938448 
+void do_ptm_update() 1 6.112756 
+void do_ptm_update() 1 5.484624 
+void do_ptm_update() 1 2.713903 
+void do_ptm_update() 1 6.970480 
+void do_ptm_update() 1 6.598818 
+void do_ptm_update() 1 1.434242 
+void do_ptm_update() 1 1.369351 
+void do_ptm_update() 1 6.986943 
+void do_ptm_update() 1 8.558313 
+void do_ptm_update() 1 8.576555 
+void do_ptm_update() 1 3.589070 
+void do_ptm_update() 1 0.503653 
+void do_ptm_update() 1 3.829088 
+void do_ptm_update() 1 1.852187 
+void do_ptm_update() 1 7.339395 
+void do_ptm_update() 1 2.045778 
+void do_ptm_update() 1 0.525664 
+void do_ptm_update() 1 4.760847 
+void do_ptm_update() 1 8.303737 
+void do_ptm_update() 1 1.935513 
+void do_ptm_update() 1 6.151078 
+void do_ptm_update() 1 5.517243 
+void do_ptm_update() 1 2.715305 
+void do_ptm_update() 1 6.941582 
+void do_ptm_update() 1 6.633868 
+void do_ptm_update() 1 1.442296 
+void do_ptm_update() 1 1.388208 
+void do_ptm_update() 1 7.023461 
+void do_ptm_update() 1 8.509192 
+void do_ptm_update() 1 8.584052 
+void do_ptm_update() 1 3.612992 
+void do_ptm_update() 1 0.495520 
+void do_ptm_update() 1 3.815217 
+void do_ptm_update() 1 1.829836 
+void do_ptm_update() 1 7.357096 
+void do_ptm_update() 1 2.053184 
+void do_ptm_update() 1 0.521278 
+void do_ptm_update() 1 4.752298 
+void do_ptm_update() 1 8.263912 
+void do_ptm_update() 1 1.951819 
+void do_ptm_update() 1 6.167379 
+void do_ptm_update() 1 5.553652 
+void do_ptm_update() 1 2.732662 
+void do_ptm_update() 1 6.933263 
+void do_ptm_update() 1 6.670592 
+void do_ptm_update() 1 1.439604 
+void do_ptm_update() 1 1.373242 
+void do_ptm_update() 1 7.002378 
+void do_ptm_update() 1 8.461953 
+void do_ptm_update() 1 8.558567 
+void do_ptm_update() 1 3.605209 
+void do_ptm_update() 1 0.485259 
+void do_ptm_update() 1 3.786978 
+void do_ptm_update() 1 1.805680 
+void do_ptm_update() 1 7.393585 
+void do_ptm_update() 1 2.030131 
+void do_ptm_update() 1 0.514964 
+void do_ptm_update() 1 4.742173 
+void do_ptm_update() 1 8.225099 
+void do_ptm_update() 1 1.937898 
+void do_ptm_update() 1 6.172248 
+void do_ptm_update() 1 5.524855 
+void do_ptm_update() 1 2.755367 
+void do_ptm_update() 1 6.920108 
+void do_ptm_update() 1 6.685197 
+void do_ptm_update() 1 1.460588 
+void do_ptm_update() 1 1.368900 
+void do_ptm_update() 1 7.048356 
+void do_ptm_update() 1 8.469411 
+void do_ptm_update() 1 8.568743 
+void do_ptm_update() 1 3.603589 
+void do_ptm_update() 1 0.474126 
+void do_ptm_update() 1 3.806095 
+void do_ptm_update() 1 1.789748 
+void do_ptm_update() 1 7.360655 
+void do_ptm_update() 1 2.047690 
+void do_ptm_update() 1 0.507203 
+void do_ptm_update() 1 4.735537 
+void do_ptm_update() 1 8.212429 
+void do_ptm_update() 1 1.947142 
+void do_ptm_update() 1 6.172987 
+void do_ptm_update() 1 5.545707 
+void do_ptm_update() 1 2.777065 
+void do_ptm_update() 1 6.903205 
+void do_ptm_update() 1 6.660029 
+void do_ptm_update() 1 1.469620 
+void do_ptm_update() 1 1.374072 
+void do_ptm_update() 1 7.083226 
+void do_ptm_update() 1 8.446962 
+void do_ptm_update() 1 8.573269 
+void do_ptm_update() 1 3.631279 
+void do_ptm_update() 1 0.462451 
+void do_ptm_update() 1 3.787205 
+void do_ptm_update() 1 1.801907 
+void do_ptm_update() 1 7.404657 
+void do_ptm_update() 1 2.028573 
+void do_ptm_update() 1 0.520612 
+void do_ptm_update() 1 4.707517 
+void do_ptm_update() 1 8.247322 
+void do_ptm_update() 1 1.972105 
+void do_ptm_update() 1 6.196580 
+void do_ptm_update() 1 5.557817 
+void do_ptm_update() 1 2.749627 
+void do_ptm_update() 1 6.854157 
+void do_ptm_update() 1 6.701535 
+void do_ptm_update() 1 1.475000 
+void do_ptm_update() 1 1.369386 
+void do_ptm_update() 1 7.053258 
+void do_ptm_update() 1 8.416233 
+void do_ptm_update() 1 8.527332 
+void do_ptm_update() 1 3.612695 
+void do_ptm_update() 1 0.466410 
+void do_ptm_update() 1 3.823156 
+void do_ptm_update() 1 1.799167 
+void do_ptm_update() 1 7.439264 
+void do_ptm_update() 1 2.028031 
+void do_ptm_update() 1 0.509584 
+void do_ptm_update() 1 4.723404 
+void do_ptm_update() 1 8.277507 
+void do_ptm_update() 1 1.966569 
+void do_ptm_update() 1 6.218634 
+void do_ptm_update() 1 5.574449 
+void do_ptm_update() 1 2.725389 
+void do_ptm_update() 1 6.860846 
+void do_ptm_update() 1 6.736609 
+void do_ptm_update() 1 1.459966 
+void do_ptm_update() 1 1.379325 
+void do_ptm_update() 1 7.049464 
+void do_ptm_update() 1 8.449192 
+void do_ptm_update() 1 8.569918 
+void do_ptm_update() 1 3.577812 
+void do_ptm_update() 1 0.458570 
+void do_ptm_update() 1 3.794574 
+void do_ptm_update() 1 1.795047 
+void do_ptm_update() 1 7.387801 
+void do_ptm_update() 1 2.005275 
+void do_ptm_update() 1 0.502637 
+void do_ptm_update() 1 4.754436 
+void do_ptm_update() 1 8.302868 
+void do_ptm_update() 1 1.964543 
+void do_ptm_update() 1 6.179315 
+void do_ptm_update() 1 5.540519 
+void do_ptm_update() 1 2.721761 
+void do_ptm_update() 1 6.908471 
+void do_ptm_update() 1 6.717885 
+void do_ptm_update() 1 1.475440 
+void do_ptm_update() 1 1.393751 
+void do_ptm_update() 1 7.009525 
+void do_ptm_update() 1 8.456697 
+void do_ptm_update() 1 8.582298 
+void do_ptm_update() 1 3.548423 
+void do_ptm_update() 1 0.453175 
+void do_ptm_update() 1 3.779978 
+void do_ptm_update() 1 1.789715 
+void do_ptm_update() 1 7.425235 
+void do_ptm_update() 1 2.019923 
+void do_ptm_update() 1 0.501110 
+void do_ptm_update() 1 4.791287 
+void do_ptm_update() 1 8.335778 
+void do_ptm_update() 1 1.969162 
+void do_ptm_update() 1 6.204545 
+void do_ptm_update() 1 5.506104 
+void do_ptm_update() 1 2.747431 
+void do_ptm_update() 1 6.915223 
+void do_ptm_update() 1 6.761539 
+void do_ptm_update() 1 1.495086 
+void do_ptm_update() 1 1.395763 
+void do_ptm_update() 1 6.982714 
+void do_ptm_update() 1 8.437772 
+void do_ptm_update() 1 8.600273 
+void do_ptm_update() 1 3.550623 
+void do_ptm_update() 1 0.441377 
+void do_ptm_update() 1 3.766096 
+void do_ptm_update() 1 1.797670 
+void do_ptm_update() 1 7.382190 
+void do_ptm_update() 1 2.011374 
+void do_ptm_update() 1 0.502407 
+void do_ptm_update() 1 4.766574 
+void do_ptm_update() 1 8.280981 
+void do_ptm_update() 1 1.951921 
+void do_ptm_update() 1 6.211547 
+void do_ptm_update() 1 5.537000 
+v
