@@ -7,7 +7,7 @@
    non_avg = .true.
 /
 &wq_setup
-   wq_lib = 'api'
+   wq_lib = 'aed'
    wq_nml_file = 'aed/aed2_test.nml'
    ode_method = 1
    split_factor = 1
@@ -137,10 +137,10 @@
    sed_temp_amplitude = 0, 0
    sed_temp_peak_doy = 278.4380074, 276.9746504
 /
-&particles
-   ptm_sw = .false.
-   settling_velocity = -0.0000694
-   init_particle_num = 20
-   sed_deactivation = .true.
-   settling_efficiency = 0.01
-/
+!&particles
+!   ptm_sw = .false.
+!   settling_velocity = -0.0000694
+!  init_particle_num = 20
+!  sed_deactivation = .true.
+!   settling_efficiency = 0.01
+!/
