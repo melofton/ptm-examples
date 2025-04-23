@@ -1,15 +1,15 @@
 &aed_models
    models = 
-    'aed_sedflux',
+   'aed_sedflux',
    'aed_tracer',
-   'aed_noncohesive',
+!   'aed_noncohesive',
    'aed_oxygen',
-   'aed_carbon',
-   'aed_silica',
+ !  'aed_carbon',
+ !  !'aed_silica',
    'aed_nitrogen',
-   'aed_phosphorus',
-   'aed_organic_matter'!,
-   !'aed_bio_particles'
+!   'aed_phosphorus',
+!   'aed_organic_matter'!,
+   'aed_bio_particles'
 /
 &aed_sedflux
    sedflux_model = 'Constant2D'
@@ -59,7 +59,7 @@
    Fsed_oxy = -10
    Ksed_oxy = 25
    theta_sed_oxy = 1.08
-   Fsed_oxy_variable = 'SDF_Fsed_oxy'
+   Fsed_oxy_variable = '' ! 'SDF_Fsed_oxy'
    oxy_min = 0
    oxy_max = 500
 /
@@ -204,15 +204,15 @@
    theta_sed_dom = 1.057064
    diag_level = 10
 /
-!&aed_bio_particles
-!   vvel_new = 0 
-!   vvel_old = 0
-!   decay_rate_new = 0
-!   decay_rate_old = 0
-!   mass_limit = 0
-!   diag_level = 0
-!   X_dwww = 0
-!   X_cdw = 0
-!   X_nc = 0
-!   X_pc = 0
-!/
+&aed_bio_particles
+   vvel_new = 0 
+   vvel_old = 0
+   decay_rate_new = 0
+   decay_rate_old = 0
+   mass_limit = 0
+   diag_level = 0
+   X_dwww = 0
+   X_cdw = 0
+   X_nc = 0
+   X_pc = 0
+/
