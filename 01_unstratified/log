@@ -4,10 +4,80 @@
     -------------------------------------------------------
      
      glm built using gcc version 4.2.1
-     build date 20250317-1515UTC
+     build date 20250424-1405UTC
 
      nDays= 1; timestep= 3600.000000 (s)
      Maximum lake depth is 9.300000
      Depth where flow will occur over the crest is 9.300000
        *sed_temp_mean[0] =    5.88000
-     WQ plugin active: included Num_WQ_Vars = 2
+     WQ plugin active: included Num_WQ_Vars = 9
+
+     Wall clock start time :  Thu Apr 24 10:07:22 2025
+
+     Simulation begins...
+     aed_api built using gfortran version           13 .           2 .           0
+     libaed enabled.... aed_configure_models processing: aed/aed2_test.nml
+      ---------- AED API config : start ----------
+     libaed-water version 2.1.5
+     libaed built using gfortran version           13 .           2 .           0
+     libaed-ben version 2.1.5
+     libaed built using gfortran version           13 .           2 .           0
+     libaed-demo version 2.1.5
+     libaed built using gfortran version           13 .           2 .           0
+     libaed-riparian not included 
+     libaed-lighting not included
+     libaed-dev not included
+      Processing aed_models config from aed/aed2_test.nml
+         aed_sedflux configuration
+         aed_tracer configuration
+         aed_oxygen configuration
+         aed_nitrogen configuration
+         aed_bio_particles initialization
+       ... nml file parsing completed.
+
+     AED : n_aed_vars  =  81 ; MaxLayers         =  500
+     AED : n_vars      =   9 ; n_vars_ben        =    0
+     AED : n_vars_diag =  21 ; n_vars_diag_sheet =    9
+
+      ----------  AED API config : end  ----------
+     Configured AED variables to simulate:
+       S(   1) water column variable     : TRC_tr1
+       S(   2) water column variable     : TRC_age
+       S(   3) water column variable     : OXY_oxy
+       S(   4) water column variable     : NIT_amm
+       S(   5) water column variable     : NIT_nit
+       S(   6) water column variable     : PHS_frp
+       S(   7) water column variable     : OGM_doc
+       S(   8) water column variable     : OGM_don
+       S(   9) water column variable     : OGM_dop
+       D(   1) water column diagnostic   > TRC_tr1_vvel
+       D(   2) water column diagnostic   > OXY_sat
+       D(   3) water column diagnostic   > OXY_oxy_dsfv
+       D(   4) water column diagnostic   > OXY_oxy_atmv
+       D(   5) water column diagnostic   > NIT_nitrif
+       D(   6) water column diagnostic   > NIT_denit
+       D(   7) water column diagnostic   > NIT_anammox
+       D(   8) water column diagnostic   > NIT_dnra
+       D(   9) water column diagnostic   > PTM_total_count
+       D(  10) water column diagnostic   > PTM_total_vvel
+       D(  11) water column diagnostic   > PTM_total_mass
+       D(  12) water column diagnostic   > PTM_total_birth
+       D(  13) water column diagnostic   > PTM_total_age
+       D(  14) water column diagnostic   > PTM_vvel
+       D(  15) water column diagnostic   > PTM_mass
+       D(  16) water column diagnostic   > PTM_birth
+       D(  17) water column diagnostic   > PTM_age
+       D(  18) water column diagnostic   > PTM_oxy_flux
+       D(  19) water column diagnostic   > PTM_dc_flux
+       D(  20) water column diagnostic   > PTM_dn_flux
+       D(  21) water column diagnostic   > PTM_dp_flux
+       D(   1) bottom/surface diagnostic ~ SDF_Fsed_oxy
+       D(   2) bottom/surface diagnostic ~ SDF_Fsed_amm
+       D(   3) bottom/surface diagnostic ~ SDF_Fsed_nit
+       D(   4) bottom/surface diagnostic ~ SDF_Fsed_frp
+       D(   5) bottom/surface diagnostic ~ SDF_Fsed_ch4
+       D(   6) bottom/surface diagnostic ~ OXY_oxy_dsf
+       D(   7) bottom/surface diagnostic ~ OXY_oxy_atm
+       D(   8) bottom/surface diagnostic ~ NIT_amm_dsf
+       D(   9) bottom/surface diagnostic ~ NIT_nit_dsf
+ ERROR: external variable temp not found.
