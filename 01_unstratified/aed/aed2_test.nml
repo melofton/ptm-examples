@@ -2,13 +2,13 @@
    models = 
    'aed_sedflux',
    'aed_tracer',
-!   'aed_noncohesive',
+   'aed_noncohesive',
    'aed_oxygen',
- !  'aed_carbon',
- !  !'aed_silica',
+   !'aed_carbon',
+   !'aed_silica',
    'aed_nitrogen',
-!   'aed_phosphorus',
-!   'aed_organic_matter'!,
+   'aed_phosphorus',
+   'aed_organic_matter'!,
    'aed_bio_particles'
 /
 &aed_sedflux
@@ -167,7 +167,7 @@
    Kdom_minerl = 22.36079
    simDenitrification = 1
    dom_miner_oxy_reactant_var = 'OXY_oxy'
-   doc_miner_product_variable = 'CAR_dic'
+   doc_miner_product_variable = '' !'CAR_dic'
    don_miner_product_variable = 'NIT_amm'
    dop_miner_product_variable = 'PHS_frp'
    dom_miner_nit_reactant_var = 'NIT_nit'
