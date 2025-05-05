@@ -138,7 +138,7 @@
    sed_temp_peak_doy = 278.4380074, 276.9746504
 /
 &particles
-   ptm_sw = .false.
+   ptm_sw = .true.
    settling_velocity = -0.0000694
    init_particle_num = 20
    sed_deactivation = .true.
