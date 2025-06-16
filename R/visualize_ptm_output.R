@@ -12,10 +12,10 @@ library(cowplot)
 library(glmtools)
 library(rLakeAnalyzer)
 
-# 01_unstratified ----
+# 01_unstratified_MH ----
 
 # Set current nc file
-current_scenario_folder = "./01_unstratified"
+current_scenario_folder = "./01_unstratified_MH"
 nc_file <- file.path(paste0(current_scenario_folder, "/output/output.nc"))
 
 # Get list of output vars
