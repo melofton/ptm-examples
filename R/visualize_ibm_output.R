@@ -16,6 +16,16 @@ library(rLakeAnalyzer)
 
 # 01_unstratified_MH ----
 
+met <- read_csv("./02_stratified/inputs/met.csv") %>%
+  mutate(ShortWave = ifelse(hour(time) %in% c(19:23,0:6),0,ShortWave))
+write.csv(met, "./02_stratified/inputs/met.csv", row.names = FALSE)
+the_depths = c(0.1, 0.33, 0.66, 1, 1.33, 1.66, 2, 2.33, 2.66, 3, 3.33, 3.66, 4, 4.33, 4.66, 5, 5.33, 5.66, 6, 6.33, 6.66, 7, 7.33, 7.66, 8, 8.33, 8.66, 9, 9.25)
+wq_init_vals = c(359.1481,370.4191,373.3269,373.455,351.2606,341.9009,340.3638,360.9128,369.3069,397.7706,378.5396,378.5887,134.808,15.6059,8.509375,4.36468,3.5225,215.0834,279.5306,291.72187,293.40718,294.77,95.6459,295.7434,296.3697,296.7306,296.4591,295.5828,291.5922,0.388,0.39,0.395,0.4,0.42,0.44345,0.46,0.48,0.5,0.525,0.55,0.5543,0.6,0.7,0.9,1.164,1.5,2,2.3,2.7161,2.85,3,3.5,4.2,4.2,4.3,4.4,4.54545,4.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24)
+29*5
+oxy <- wq_init_vals[1:29]
+plot(oxy, the_depths, type = "l")
+
+
 # Set current nc file
 current_scenario_folder = "./02_stratified"
 nc_file <- file.path(paste0(current_scenario_folder, "/output/output.nc"))
@@ -27,7 +37,7 @@ names(nc$dim)
 
 # Get env vars for ptm
 env_out <- list()
-env_vars <- c("NIT_nit","temp")
+env_vars <- c("NIT_nit","temp","extc","radn")
 
 for(i in 1:length(env_vars)){
   env_out[[i]] <- ncdf4::ncvar_get(nc, var = env_vars[i])
@@ -63,7 +73,7 @@ for(i in 1:length(ptm_out)){ #1:length(ptm_out)
   # Associate datetimes to output
   start <- as.POSIXct("2015-07-08 12:00:00")
   interval <- 60
-  end <- as.POSIXct("2015-07-09 12:00:00")
+  end <- as.POSIXct("2015-07-15 12:00:00")
   times <- data.frame(seq(from=start, by=interval*60, to=end))
   
   plot_dat2 <- bind_cols(times, plot_dat)
@@ -104,4 +114,5 @@ for(i in 1:length(diag_out)){
   print(p)
 }
 
-plot_var(nc_file, var_name = "PAM_id_cells", reference = "surface", interval = 0.1, show.legend = TRUE)
+check <- diag_out[["PAM_mean_Chl"]]
+

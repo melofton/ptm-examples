@@ -139,9 +139,9 @@
    Rdnra = 0.01,
    Kdnra_oxy = 2.0,
   !-- Atmospheric deposition
-   simDryDeposition = .true.
+   simDryDeposition = .false.
    atm_din_dd = 0.5
-   simWetDeposition = .true.
+   simWetDeposition = .false.
    atm_din_conc = 0.5
   !-- Sediment fluxes
    Fsed_amm =   3.5
@@ -221,17 +221,17 @@
      theta_minerl =   1.08
      Kpom_hydrol  =  31.25
      Kdom_minerl  =  31.25
-     simDenitrification = 1
+     simDenitrification = 0
      dom_miner_oxy_reactant_var = 'OXY_oxy'
+   ! dom_miner_nit_reactant_var = 'NIT_nit'
    ! dom_miner_no2_reactant_var = 'NIT_no2'
    ! dom_miner_n2o_reactant_var = 'NIT_n2o'
    ! dom_miner_fe3_reactant_var = 'GEO_feiii'
    ! dom_miner_so4_reactant_var = 'GEO_so4'
    ! dom_miner_ch4_reactant_var = 'CAR_ch4'
      doc_miner_product_variable = ''
-     don_miner_product_variable = 'NIT_amm'
+     don_miner_product_variable = '' !'NIT_amm'
      dop_miner_product_variable = 'PHS_frp'
-     dom_miner_nit_reactant_var = 'NIT_nit'
      f_an = 1.
      K_nit               = 10.0
    ! Kin_denitrat        = 20.0
@@ -258,7 +258,7 @@
      photo_c       = 0.75
 
     !-- Particle settling parameters
-     settling     =  3
+     settling     =  0
      w_pom        = -0.06
      d_pom        =  1e-5
      rho_pom      = 1.2e3

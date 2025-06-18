@@ -11,7 +11,7 @@
    wq_nml_file = 'api/api.nml'
    ode_method = 1
    split_factor = 1
-   bioshade_feedback = .true.
+   bioshade_feedback = .false.
    repair_state = .true.
 /
 &light
@@ -140,7 +140,7 @@
 &particles
    ptm_sw = .true.
    settling_velocity = -0.0000694
-   init_particle_num = 100
+   init_particle_num = 10000
    sed_deactivation = .false.
    settling_efficiency = 0.01
 /
