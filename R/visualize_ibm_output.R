@@ -37,7 +37,7 @@ names(nc$dim)
 
 # Get env vars for ptm
 env_out <- list()
-env_vars <- c("NIT_nit","temp","extc","radn")
+env_vars <- c("NIT_nit","temp","extc","radn","PHS_frp")
 
 for(i in 1:length(env_vars)){
   env_out[[i]] <- ncdf4::ncvar_get(nc, var = env_vars[i])
@@ -48,7 +48,7 @@ for(i in 1:length(env_vars)){
   print(p)
 }
 
-check_no3 <- env_out[[1]]
+check <- env_out[[5]]
 
 names(env_out) <- env_vars
 
@@ -65,7 +65,7 @@ names(ptm_out) <- ptm_vars
 
 n_par = 100
 
-for(i in 1:length(ptm_out)){ #1:length(ptm_out)
+for(i in 15:17){ #1:length(ptm_out)
   
   plot_dat <- t(ptm_out[[i]][c(1:(n_par - 1)),])
   
@@ -83,7 +83,7 @@ for(i in 1:length(ptm_out)){ #1:length(ptm_out)
     pivot_longer(cols = -datetime, names_to = "particle_id",
                             values_to = "particle_attribute")
   
-  if(i %in% c(6:8)){
+  if(i %in% c(6:9)){
     plot_dat3 <- plot_dat3 %>%
       filter(!particle_attribute == -9999)
   }
@@ -114,5 +114,5 @@ for(i in 1:length(diag_out)){
   print(p)
 }
 
-check <- diag_out[["PAM_mean_Chl"]]
+check <- diag_out[["PAM_id_d_frp"]]
 
