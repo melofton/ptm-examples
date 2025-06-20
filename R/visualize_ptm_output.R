@@ -222,7 +222,7 @@ heights <- data.frame(t(ptm_out[["particle_height"]]))
 # Associate datetimes to output
 start <- as.POSIXct("2015-07-08 12:00:00")
 interval <- 60
-end <- as.POSIXct("2015-08-08 12:00:00")
+end <- as.POSIXct("2015-07-15 12:00:00")
 times <- data.frame(seq(from=start, by=interval*60, to=end))
 
 # get thermocline depth
@@ -264,12 +264,17 @@ heights_status_flag <- left_join(heights3, status3, by = c("datetime","particle_
 
 my.cols <- c("gray","purple")
 
+lims <- as.POSIXct(strptime(c("2015-07-08 12:00", "2015-07-15 12:00"), 
+                           format = "%Y-%m-%d %H:%M"))
+
 heights_plot <- ggplot()+
   geom_line(data = heights_status_flag, aes(x = datetime, y = height_m, group = particle_id, color = status), linewidth = 0.5)+
   geom_line(data = td, aes(x = datetime, y = thermo.height))+
   theme_bw()+
   theme(legend.position = "none")+
-  scale_color_manual(values = my.cols)
+  scale_color_manual(values = my.cols)+
+  scale_x_datetime(limits = lims, expand = c(0,0))
+  
 heights_plot
 
 stacked_data <- left_join(heights_status_flag, td, by = "datetime") %>%
@@ -284,7 +289,9 @@ stacked_data <- left_join(heights_status_flag, td, by = "datetime") %>%
 position_plot <- ggplot(data = stacked_data)+
   geom_area(aes(x = datetime, y = n, color = position, group = position, fill = position),
             stat = "identity")+
-  theme(legend.position = "bottom")
+  theme_classic()+
+  theme(legend.position = "bottom")+
+  scale_x_datetime(limits = lims, expand = c(0,0))
 position_plot
 
 plot_grid(heights_plot, position_plot, nrow = 2)

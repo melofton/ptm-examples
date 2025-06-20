@@ -16,18 +16,13 @@ library(rLakeAnalyzer)
 
 # 01_unstratified_MH ----
 
-met <- read_csv("./02_stratified/inputs/met.csv") %>%
-  mutate(ShortWave = ifelse(hour(time) %in% c(19:23,0:6),0,ShortWave))
-write.csv(met, "./02_stratified/inputs/met.csv", row.names = FALSE)
-the_depths = c(0.1, 0.33, 0.66, 1, 1.33, 1.66, 2, 2.33, 2.66, 3, 3.33, 3.66, 4, 4.33, 4.66, 5, 5.33, 5.66, 6, 6.33, 6.66, 7, 7.33, 7.66, 8, 8.33, 8.66, 9, 9.25)
-wq_init_vals = c(359.1481,370.4191,373.3269,373.455,351.2606,341.9009,340.3638,360.9128,369.3069,397.7706,378.5396,378.5887,134.808,15.6059,8.509375,4.36468,3.5225,215.0834,279.5306,291.72187,293.40718,294.77,95.6459,295.7434,296.3697,296.7306,296.4591,295.5828,291.5922,0.388,0.39,0.395,0.4,0.42,0.44345,0.46,0.48,0.5,0.525,0.55,0.5543,0.6,0.7,0.9,1.164,1.5,2,2.3,2.7161,2.85,3,3.5,4.2,4.2,4.3,4.4,4.54545,4.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,0.055,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24)
-29*5
-oxy <- wq_init_vals[1:29]
-plot(oxy, the_depths, type = "l")
-
+# altering met file to have variable PAR so can check how particles respond
+# met <- read_csv("./02_stratified/inputs/met.csv") %>%
+#   mutate(ShortWave = ifelse(hour(time) %in% c(19:23,0:6),0,ShortWave))
+# write.csv(met, "./02_stratified/inputs/met.csv", row.names = FALSE)
 
 # Set current nc file
-current_scenario_folder = "./02_stratified"
+current_scenario_folder = "./07_stratified_inflow"
 nc_file <- file.path(paste0(current_scenario_folder, "/output/output.nc"))
 
 # Get list of output vars
@@ -53,7 +48,7 @@ check <- env_out[[5]]
 names(env_out) <- env_vars
 
 
-# Retrieve relevant variables for ptm
+# Get list of internal particle variables
 ptm_out <- list()
 ptm_vars <- vars[grep("particle",vars)]
 
@@ -63,12 +58,10 @@ for(i in 1:length(ptm_vars)){
 
 names(ptm_out) <- ptm_vars
 
-n_par = 100
-
-for(i in 15:17){ #1:length(ptm_out)
+for(i in 1:length(ptm_out)){ #1:length(ptm_out)
   
-  plot_dat <- t(ptm_out[[i]][c(1:(n_par - 1)),])
-  
+  plot_dat <- data.frame(t(ptm_out[[i]]))
+  status <- data.frame(t(ptm_out[["particle_status"]]))
   
   # Associate datetimes to output
   start <- as.POSIXct("2015-07-08 12:00:00")
@@ -78,22 +71,35 @@ for(i in 15:17){ #1:length(ptm_out)
   
   plot_dat2 <- bind_cols(times, plot_dat)
   colnames(plot_dat2)[1] <- "datetime"
+  status2 <- bind_cols(times, status)
+  colnames(status2)[1] <- "datetime"
   
+  status3 <- status2 %>%
+    pivot_longer(cols = X1:X10000, names_to = "particle_id", values_to = "status") %>%
+    mutate(datetime = as_datetime(datetime))
   plot_dat3 <- plot_dat2 %>%
     pivot_longer(cols = -datetime, names_to = "particle_id",
-                            values_to = "particle_attribute")
+                            values_to = "particle_attribute") %>%
+    mutate(datetime = as_datetime(datetime))
+  
+  attribute_status <- left_join(plot_dat3, status3, by = c("datetime","particle_id")) %>%
+    filter(!status == 0)
   
   if(i %in% c(6:9)){
-    plot_dat3 <- plot_dat3 %>%
+    attribute_status <- attribute_status %>%
       filter(!particle_attribute == -9999)
   }
   
-  p <- ggplot(data = plot_dat3)+
+  lims <- as.POSIXct(strptime(c("2015-07-08 12:00", "2015-07-15 12:00"), 
+                              format = "%Y-%m-%d %H:%M"))
+  
+  p <- ggplot(data = attribute_status)+
     geom_line(aes(x = datetime, y = particle_attribute, group = particle_id,
              color = particle_id))+
     ggtitle(paste(i,ptm_vars[i]))+
     theme_bw()+
-    theme(legend.position = "none")
+    theme(legend.position = "none")+
+    scale_x_datetime(limits = lims, expand = c(0,0))
   print(p)
     
 }
@@ -114,5 +120,55 @@ for(i in 1:length(diag_out)){
   print(p)
 }
 
-check <- diag_out[["PAM_id_d_frp"]]
+check <- diag_out[["PAM_total_count"]]
+plot_var(nc_file, var_name = "PAM_total_count", reference = "surface", interval = 0.1, show.legend = TRUE)
+
+inf <- read_csv("./07_stratified_inflow/inputs/inflow1.csv")
+colnames(inf)
+ggplot(data = inf, aes(x = time, y = FLOW))+
+  geom_line()
+
+
+
+
+###############################################################################
+#### Messy code to compare sims with sinking/floating particles - do not run
+
+# sinking <- ptm_out[["particle_height"]]
+# sinking1 <- t(sinking[c(1:(n_par - 1)),])
+# sinking2 <- bind_cols(times, sinking1)
+# colnames(sinking2)[1] <- "datetime"
+# sinking3 <- sinking2 %>%
+#   pivot_longer(cols = -datetime, names_to = "particle_id",
+#                values_to = "particle_attribute") %>%
+#   mutate(particle_id = paste0("s",particle_id)) %>%
+#   add_column(sim = "sinking") %>%
+#   filter(date(datetime) == "2015-07-15")
+# 
+# floating <- ptm_out[["particle_height"]]
+# floating1 <- t(floating[c(1:(n_par - 1)),])
+# floating2 <- bind_cols(times, floating1)
+# colnames(floating2)[1] <- "datetime"
+# floating3 <- floating2 %>%
+#   pivot_longer(cols = -datetime, names_to = "particle_id",
+#                values_to = "particle_attribute") %>%
+#   mutate(particle_id = paste0("f",particle_id)) %>%
+#   add_column(sim = "floating") %>%
+#   filter(date(datetime) == "2015-07-15")
+# 
+# compare <- bind_rows(sinking3, floating3) 
+# 
+# mean_height <- compare %>%
+#   group_by(sim) %>%
+#   summarize(mean_height = mean(particle_attribute, na.rm = TRUE))
+# 
+# ggplot()+
+#   geom_density(data = compare, aes(x = particle_attribute, group = sim, color = sim))+
+#   geom_vline(data = mean_height, aes(xintercept = mean_height, group = sim, color = sim),
+#              linetype = "dashed", linewidth = 1)+
+#   theme_bw()+
+#   coord_flip()+
+#   ggtitle("particle height")
+
+################################################################################
 
