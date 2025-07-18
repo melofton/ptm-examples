@@ -22,7 +22,7 @@ library(rLakeAnalyzer)
 # write.csv(met, "./02_stratified/inputs/met.csv", row.names = FALSE)
 
 # Set current nc file
-current_scenario_folder = "./07_stratified_inflow"
+current_scenario_folder = "./02_stratified"
 nc_file <- file.path(paste0(current_scenario_folder, "/output/output.nc"))
 
 # Get list of output vars
@@ -43,11 +43,6 @@ for(i in 1:length(env_vars)){
   print(p)
 }
 
-check <- env_out[[5]]
-
-names(env_out) <- env_vars
-
-
 # Get list of internal particle variables
 ptm_out <- list()
 ptm_vars <- vars[grep("particle",vars)]
@@ -64,7 +59,7 @@ for(i in 1:length(ptm_out)){ #1:length(ptm_out)
   status <- data.frame(t(ptm_out[["particle_status"]]))
   
   # Associate datetimes to output
-  start <- as.POSIXct("2015-07-08 12:00:00")
+  start <- as.POSIXct("2015-07-08 13:00:00")
   interval <- 60
   end <- as.POSIXct("2015-07-15 12:00:00")
   times <- data.frame(seq(from=start, by=interval*60, to=end))
@@ -90,7 +85,7 @@ for(i in 1:length(ptm_out)){ #1:length(ptm_out)
       filter(!particle_attribute == -9999)
   }
   
-  lims <- as.POSIXct(strptime(c("2015-07-08 12:00", "2015-07-15 12:00"), 
+  lims <- as.POSIXct(strptime(c("2015-07-08 13:00", "2015-07-15 12:00"), 
                               format = "%Y-%m-%d %H:%M"))
   
   p <- ggplot(data = attribute_status)+
