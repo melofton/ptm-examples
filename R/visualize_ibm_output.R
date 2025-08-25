@@ -22,7 +22,7 @@ library(rLakeAnalyzer)
 # write.csv(met, "./02_stratified/inputs/met.csv", row.names = FALSE)
 
 # Set current nc file
-current_scenario_folder = "./02_stratified"
+current_scenario_folder = "./12_July_Nov_observed"
 nc_file <- file.path(paste0(current_scenario_folder, "/output/output.nc"))
 
 # Get list of output vars
@@ -61,7 +61,7 @@ for(i in 1:length(ptm_out)){ #1:length(ptm_out)
   # Associate datetimes to output
   start <- as.POSIXct("2015-07-08 13:00:00")
   interval <- 60
-  end <- as.POSIXct("2015-07-15 12:00:00")
+  end <- as.POSIXct("2015-11-08 11:00:00")
   times <- data.frame(seq(from=start, by=interval*60, to=end))
   
   plot_dat2 <- bind_cols(times, plot_dat)
@@ -85,7 +85,7 @@ for(i in 1:length(ptm_out)){ #1:length(ptm_out)
       filter(!particle_attribute == -9999)
   }
   
-  lims <- as.POSIXct(strptime(c("2015-07-08 13:00", "2015-07-15 12:00"), 
+  lims <- as.POSIXct(strptime(c("2015-07-08 13:00", "2015-11-08 11:00"), 
                               format = "%Y-%m-%d %H:%M"))
   
   p <- ggplot(data = attribute_status)+
@@ -98,6 +98,9 @@ for(i in 1:length(ptm_out)){ #1:length(ptm_out)
   print(p)
     
 }
+
+# height
+height <- ptm_out[[1]]
 
 # now for diag vars
 diag_vars <- vars[grep("PAM",vars)]
@@ -166,4 +169,4 @@ ggplot(data = inf, aes(x = time, y = FLOW))+
 #   ggtitle("particle height")
 
 ################################################################################
-
+check <- read_csv("./02_stratified/inputs/met.csv")
